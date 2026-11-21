@@ -134,6 +134,29 @@
     cursor:pointer;color:var(--ink-soft);font-size:14px;box-shadow:var(--shadow);}
   .quick:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
   .quick b{display:block;color:var(--accent2);font-size:15px;margin-bottom:4px;}
+  /* 首页「阅读线索」表：四列，说明占主宽，末两列窄 */
+  table.clue{table-layout:fixed;}
+  table.clue th{text-align:left;white-space:nowrap;}
+  table.clue th:nth-child(1),table.clue td:nth-child(1){width:19%;}
+  table.clue th:nth-child(3),table.clue td:nth-child(3){width:25%;}
+  table.clue th:nth-child(4),table.clue td:nth-child(4){width:21%;}
+  table.clue td{vertical-align:top;line-height:1.85;font-size:13.5px;}
+  table.clue td:first-child{color:var(--accent);font-weight:bold;line-height:1.7;}
+  table.clue td:nth-child(3) a,table.clue td:nth-child(4){font-size:13px;}
+  table.clue td:nth-child(3) a{display:inline-block;margin:0 6px 2px 0;white-space:nowrap;}
+  @media(max-width:820px){
+    table.clue{table-layout:auto;border:none;background:none;}
+    table.clue,table.clue tbody,table.clue tr,table.clue td{display:block;width:auto;}
+    table.clue tr:first-child{display:none;}
+    table.clue tr{background:var(--paper);border:1px solid var(--line);border-radius:8px;
+      padding:13px 15px;margin:0 0 10px;}
+    table.clue td,table.clue td:nth-child(1),table.clue td:nth-child(3),table.clue td:nth-child(4){border:none;padding:0;width:auto;font-size:13px;line-height:1.8;}
+    table.clue td:first-child{font-size:15px;margin-bottom:6px;}
+    table.clue td:nth-child(3),table.clue td:nth-child(4){font-size:12.5px;color:var(--ink-soft);margin-top:7px;}
+    table.clue td:nth-child(3)::before{content:"对应分页：";color:#8a8378;}
+    table.clue td:nth-child(4)::before{content:"代表作者：";color:#8a8378;}
+    table.clue td:nth-child(3) a{margin-right:9px;}
+  }
   /* ===== 页内目录与生平阶段 ===== */
   .sub-toc{background:#faf6ec;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:22px 0;}
   .sub-toc>b{display:block;font-size:11.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:9px;
@@ -314,6 +337,9 @@
   <div class="brand"><b>统编教材 · 古代作家集成</b><span>小学 / 初中 / 高中 · 分页阅读版</span></div>
   <div class="toc-group"><div class="gt">导览</div>
     <a href="#home" data-target="home">首页 · 全书总览</a>
+  <div class="toc-group"><div class="gt">索引 · 教材篇目</div>
+    <a href="#indexall" data-target="indexall">篇目总索引（按作者）</a>
+    <a href="#jiaocai" data-target="jiaocai">全篇顺序索引（按册次）</a>
   <div class="toc-group"><div class="gt">小学 · 文言启蒙</div>
     <a href="#xiaowen" data-target="xiaowen">小学文言启蒙（11篇）</a>
   <div class="toc-group"><div class="gt">先秦两汉</div>
@@ -361,8 +387,6 @@
   <div class="toc-group"><div class="gt">高中选修 · 专题研讨</div>
     <a href="#xuanxiu" data-target="xuanxiu">中华传统文化专题研讨（选修）</a>
   <div class="toc-group"><div class="gt">附录</div>
-    <a href="#indexall" data-target="indexall">教材篇目总索引</a>
-    <a href="#jiaocai" data-target="jiaocai">教材顺序全篇索引（点击直达）</a>
     <a href="#method" data-target="method">编例与说明</a>
   </div>
  </aside>
@@ -391,45 +415,712 @@
   <div class="stat"><b>40</b><span>分页篇目</span></div>
   <div class="stat"><b>175</b><span>涉及作者</span></div>
   <div class="stat"><b>400</b><span>作品全文与解析</span></div>
-  <div class="stat"><b>377</b><span>教材条目可直达</span></div>
+  <div class="stat"><b>352</b><span>教材条目可直达</span></div>
 </div>
 
 <h2 id="home-guide"><span class="num">01</span>如何使用本手册</h2>
 <div class="info-grid">
-  <div class="info-box"><h4>三种入口，任选其一</h4><p>一是<b>左侧目录</b>按时代分组，点击即切换分页；二是<b>「教材顺序全篇索引」</b>页，按小学、初中、高中课本先后逐册排列，点击篇名直接跳到该篇全文；三是<b>「教材篇目总索引」</b>页，按作者与学段速查。顶部"上一篇／下一篇"可顺序阅读，键盘左右方向键同样可翻页。</p></div>
-  <div class="info-box"><h4>页内结构</h4><p>重要作家（杜甫、苏轼、王维、白居易、李清照、陆游、辛弃疾等）按<b>生平阶段</b>分块，每篇右侧设<b>本篇目录栏</b>，随阅读滚动并高亮当前小节，点条目即跳转；每个阶段先说明处境与时代背景，再紧接该阶段所作的诗。合篇页则按<b>作者卡片＋其名篇解析</b>逐位排列，读完一位再看下一位。小学浅易文言与近现代诗词另设专页。</p></div>
+  <div class="info-box"><h4>四种入口，任选其一</h4><p>一是<b>左侧目录</b>按时代分组，点击即切换分页；二是首页之后的<b>「教材篇目总索引」</b>，按作者与学段速查，末附选修二十课、白话小说九篇等六张速查表；三是紧随其后的<b>「教材全篇顺序索引」</b>，按小学一上到高中选必下逐册排列，篇名即链接，随课查阅最便；四是顶栏<b>搜索框</b>，诗人、篇名、诗句与字号别称都能搜到。顶部“上一篇／下一篇”可顺序阅读，键盘左右方向键同样可翻页。</p></div>
+  <div class="info-box"><h4>页内结构</h4><p>重要作家（杜甫、苏轼、王维、白居易、李清照、陆游、辛弃疾等）按<b>生平阶段</b>分块，每篇右侧设<b>本篇目录栏</b>，随阅读滚动并高亮当前小节，点条目即跳转；每个阶段先说明处境与时代背景，再紧接该阶段所作的诗。合篇页则按<b>作者卡片＋其名篇解析</b>逐位排列，读完一位再看下一位。小学浅易文言、近现代诗词、白话小说与高中选修另设专页。</p></div>
 </div>
 
 <h2 id="home-map"><span class="num">02</span>全书结构地图</h2>
-<p>按文学史时序排列，点击卡片可直接进入对应分页。</p>
+<p>首页之后先是两套索引——按作者查、按册次查，各取所需；其后自先秦而下，按文学史时序展开到近现代。点击任一卡片即可进入对应分页。</p>
+<div class="quick-grid">
+  <div class="quick" data-goto="indexall"><b>教材篇目总索引</b>按作者与学段速查 · 附选修、白话小说等六表</div>
+  <div class="quick" data-goto="jiaocai"><b>教材全篇顺序索引</b>小学一上→高中选必下 · 逐册排列点击直达</div>
+</div>
 <div class="quick-grid">
   <div class="quick" data-goto="xiaowen"><b>小学文言启蒙</b>守株待兔 · 两小儿辩日 · 学弈等11篇</div>
   <div class="quick" data-goto="quyuan"><b>先秦两汉</b>屈原 · 诗经 · 诸子 · 史传</div>
   <div class="quick" data-goto="taoyuanming"><b>魏晋南北朝</b>陶渊明 · 曹操 · 山水散文</div>
-  <div class="quick" data-goto="libai"><b>李白专篇</b>六阶段生平 · 26首细读</div>
+  <div class="quick" data-goto="libai"><b>李白专篇</b>六阶段生平 · 19首细读</div>
   <div class="quick" data-goto="dufu"><b>唐代重点</b>杜甫 · 王维 · 白居易 · 李贺 · 李商隐 · 杜牧</div>
   <div class="quick" data-goto="tangchu"><b>唐代合篇</b>四杰 · 边塞 · 中晚唐 · 韩柳古文</div>
   <div class="quick" data-goto="sushi"><b>宋代重点</b>苏轼 · 李清照 · 陆游 · 辛弃疾 · 王安石等</div>
   <div class="quick" data-goto="songci"><b>宋代合篇</b>词人 · 诗人 · 散文</div>
-  <div class="quick" data-goto="yuanqu"><b>元明清近代</b>元曲 · 明清散文 · 明清诗词 · 白话小说 · 毛泽东</div>
-  <div class="quick" data-goto="novel"><b>古代白话小说</b>草船借箭 · 景阳冈 · 猴王出世 · 红楼春趣 · 智取生辰纲 · 范进中举 · 三顾茅庐 · 刘姥姥进大观园</div>
-  <div class="quick" data-goto="xiandai"><b>近现代诗词</b>现代诗 · 旧体新作16篇</div>
+  <div class="quick" data-goto="yuanqu"><b>元曲与明清</b>元曲 · 明清散文 · 明清诗词</div>
+  <div class="quick" data-goto="novel"><b>古代白话小说</b>草船借箭 · 景阳冈 · 三顾茅庐 · 范进中举等9篇</div>
+  <div class="quick" data-goto="mao"><b>毛泽东</b>词六首 · 旧体新作</div>
+  <div class="quick" data-goto="xiandai"><b>近现代诗词</b>现代诗 · 旧体新作14篇</div>
   <div class="quick" data-goto="xuanxiu"><b>高中选修</b>中华传统文化专题研讨 · 六单元二十课</div>
-  <div class="quick" data-goto="jiaocai"><b>教材顺序索引</b>按课本册次逐篇排列 · 点击直达</div>
-  <div class="quick" data-goto="indexall"><b>作者篇目索引</b>按作者与学段速查</div>
+  <div class="quick" data-goto="method"><b>编例与说明</b>取材范围 · 解析体例 · 史实分级 · 使用边界</div>
 </div>
 
 <h2 id="home-feature"><span class="num">03</span>阅读线索：五条主线贯穿全书</h2>
-<table>
-  <tr><th>线索</th><th>说明</th><th>代表作者</th></tr>
-  <tr><td>儒道释的思想底色</td><td>儒家的济世、道家的超脱、禅宗的空寂，构成中国古典文学的精神三角</td><td>杜甫、王维、苏轼</td></tr>
-  <tr><td>盛世与乱世的转折</td><td>安史之乱是唐代文学的分水岭，靖康之变是宋代的分水岭</td><td>李白、杜甫、李清照、陆游</td></tr>
-  <tr><td>诗体与词体的演变</td><td>从古诗到律诗，从诗到词、到曲，形式演变与情感表达互相推动</td><td>李白、杜甫、苏轼、辛弃疾、马致远</td></tr>
-  <tr><td>山水田园与边塞</td><td>两大题材流派，一静一动，构成唐诗的双翼</td><td>王维、孟浩然、高适、岑参</td></tr>
-  <tr><td>古文运动的赓续</td><td>从先秦诸子到唐宋八大家，散文承担说理与载道的传统</td><td>韩愈、柳宗元、欧阳修、苏轼</td></tr>
+<p>四十个分页按时代排列，真正把全书串起来的却是下面五条线。它们不按朝代分段，而是横穿各页——读单页看细节，顺线索看脉络。“对应分页”一列可直接跳转。</p>
+<table class="clue">
+  <tr><th>线索</th><th>说明</th><th>对应分页</th><th>代表作者</th></tr>
+  <tr><td>诗骚以下：言志与缘情</td><td>《诗经》的集体歌唱与《楚辞》的个人独白，为中国诗定下两副面孔：一者观风俗、见盛衰，一者抒孤愤、明心迹。此后两千年的诗人，大体都在这两种声音之间取舍。</td><td><a data-goto="shijing" class="tlink">《诗经》</a> <a data-goto="quyuan" class="tlink">屈原</a></td><td>佚名（《诗经》）、屈原</td></tr>
+  <tr><td>士人的出处：仕与隐</td><td>屈原的守、陶渊明的归、李白的放、杜甫的执、苏轼的旷、辛弃疾的闲居而不忘事——教材选篇其实反复在问同一个问题：读书人该把自己安放在哪里。</td><td><a data-goto="quyuan" class="tlink">屈原</a> <a data-goto="taoyuanming" class="tlink">陶渊明</a> <a data-goto="libai" class="tlink">李白</a> <a data-goto="dufu" class="tlink">杜甫</a> <a data-goto="sushi" class="tlink">苏轼</a> <a data-goto="xinqiji" class="tlink">辛弃疾</a></td><td>屈原、陶渊明、李白、杜甫、苏轼、辛弃疾</td></tr>
+  <tr><td>历史转折处的诗</td><td>安史之乱、靖康之变、南宋偏安、明清易代、近代救亡，每一次断裂都在诗里留下刻度。读这类篇目宜先读史、再读诗，字句背后的分量才落得下来。</td><td><a data-goto="dufu" class="tlink">杜甫</a> <a data-goto="liqingzhao" class="tlink">李清照</a> <a data-goto="luyou" class="tlink">陆游</a> <a data-goto="yuanqu" class="tlink">元曲</a> <a data-goto="mingqingshi" class="tlink">明清诗词</a> <a data-goto="xiandai" class="tlink">近现代</a></td><td>杜甫、李清照、陆游、张养浩、文天祥、秋瑾</td></tr>
+  <tr><td>文章之道：说理、叙事与载道</td><td>诸子以譬喻说理，史传以叙事立人，韩柳欧苏以古文载道，明清小品以家常琐事写性情。教材的文言文大半落在这条线上，读懂“文”如何承担“道”，比背注释要紧。</td><td><a data-goto="zhuzi" class="tlink">先秦诸子</a> <a data-goto="hanprose" class="tlink">两汉史传</a> <a data-goto="tangguwen" class="tlink">唐代古文</a> <a data-goto="songwen" class="tlink">宋代散文</a> <a data-goto="mingqingwen" class="tlink">明清散文</a></td><td>孟子、庄子、司马迁、韩愈、柳宗元、欧阳修、归有光</td></tr>
+  <tr><td>文体的下移：诗—词—曲—小说—新诗</td><td>从近体诗的格律，到词的长短句、曲的衬字与白话，再到章回小说的叙事规模，最后是五四以后的新诗与外国诗译介。文体一路向口语与世俗下移，教材的编排也大致沿着这条线下行。</td><td><a data-goto="songci" class="tlink">两宋词人</a> <a data-goto="yuanqu" class="tlink">元曲</a> <a data-goto="novel" class="tlink">白话小说</a> <a data-goto="xiandai" class="tlink">近现代诗词</a></td><td>柳永、辛弃疾、关汉卿、王实甫、曹雪芹、艾青</td></tr>
+</table>
+<p>五条线不是五段历史，而是五种读法：同一位作家常同时落在数条线上——杜甫既是“历史转折”，也是“士人出处”，还是“文章之道”的承续者。带着线索读单页，比顺着目录一路翻下去更容易记住。</p>
+
+<div class="aside"><b>说明：</b>本手册是学习辅助性质的系统梳理，教材篇目依据统编版常见目录整理，不同印次、地区与年份的选篇会有出入；涉及生卒、系年与作品归属的争议，均以标签标明，供进一步查考。<a href="#method" data-goto="method" style="cursor:pointer">详见“编例与说明”页</a>。</div>
+</section>
+<section class="page" id="indexall"><header class="author-cover">
+  <div class="eyebrow">索引 · 按作者与学段速查</div>
+  <h1>教材篇目总索引</h1>
+  <div class="sub">按作者汇总统编版小学、初中、高中语文教材古代作品篇目 · 点击篇名或作者名直达对应内容</div>
+</header>
+
+<div class="lead">
+本索引把全书涉及的教材篇目按作者汇总，便于按图索骥。表中<b>作者名</b>可直达其专页或人物条目，<b>篇名</b>可直达该篇原文与解析。教材选篇在不同印次、地区间略有出入，此处依统编版常见目录整理，作学习梳理之用，不作版本定论。
+</div>
+
+<h2 id="idx-new"><span class="num">01</span>专页速查：小学文言与近现代诗词</h2>
+<div class="aside"><b>提示：</b>若想按<b>课本册次</b>（小学一上→高中选必下）逐篇查阅并点击直达，请用紧随其后的<a data-goto="jiaocai" style="cursor:pointer">「教材全篇顺序索引」</a>页；本页则按<b>作者与学段</b>速查，篇名均可点击直达。</div>
+<div class="tw">
+<table class="t-new">
+<colgroup><col style="width:158px"><col></colgroup>
+  <tr><th>专页</th><th>收录内容</th></tr>
+  <tr><td><a data-goto="xiaowen" style="cursor:pointer">小学文言启蒙</a></td><td><span class="tt"><a data-goto="xiaowen::p-shouzhu" style="cursor:pointer">守株待兔</a></span>、<span class="tt"><a data-goto="xiaowen::p-jingwei" style="cursor:pointer">精卫填海</a></span>、<span class="tt"><a data-goto="xiaowen::p-wangrong" style="cursor:pointer">王戎不取道旁李</a></span>、<span class="tt"><a data-goto="xiaowen::p-nangying" style="cursor:pointer">囊萤夜读</a></span>、<span class="tt"><a data-goto="xiaowen::p-tiechu" style="cursor:pointer">铁杵成针</a></span>、<span class="tt"><a data-goto="xiaowen::p-guren" style="cursor:pointer">古人谈读书</a></span>、<span class="tt"><a data-goto="xiaowen::p-maodun" style="cursor:pointer">自相矛盾</a></span>、<span class="tt"><a data-goto="xiaowen::p-yangshi" style="cursor:pointer">杨氏之子</a></span>、<span class="tt"><a data-goto="xiaowen::p-daishong" style="cursor:pointer">书戴嵩画牛</a></span>、<span class="tt"><a data-goto="xiaowen::p-xueyi" style="cursor:pointer">学弈</a></span>、<span class="tt"><a data-goto="xiaowen::p-liangxiaoer" style="cursor:pointer">两小儿辩日</a></span>（共11篇，均附完整原文）</td></tr>
+  <tr><td><a data-goto="xiandai" style="cursor:pointer">近现代诗词</a></td><td><span class="tt"><a data-goto="xiandai::p-shaonian-zhongguo" style="cursor:pointer">少年中国说</a></span>、<span class="tt"><a data-goto="xiandai::p-pusaman-dabaidi" style="cursor:pointer">菩萨蛮·大柏地</a></span>、<span class="tt"><a data-goto="xiandai::p-woai-zhetudi" style="cursor:pointer">我爱这土地</a></span>、<span class="tt"><a data-goto="xiandai::p-siyuetian" style="cursor:pointer">你是人间的四月天</a></span>、<span class="tt"><a data-goto="xiandai::p-wokan" style="cursor:pointer">我看</a></span>、<span class="tt"><a data-goto="xiandai::p-duanzhang" style="cursor:pointer">断章</a></span>、<span class="tt"><a data-goto="xiandai::p-meiling-sanzhang" style="cursor:pointer">梅岭三章</a></span>、<span class="tt"><a data-goto="xiandai::p-xiaohong-mupan" style="cursor:pointer">萧红墓畔口占</a></span>、<span class="tt"><a data-goto="xiandai::p-tongyi" style="cursor:pointer">统一</a></span>、<span class="tt"><a data-goto="xiandai::p-haiyan" style="cursor:pointer">海燕</a></span>、<span class="tt"><a data-goto="xiandai::p-lizai-diqiu" style="cursor:pointer">立在地球边上放号</a></span>、<span class="tt"><a data-goto="xiandai::p-hongzhu" style="cursor:pointer">红烛</a></span>、<span class="tt"><a data-goto="xiandai::p-eriduoxuefeng" style="cursor:pointer">峨日朵雪峰之侧</a></span>、<span class="tt"><a data-goto="xiandai::p-zhiyunque" style="cursor:pointer">致云雀</a></span>（共14篇，外国诗注译者）</td></tr>
+</table>
+</div>
+
+<h2 id="idx-ming"><span class="num">02</span>重点作家篇目速查</h2>
+<div class="aside"><b>用法：</b>十八位重点作家各有专页，点<b>作者名</b>进入该页通读生平与全部篇目；点<b>篇名</b>直接跳到那一首的原文与解析。同一篇目跨学段重出者，两处链接指向同一篇。</div>
+<div class="tw">
+<table class="t-ming">
+<colgroup><col style="width:86px"><col style="width:34%"><col style="width:33%"><col></colgroup>
+  <tr><th>作者</th><th>小学</th><th>初中</th><th>高中</th></tr>
+  <tr><td><a data-goto="libai" style="cursor:pointer"><b>李白</b></a></td><td><span class="tt"><a data-goto="libai::p-guanglangyue" style="cursor:pointer">古朗月行</a></span>、<span class="tt"><a data-goto="libai::p-jingyesi" style="cursor:pointer">静夜思</a></span>、<span class="tt"><a data-goto="libai::p-zengwanglun" style="cursor:pointer">赠汪伦</a></span>、<span class="tt"><a data-goto="libai::p-wanglushan" style="cursor:pointer">望庐山瀑布</a></span>、<span class="tt"><a data-goto="libai::p-yeshan" style="cursor:pointer">夜宿山寺</a></span>、<span class="tt"><a data-goto="libai::p-wangtianmen" style="cursor:pointer">望天门山</a></span>、<span class="tt"><a data-goto="libai::p-zaofabaidi" style="cursor:pointer">早发白帝城</a></span>、<span class="tt"><a data-goto="libai::p-huanghelou" style="cursor:pointer">黄鹤楼送孟浩然</a></span>、<span class="tt"><a data-goto="libai::p-duzuojingshan" style="cursor:pointer">独坐敬亭山</a></span></td><td><span class="tt"><a data-goto="libai::p-wenchangling" style="cursor:pointer">闻王昌龄左迁龙标</a></span>、<span class="tt"><a data-goto="libai::p-emeishan" style="cursor:pointer">峨眉山月歌</a></span>、<span class="tt"><a data-goto="libai::p-chunye" style="cursor:pointer">春夜洛城闻笛</a></span>、<span class="tt"><a data-goto="libai::p-dujingmen" style="cursor:pointer">渡荆门送别</a></span>、<span class="tt"><a data-goto="libai::p-songyouren" style="cursor:pointer">送友人</a></span>、<span class="tt"><a data-goto="libai::p-xinglunan" style="cursor:pointer">行路难</a></span>、<span class="tt"><a data-goto="libai::p-yuexia" style="cursor:pointer">月下独酌</a></span></td><td><span class="tt"><a data-goto="libai::p-shudaonan" style="cursor:pointer">蜀道难</a></span>、<span class="tt"><a data-goto="libai::p-jiangjinjiu" style="cursor:pointer">将进酒</a></span>、<span class="tt"><a data-goto="libai::p-mengyou" style="cursor:pointer">梦游天姥吟留别</a></span></td></tr>
+  <tr><td><a data-goto="dufu" style="cursor:pointer"><b>杜甫</b></a></td><td><span class="tt"><a data-goto="dufu::p-dufu-jueju" style="cursor:pointer">绝句二首</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-chunyexiyu" style="cursor:pointer">春夜喜雨</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-wenguanjun" style="cursor:pointer">闻官军收河南河北</a></span></td><td><span class="tt"><a data-goto="dufu::p-wangyue-df" style="cursor:pointer">望岳</a></span>、<span class="tt"><a data-goto="dufu::p-chunwang-df" style="cursor:pointer">春望</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-shihaoli" style="cursor:pointer">石壕吏</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-maowu" style="cursor:pointer">茅屋为秋风所破歌</a></span></td><td><span class="tt"><a data-goto="dufu::p-denggao-df" style="cursor:pointer">登高</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-shuxiang" style="cursor:pointer">蜀相</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-kezhi" style="cursor:pointer">客至</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-dengyueyanglou" style="cursor:pointer">登岳阳楼</a></span></td></tr>
+  <tr><td><a data-goto="sushi" style="cursor:pointer"><b>苏轼</b></a></td><td><span class="tt"><a data-goto="sushi::p-sushi-yinhu" style="cursor:pointer">饮湖上初晴后雨</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-zengliujingwen" style="cursor:pointer">赠刘景文</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-huichong" style="cursor:pointer">惠崇春江晚景</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-tixilinbi" style="cursor:pointer">题西林壁</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-liuyueershiri" style="cursor:pointer">六月二十七日望湖楼醉书</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-huanxisha" style="cursor:pointer">浣溪沙</a></span></td><td><span class="tt"><a data-goto="sushi::p-sushi-jichengtiansi" style="cursor:pointer">记承天寺夜游</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-shuidiaogetou" style="cursor:pointer">水调歌头</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-jiangchengzi-mizhou" style="cursor:pointer">江城子·密州出猎</a></span>、<span class="tt"><a data-goto="sushi::p-dingfengbo-sushi" style="cursor:pointer">定风波</a></span></td><td><span class="tt"><a data-goto="sushi::p-niannujiao-sushi" style="cursor:pointer">念奴娇·赤壁怀古</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-chibifu" style="cursor:pointer">赤壁赋</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-jiangchengzi-yimao" style="cursor:pointer">江城子·乙卯正月二十日夜记梦</a></span></td></tr>
+  <tr><td><a data-goto="baijuyi" style="cursor:pointer"><b>白居易</b></a></td><td><span class="tt"><a data-goto="baijuyi::p-baijuyi-chishang" style="cursor:pointer">池上</a></span>、<span class="tt"><a data-goto="baijuyi::p-fude-bjy" style="cursor:pointer">赋得古原草送别</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-yijiangnan" style="cursor:pointer">忆江南</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-dalinsi" style="cursor:pointer">大林寺桃花</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-mujiangyin" style="cursor:pointer">暮江吟</a></span></td><td><span class="tt"><a data-goto="baijuyi::p-baijuyi-qiantanghu" style="cursor:pointer">钱塘湖春行</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-maitanweng" style="cursor:pointer">卖炭翁</a></span></td><td><span class="tt"><a data-goto="baijuyi::p-pipa-bjy" style="cursor:pointer">琵琶行并序</a></span></td></tr>
+  <tr><td><a data-goto="wangwei" style="cursor:pointer"><b>王维</b></a></td><td><span class="tt"><a data-goto="wangwei::p-wangwei-hua" style="cursor:pointer">画</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-jiuyuejiuri" style="cursor:pointer">九月九日忆山东兄弟</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-luzhai" style="cursor:pointer">鹿柴</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-songyuaner" style="cursor:pointer">送元二使安西</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-niaomingjian" style="cursor:pointer">鸟鸣涧</a></span>、<span class="tt"><a data-goto="wangwei::p-shanju-ww" style="cursor:pointer">山居秋暝</a></span></td><td><span class="tt"><a data-goto="wangwei::p-wangwei-zhuliguan" style="cursor:pointer">竹里馆</a></span>、<span class="tt"><a data-goto="wangwei::p-shizhi-ww" style="cursor:pointer">使至塞上</a></span></td><td><span class="tt"><a data-goto="wangwei::p-shanju-ww" style="cursor:pointer">山居秋暝</a></span></td></tr>
+  <tr><td><a data-goto="xinqiji" style="cursor:pointer"><b>辛弃疾</b></a></td><td><span class="tt"><a data-goto="xinqiji::p-qingpingyue-xinqiji" style="cursor:pointer">清平乐·村居</a></span>、<span class="tt"><a data-goto="xinqiji::p-xijiangyue-xinqiji" style="cursor:pointer">西江月·夜行黄沙道中</a></span></td><td><span class="tt"><a data-goto="xinqiji::p-chounuer-xinqiji" style="cursor:pointer">丑奴儿</a></span>、<span class="tt"><a data-goto="xinqiji::p-pozhenzi-xinqiji" style="cursor:pointer">破阵子</a></span>、<span class="tt"><a data-goto="xinqiji::p-nanxiangzi-xinqiji" style="cursor:pointer">南乡子</a></span>、<span class="tt"><a data-goto="xinqiji::p-taichangyin-xinqiji" style="cursor:pointer">太常引</a></span></td><td><span class="tt"><a data-goto="xinqiji::p-yongyule-xinqiji" style="cursor:pointer">永遇乐·京口北固亭怀古</a></span></td></tr>
+  <tr><td><a data-goto="luyou" style="cursor:pointer"><b>陆游</b></a></td><td><span class="tt"><a data-goto="luyou::p-shier-luyou" style="cursor:pointer">示儿</a></span>、<span class="tt"><a data-goto="luyou::p-qiuyejiangxiao-luyou" style="cursor:pointer">秋夜将晓出篱门迎凉有感</a></span></td><td><span class="tt"><a data-goto="luyou::p-youshanxicun-luyou" style="cursor:pointer">游山西村</a></span>、<span class="tt"><a data-goto="luyou::p-shiyueyue-luyou" style="cursor:pointer">十一月四日风雨大作</a></span>、<span class="tt"><a data-goto="luyou::p-busuanzi-luyou" style="cursor:pointer">卜算子·咏梅</a></span></td><td><span class="tt"><a data-goto="luyou::p-shufen-luyou" style="cursor:pointer">书愤</a></span>、<span class="tt"><a data-goto="luyou::p-linanyuchun-luyou" style="cursor:pointer">临安春雨初霁</a></span></td></tr>
+  <tr><td><a data-goto="liqingzhao" style="cursor:pointer"><b>李清照</b></a></td><td><span class="tt"><a data-goto="liqingzhao::p-xiarijueju-liqingzhao" style="cursor:pointer">夏日绝句</a></span></td><td><span class="tt"><a data-goto="liqingzhao::p-ruimengling-liqingzhao" style="cursor:pointer">如梦令</a></span>、<span class="tt"><a data-goto="liqingzhao::p-yujiaao-liqingzhao" style="cursor:pointer">渔家傲</a></span></td><td><span class="tt"><a data-goto="liqingzhao::p-shengshengman-liqingzhao" style="cursor:pointer">声声慢</a></span></td></tr>
+  <tr><td><a data-goto="wanganshi" style="cursor:pointer"><b>王安石</b></a></td><td><span class="tt"><a data-goto="wanganshi::p-meihua-wanganshi" style="cursor:pointer">梅花</a></span>、<span class="tt"><a data-goto="wanganshi::p-yuanri-wanganshi" style="cursor:pointer">元日</a></span>、<span class="tt"><a data-goto="wanganshi::p-shuhuyinxianshengbi-wanganshi" style="cursor:pointer">书湖阴先生壁</a></span>、<span class="tt"><a data-goto="wanganshi::p-bochuanguazhou-wanganshi" style="cursor:pointer">泊船瓜洲</a></span></td><td><span class="tt"><a data-goto="wanganshi::p-denglaifeng-wanganshi" style="cursor:pointer">登飞来峰</a></span></td><td><span class="tt"><a data-goto="wanganshi::p-guizhixiang-wanganshi" style="cursor:pointer">桂枝香·金陵怀古</a></span>、<span class="tt"><a data-goto="wanganshi::p-dasimaliyishu-wanganshi" style="cursor:pointer">答司马谏议书</a></span></td></tr>
+  <tr><td><a data-goto="fanzhongyan" style="cursor:pointer"><b>范仲淹</b></a></td><td><span class="tt"><a data-goto="fanzhongyan::p-jiangshangyuzhe-fanzhongyan" style="cursor:pointer">江上渔者</a></span></td><td><span class="tt"><a data-goto="fanzhongyan::p-yueyanglouji-fanzhongyan" style="cursor:pointer">岳阳楼记</a></span>、<span class="tt"><a data-goto="fanzhongyan::p-yujiaao-fanzhongyan" style="cursor:pointer">渔家傲·秋思</a></span></td><td>—</td></tr>
+  <tr><td><a data-goto="ouyangxiu" style="cursor:pointer"><b>欧阳修</b></a></td><td>—</td><td><span class="tt"><a data-goto="ouyangxiu::p-maiyouweng-ouyangxiu" style="cursor:pointer">卖油翁</a></span>、<span class="tt"><a data-goto="ouyangxiu::p-zuiwengtingji-ouyangxiu" style="cursor:pointer">醉翁亭记</a></span>、<span class="tt"><a data-goto="ouyangxiu::p-caisangzi-ouyangxiu" style="cursor:pointer">采桑子</a></span></td><td><span class="tt"><a data-goto="ouyangxiu::p-wudaishilingguanchuanxu-ouyangxiu" style="cursor:pointer">五代史伶官传序</a></span></td></tr>
+  <tr><td><a data-goto="shangyin" style="cursor:pointer"><b>李商隐</b></a></td><td><span class="tt"><a data-goto="shangyin::p-chang-e-shangyin" style="cursor:pointer">嫦娥</a></span></td><td><span class="tt"><a data-goto="shangyin::p-yeyujibei-shangyin" style="cursor:pointer">夜雨寄北</a></span>、<span class="tt"><a data-goto="shangyin::p-jiasheng-shangyin" style="cursor:pointer">贾生</a></span>、<span class="tt"><a data-goto="shangyin::p-wuti-shangyin" style="cursor:pointer">无题</a></span></td><td><span class="tt"><a data-goto="shangyin::p-jinse-shangyin" style="cursor:pointer">锦瑟</a></span></td></tr>
+  <tr><td><a data-goto="dumu" style="cursor:pointer"><b>杜牧</b></a></td><td><span class="tt"><a data-goto="dumu::p-shanxing-dumu" style="cursor:pointer">山行</a></span>、<span class="tt"><a data-goto="dumu::p-qingming-dumu" style="cursor:pointer">清明</a></span>、<span class="tt"><a data-goto="dumu::p-jiangnanchun-dumu" style="cursor:pointer">江南春</a></span></td><td><span class="tt"><a data-goto="dumu::p-chibi-dumu" style="cursor:pointer">赤壁</a></span>、<span class="tt"><a data-goto="dumu::p-poqinhuai-dumu" style="cursor:pointer">泊秦淮</a></span></td><td><span class="tt"><a data-goto="dumu::p-afanggongfu-dumu" style="cursor:pointer">阿房宫赋</a></span></td></tr>
+  <tr><td><a data-goto="lihe" style="cursor:pointer"><b>李贺</b></a></td><td><span class="tt"><a data-goto="lihe::p-mashi-lihe" style="cursor:pointer">马诗</a></span></td><td><span class="tt"><a data-goto="lihe::p-yanmen-lihe" style="cursor:pointer">雁门太守行</a></span></td><td><span class="tt"><a data-goto="lihe::p-konghou-lihe" style="cursor:pointer">李凭箜篌引</a></span></td></tr>
+  <tr><td><a data-goto="taoyuanming" style="cursor:pointer"><b>陶渊明</b></a></td><td>—</td><td><span class="tt"><a data-goto="taoyuanming::p-yinjiu-tym" style="cursor:pointer">饮酒</a></span>、<span class="tt"><a data-goto="taoyuanming::p-taohuayuanji-tym" style="cursor:pointer">桃花源记</a></span></td><td><span class="tt"><a data-goto="taoyuanming::p-guiyuantianju-tym" style="cursor:pointer">归园田居</a></span>、<span class="tt"><a data-goto="taoyuanming::p-guiqulaixici-tym" style="cursor:pointer">归去来兮辞</a></span></td></tr>
+  <tr><td><a data-goto="quyuan" style="cursor:pointer"><b>屈原</b></a></td><td>—</td><td>—</td><td><span class="tt"><a data-goto="quyuan::p-lisao-qu" style="cursor:pointer">离骚</a>（节选）</span>、<span class="tt"><a data-goto="quyuan::p-guoshang-qu" style="cursor:pointer">国殇</a></span></td></tr>
+  <tr><td><a data-goto="mao" style="cursor:pointer"><b>毛泽东</b></a></td><td><span class="tt"><a data-goto="mao::p-qilv-changzheng" style="cursor:pointer">七律·长征</a></span>、<span class="tt"><a data-goto="mao::p-mao-busuanzi-mei" style="cursor:pointer">卜算子·咏梅</a></span></td><td>—</td><td><span class="tt"><a data-goto="mao::p-qinyuanchun-changsha" style="cursor:pointer">沁园春·长沙</a></span></td></tr>
+</table>
+</div>
+
+<h2 id="idx-groups"><span class="num">03</span>合篇作者分组速查</h2>
+<div class="aside"><b>用法：</b>合篇页一位作者一节，点<b>作者名</b>即跳到该页对应的人物条目与篇目清单。</div>
+<div class="tw">
+<table class="t-groups">
+<colgroup><col style="width:182px"><col></colgroup>
+  <tr><th>分页</th><th>涵盖作者（点击直达）</th></tr>
+  <tr><td><a data-goto="shijing" style="cursor:pointer">诗经与民间歌谣</a></td><td><a data-goto="shijing::a-shijing" style="cursor:pointer">《诗经》</a>、<a data-goto="shijing::a-yuefu" style="cursor:pointer">汉乐府</a>、<a data-goto="shijing::a-beichao" style="cursor:pointer">北朝民歌</a>、<a data-goto="shijing::a-gushi" style="cursor:pointer">《古诗十九首》</a></td></tr>
+  <tr><td><a data-goto="zhuzi" style="cursor:pointer">先秦诸子散文</a></td><td><a data-goto="zhuzi::a-kongzi" style="cursor:pointer">孔子</a>、<a data-goto="zhuzi::a-mengzi" style="cursor:pointer">孟子</a>、<a data-goto="zhuzi::a-zhuangzi" style="cursor:pointer">庄子</a>、<a data-goto="zhuzi::a-xunzi" style="cursor:pointer">荀子</a>、<a data-goto="zhuzi::a-laozi" style="cursor:pointer">老子</a>、<a data-goto="zhuzi::a-mozi" style="cursor:pointer">墨子</a>、<a data-goto="zhuzi::a-liezi" style="cursor:pointer">列子</a>、<a data-goto="zhuzi::a-lvli" style="cursor:pointer">吕氏春秋</a>、<a data-goto="zhuzi::a-liji" style="cursor:pointer">礼记</a></td></tr>
+  <tr><td><a data-goto="hanprose" style="cursor:pointer">两汉史传与辞赋</a></td><td><a data-goto="hanprose::a-simaqian" style="cursor:pointer">司马迁</a>、<a data-goto="hanprose::a-bangu" style="cursor:pointer">班固</a>、<a data-goto="hanprose::a-jiayi" style="cursor:pointer">贾谊</a>、<a data-goto="hanprose::a-lisi" style="cursor:pointer">李斯</a>、<a data-goto="hanprose::a-liuxiang" style="cursor:pointer">刘向</a>、<a data-goto="hanprose::a-zuozhuan" style="cursor:pointer">《左传》</a>、<a data-goto="hanprose::a-hanfu" style="cursor:pointer">汉赋</a>、<a data-goto="hanprose::a-weizheng" style="cursor:pointer">魏征（唐，附列）</a></td></tr>
+  <tr><td><a data-goto="caocao" style="cursor:pointer">曹操与建安诗人</a></td><td><a data-goto="caocao::a-caocao" style="cursor:pointer">曹操</a>、<a data-goto="caocao::a-caozhi" style="cursor:pointer">曹植</a>、<a data-goto="caocao::a-liuzhen" style="cursor:pointer">刘桢</a>、<a data-goto="caocao::a-wangji" style="cursor:pointer">王绩</a></td></tr>
+  <tr><td><a data-goto="weijinprose" style="cursor:pointer">魏晋南北朝散文</a></td><td><a data-goto="weijinprose::a-lidaoyuan" style="cursor:pointer">郦道元</a>、<a data-goto="weijinprose::a-taohongjing" style="cursor:pointer">陶弘景</a>、<a data-goto="weijinprose::a-wujun" style="cursor:pointer">吴均</a>、<a data-goto="weijinprose::a-wangxizhi" style="cursor:pointer">王羲之</a>、<a data-goto="weijinprose::a-liuyiqing" style="cursor:pointer">刘义庆</a>、<a data-goto="weijinprose::a-zhugeliang" style="cursor:pointer">诸葛亮</a>、<a data-goto="weijinprose::a-limi" style="cursor:pointer">李密</a>、<a data-goto="weijinprose::a-baozhao" style="cursor:pointer">鲍照</a></td></tr>
+  <tr><td><a data-goto="tangchu" style="cursor:pointer">初唐四杰与陈子昂</a></td><td><a data-goto="tangchu::a-wangbo" style="cursor:pointer">王勃</a>、<a data-goto="tangchu::a-yangjiong" style="cursor:pointer">杨炯</a>、<a data-goto="tangchu::a-luzhaolin" style="cursor:pointer">卢照邻</a>、<a data-goto="tangchu::a-luobinwang" style="cursor:pointer">骆宾王</a>、<a data-goto="tangchu::a-chenziang" style="cursor:pointer">陈子昂</a></td></tr>
+  <tr><td><a data-goto="tangsheng" style="cursor:pointer">盛唐山水与边塞</a></td><td><a data-goto="tangsheng::a-menghaoran" style="cursor:pointer">孟浩然</a>、<a data-goto="tangsheng::a-gaoshi" style="cursor:pointer">高适</a>、<a data-goto="tangsheng::a-censhen" style="cursor:pointer">岑参</a>、<a data-goto="tangsheng::a-wangchangling" style="cursor:pointer">王昌龄</a>、<a data-goto="tangsheng::a-wangzhihuan" style="cursor:pointer">王之涣</a>、<a data-goto="tangsheng::a-cuihao" style="cursor:pointer">崔颢</a>、<a data-goto="tangsheng::a-changjian" style="cursor:pointer">常建</a>、<a data-goto="tangsheng::a-liuchangqing" style="cursor:pointer">刘长卿</a>、<a data-goto="tangsheng::a-weiyingwu" style="cursor:pointer">韦应物</a>、<a data-goto="tangsheng::a-wanghan" style="cursor:pointer">王翰</a>、<a data-goto="tangsheng::a-liyi" style="cursor:pointer">李益</a></td></tr>
+  <tr><td><a data-goto="tangwan" style="cursor:pointer">中晚唐诗人</a></td><td><a data-goto="tangwan::a-liuyuxi" style="cursor:pointer">刘禹锡</a>、<a data-goto="tangwan::a-liuzongyuan-brief" style="cursor:pointer">柳宗元</a>、<a data-goto="tangwan::a-hanyu-brief" style="cursor:pointer">韩愈</a>、<a data-goto="tangwan::a-wentingyun" style="cursor:pointer">温庭筠</a>、<a data-goto="tangwan::a-luoyin" style="cursor:pointer">罗隐</a>、<a data-goto="tangwan::a-jiadao" style="cursor:pointer">贾岛</a>、<a data-goto="tangwan::a-lulun" style="cursor:pointer">卢纶</a>、<a data-goto="tangwan::a-zhangji" style="cursor:pointer">张继</a>、<a data-goto="tangwan::a-zhangzhihe" style="cursor:pointer">张志和</a>、<a data-goto="tangwan::a-hulingneng" style="cursor:pointer">胡令能</a>、<a data-goto="tangwan::a-lishen" style="cursor:pointer">李绅</a>、<a data-goto="tangwan::a-wangjian" style="cursor:pointer">王建</a>、<a data-goto="tangwan::a-hanhong" style="cursor:pointer">韩翃</a>、<a data-goto="tangwan::a-yushinan" style="cursor:pointer">虞世南</a>、<a data-goto="tangwan::a-linjie" style="cursor:pointer">林杰</a>、<a data-goto="tangwan::a-yuanmei" style="cursor:pointer">袁枚</a>、<a data-goto="tangwan::a-gaoding" style="cursor:pointer">高鼎</a>、<a data-goto="tangwan::a-zhashenxing" style="cursor:pointer">查慎行</a></td></tr>
+  <tr><td><a data-goto="tangguwen" style="cursor:pointer">唐代古文：韩柳</a></td><td><a data-goto="tangguwen::a-hanyu" style="cursor:pointer">韩愈</a>、<a data-goto="tangguwen::a-liuzongyuan" style="cursor:pointer">柳宗元</a></td></tr>
+  <tr><td><a data-goto="songci" style="cursor:pointer">两宋词人</a></td><td><a data-goto="songci::a-liuyong" style="cursor:pointer">柳永</a>、<a data-goto="songci::a-yanshu" style="cursor:pointer">晏殊</a>、<a data-goto="songci::a-qinguan" style="cursor:pointer">秦观</a>、<a data-goto="songci::a-zhoubangyan" style="cursor:pointer">周邦彦</a>、<a data-goto="songci::a-jiangkui" style="cursor:pointer">姜夔</a>、<a data-goto="songci::a-zhangxiaoxiang" style="cursor:pointer">张孝祥</a>、<a data-goto="songci::a-liukezhuang" style="cursor:pointer">刘克庄</a>、<a data-goto="songci::a-zhudunru" style="cursor:pointer">朱敦儒</a>、<a data-goto="songci::a-chenyiyi" style="cursor:pointer">陈与义</a>、<a data-goto="songci::a-liyu" style="cursor:pointer">李煜</a>、<a data-goto="songci::a-zhangruoxu" style="cursor:pointer">张若虚（唐，附列）</a></td></tr>
+  <tr><td><a data-goto="songshi" style="cursor:pointer">宋代诗人</a></td><td><a data-goto="songshi::a-yangwanli" style="cursor:pointer">杨万里</a>、<a data-goto="songshi::a-fanchengda" style="cursor:pointer">范成大</a>、<a data-goto="songshi::a-yeshaoweng" style="cursor:pointer">叶绍翁</a>、<a data-goto="songshi::a-zengji" style="cursor:pointer">曾几</a>、<a data-goto="songshi::a-wengjuan" style="cursor:pointer">翁卷</a>、<a data-goto="songshi::a-leizhen" style="cursor:pointer">雷震</a>、<a data-goto="songshi::a-luyue" style="cursor:pointer">卢钺</a>、<a data-goto="songshi::a-linsheng" style="cursor:pointer">林升</a>、<a data-goto="songshi::a-zhuxi" style="cursor:pointer">朱熹</a>、<a data-goto="songshi::a-zhaoshixiu" style="cursor:pointer">赵师秀</a>、<a data-goto="songshi::a-huangtingjian" style="cursor:pointer">黄庭坚</a></td></tr>
+  <tr><td><a data-goto="songwen" style="cursor:pointer">宋代散文</a></td><td><a data-goto="songwen::a-suxun" style="cursor:pointer">苏洵</a>、<a data-goto="songwen::a-simaguang" style="cursor:pointer">司马光</a>、<a data-goto="songwen::a-shenkuo" style="cursor:pointer">沈括</a>、<a data-goto="songwen::a-zhoudunyi" style="cursor:pointer">周敦颐</a>、<a data-goto="songwen::a-songlian" style="cursor:pointer">宋濂</a>、<a data-goto="songwen::a-suzhe" style="cursor:pointer">苏辙</a>、<a data-goto="songwen::a-zenggong" style="cursor:pointer">曾巩</a></td></tr>
+  <tr><td><a data-goto="yuanqu" style="cursor:pointer">元曲作家</a></td><td><a data-goto="yuanqu::a-mazhiyuan" style="cursor:pointer">马致远</a>、<a data-goto="yuanqu::a-zhangyanghao" style="cursor:pointer">张养浩</a>、<a data-goto="yuanqu::a-wangpan" style="cursor:pointer">王磐</a>、<a data-goto="yuanqu::a-guanhanqing" style="cursor:pointer">关汉卿</a>、<a data-goto="yuanqu::a-wangshifu" style="cursor:pointer">王实甫</a>、<a data-goto="yuanqu::a-tangxianzu" style="cursor:pointer">汤显祖（明，附列）</a></td></tr>
+  <tr><td><a data-goto="mingqingwen" style="cursor:pointer">明清散文</a></td><td><a data-goto="mingqingwen::a-guiyouguang" style="cursor:pointer">归有光</a>、<a data-goto="mingqingwen::a-zhangdai" style="cursor:pointer">张岱</a>、<a data-goto="mingqingwen::a-pusongling" style="cursor:pointer">蒲松龄</a>、<a data-goto="mingqingwen::a-yaonai" style="cursor:pointer">姚鼐</a>、<a data-goto="mingqingwen::a-jiyun" style="cursor:pointer">纪昀</a>、<a data-goto="mingqingwen::a-weixueyi" style="cursor:pointer">魏学洢</a>、<a data-goto="mingqingwen::a-linjuemin" style="cursor:pointer">林觉民</a>、<a data-goto="mingqingwen::a-fangbao" style="cursor:pointer">方苞</a></td></tr>
+  <tr><td><a data-goto="mingqingshi" style="cursor:pointer">明清诗词</a></td><td><a data-goto="mingqingshi::a-yuqian" style="cursor:pointer">于谦</a>、<a data-goto="mingqingshi::a-zhengxie" style="cursor:pointer">郑燮</a>、<a data-goto="mingqingshi::a-gongzizhen" style="cursor:pointer">龚自珍</a>、<a data-goto="mingqingshi::a-nalanxingde" style="cursor:pointer">纳兰性德</a>、<a data-goto="mingqingshi::a-tangyin" style="cursor:pointer">唐寅</a>、<a data-goto="mingqingshi::a-wangmian" style="cursor:pointer">王冕</a>、<a data-goto="mingqingshi::a-xiawanchun" style="cursor:pointer">夏完淳</a>、<a data-goto="mingqingshi::a-qiujin" style="cursor:pointer">秋瑾</a>、<a data-goto="mingqingshi::a-tansitong" style="cursor:pointer">谭嗣同</a></td></tr>
+</table>
+</div>
+
+<h2 id="idx-extend"><span class="num">04</span>课外延伸篇目速查</h2>
+<p>以下篇目不在统编教材正选目录内，属常见课外延伸或不同版本选篇。全书已为每篇补全原文与七维度细读，点击<b>篇名</b>可直达该篇。</p>
+<div class="tw">
+<table class="t-extend">
+<colgroup><col style="width:176px"><col style="width:150px"><col></colgroup>
+  <tr><th>所在分页</th><th>作者</th><th>延伸篇目（点击直达）</th></tr>
+  <tr><td><a data-goto="libai" style="cursor:pointer">李白专篇</a></td><td>李白</td><td><span class="tt"><a data-goto="libai::p-xuanzhou-libai" style="cursor:pointer">宣州谢朓楼饯别校书叔云</a></span></td></tr>
+  <tr><td><a data-goto="quyuan" style="cursor:pointer">屈原与楚辞</a></td><td>屈原</td><td><span class="tt"><a data-goto="quyuan::p-xiangfuren-qu" style="cursor:pointer">湘夫人</a></span></td></tr>
+  <tr><td><a data-goto="shijing" style="cursor:pointer">诗经与民间歌谣</a></td><td>《古诗十九首》</td><td><span class="tt"><a data-goto="shijing::p-shejiang-caifurong" style="cursor:pointer">涉江采芙蓉</a>（此篇为正选，附列备查）</span></td></tr>
+  <tr><td><a data-goto="taoyuanming" style="cursor:pointer">陶渊明</a></td><td>陶渊明</td><td><span class="tt"><a data-goto="taoyuanming::p-zashi-tym" style="cursor:pointer">杂诗其一</a></span></td></tr>
+  <tr><td><a data-goto="dufu" style="cursor:pointer">杜甫</a></td><td>杜甫</td><td><span class="tt"><a data-goto="dufu::p-xinhunbie-df" style="cursor:pointer">新婚别</a>（三别之一）</span></td></tr>
+  <tr><td><a data-goto="tangchu" style="cursor:pointer">初唐四杰</a></td><td><span class="tt">卢照邻</span>、<span class="tt">骆宾王</span></td><td><span class="tt"><a data-goto="tangchu::p-changanguyi-luzhaolin" style="cursor:pointer">长安古意</a>（节选）</span>、<span class="tt"><a data-goto="tangchu::p-zaivuchan-luobinwang" style="cursor:pointer">在狱咏蝉</a></span></td></tr>
+  <tr><td><a data-goto="tangsheng" style="cursor:pointer">盛唐山水与边塞</a></td><td><span class="tt">孟浩然</span>、<span class="tt">高适</span>、<span class="tt">王昌龄</span>、<span class="tt">王之涣</span></td><td><span class="tt"><a data-goto="tangsheng::p-wangdongting-meng" style="cursor:pointer">望洞庭湖赠张丞相</a></span>、<span class="tt"><a data-goto="tangsheng::p-yangexing-gao" style="cursor:pointer">燕歌行</a>（节选）</span>、<span class="tt"><a data-goto="tangsheng::p-cailianqu-wang" style="cursor:pointer">采莲曲</a></span>、<span class="tt"><a data-goto="tangsheng::p-liangzhouci-wangzhihuan" style="cursor:pointer">凉州词</a>（黄河远上）</span></td></tr>
+  <tr><td><a data-goto="tangwan" style="cursor:pointer">中晚唐诗人</a></td><td>温庭筠</td><td><span class="tt"><a data-goto="tangwan::p-posaman-wen" style="cursor:pointer">菩萨蛮</a>（小山重叠金明灭）</span></td></tr>
+  <tr><td><a data-goto="tangguwen" style="cursor:pointer">唐代古文：韩柳</a></td><td><span class="tt">韩愈</span>、<span class="tt">柳宗元</span></td><td><span class="tt"><a data-goto="tangguwen::p-jishierlang-hanyu" style="cursor:pointer">祭十二郎文</a>（节选）</span>、<span class="tt"><a data-goto="tangguwen::p-dengliuzhou-liuzongyuan" style="cursor:pointer">登柳州城楼</a></span></td></tr>
+  <tr><td><a data-goto="ouyangxiu" style="cursor:pointer">欧阳修</a></td><td>欧阳修</td><td><span class="tt"><a data-goto="ouyangxiu::p-tashaxing-ouyangxiu" style="cursor:pointer">踏莎行</a>（候馆梅残）</span></td></tr>
+  <tr><td><a data-goto="liqingzhao" style="cursor:pointer">李清照</a></td><td>李清照</td><td><span class="tt"><a data-goto="liqingzhao::p-yijianmei-liqingzhao" style="cursor:pointer">一剪梅</a></span>、<span class="tt"><a data-goto="liqingzhao::p-wulingchun-liqingzhao" style="cursor:pointer">武陵春</a></span></td></tr>
+  <tr><td><a data-goto="xinqiji" style="cursor:pointer">辛弃疾</a></td><td>辛弃疾</td><td><span class="tt"><a data-goto="xinqiji::p-pusaman-xinqiji" style="cursor:pointer">菩萨蛮·书江西造口壁</a></span>、<span class="tt"><a data-goto="xinqiji::p-qingyuan-xinqiji" style="cursor:pointer">青玉案·元夕</a></span></td></tr>
+  <tr><td><a data-goto="songwen" style="cursor:pointer">宋代散文</a></td><td>曾巩</td><td><span class="tt"><a data-goto="songwen::p-mochiji-zenggong" style="cursor:pointer">墨池记</a></span></td></tr>
+  <tr><td><a data-goto="songci" style="cursor:pointer">两宋词人</a></td><td>张若虚</td><td><span class="tt"><a data-goto="songci::p-chunjianghuayeyue-zhang" style="cursor:pointer">春江花月夜</a>（正选，附列备查）</span></td></tr>
+  <tr><td><a data-goto="songshi" style="cursor:pointer">宋代诗人</a></td><td>黄庭坚</td><td><span class="tt"><a data-goto="songshi::p-dengkuaige-huang" style="cursor:pointer">登快阁</a>（正选，附列备查）</span></td></tr>
+  <tr><td><a data-goto="yuanqu" style="cursor:pointer">元曲作家</a></td><td>汤显祖</td><td><span class="tt"><a data-goto="yuanqu::p-youyuan-tang" style="cursor:pointer">游园【皂罗袍】</a>（正选，附列备查）</span></td></tr>
+  <tr><td><a data-goto="mingqingwen" style="cursor:pointer">明清散文</a></td><td>方苞</td><td><span class="tt"><a data-goto="mingqingwen::p-yuzhongzaji-fangbao" style="cursor:pointer">狱中杂记</a>（节选）</span></td></tr>
+  <tr><td><a data-goto="mao" style="cursor:pointer">毛泽东</a></td><td>毛泽东</td><td><span class="tt"><a data-goto="mao::p-qinyuanchun-xue" style="cursor:pointer">沁园春·雪</a></span>、<span class="tt"><a data-goto="mao::p-yiqine-loushanguan" style="cursor:pointer">忆秦娥·娄山关</a></span>、<span class="tt"><a data-goto="mao::p-qilv-nanjing" style="cursor:pointer">七律·人民解放军占领南京</a></span></td></tr>
+</table>
+</div>
+
+<h2 id="idx-xuanxiu"><span class="num">05</span>拓展：高中选修《中华传统文化专题研讨》</h2>
+<div class="aside"><b>说明：</b>选修六册中，与古诗文直接相关的为《中华传统文化专题研讨》（二十课）与《中国革命传统作品专题研讨》第一单元的毛泽东词六首；前者已按六单元逐课收录于<a data-goto="xuanxiu" style="cursor:pointer">「中华传统文化专题研讨」</a>专页，后者补入<a data-goto="mao" style="cursor:pointer">「毛泽东」</a>页。下表按单元列出篇目，点击篇名可直达该篇原文与解析。</div>
+<div class="tw">
+<table class="t-xuanxiu">
+<colgroup><col style="width:150px"><col style="width:92px"><col></colgroup>
+  <tr><th>单元</th><th>课文</th><th>篇目与作者</th></tr>
+  <tr><td style="white-space:nowrap">一 · 进德修身</td><td>整本书阅读</td><td>《论语》整本书阅读（作品导读，见<a data-goto="zhuzi" style="cursor:pointer">先秦诸子散文</a>页）；本单元不另选单篇，以通读与专题研讨为主，建议配合选择性必修上册《〈论语〉十二章》对读；研讨题：孔门弟子群像 · 论学与论政 · 情境对话中的教育方法</td></tr>
+  <tr><td rowspan="4" style="white-space:nowrap">二 · 道法自然</td><td>1</td><td><a data-goto="xuanxiu::p-xu-laozi" style="cursor:pointer">《老子》十章</a>／老子</td></tr>
+  <tr><td>2</td><td><a data-goto="xuanxiu::p-xu-zhuangzi" style="cursor:pointer">《庄子》寓言三则</a>／庄子（匠石与栎社树、浑沌之死、鲁侯养鸟）</td></tr>
+  <tr><td>3</td><td><a data-goto="xuanxiu::p-xu-huainanzi" style="cursor:pointer">《淮南子》二则</a>／刘安（原道训、修务训）</td></tr>
+  <tr><td>4</td><td><a data-goto="xuanxiu::p-xu-juejiaoshu" style="cursor:pointer">《与山巨源绝交书》</a>／嵇康</td></tr>
+  <tr><td rowspan="4" style="white-space:nowrap">三 · 兴观群怨</td><td>5</td><td><a data-goto="xuanxiu::p-xu-maoshixu" style="cursor:pointer">《毛诗序》</a>／毛氏</td></tr>
+  <tr><td>6</td><td><a data-goto="xuanxiu::p-xu-shilun" style="cursor:pointer">诗论三则</a>／刘勰《明诗》、钟嵘《诗品序》、叶燮《原诗》</td></tr>
+  <tr><td>7</td><td><a data-goto="xuanxiu::p-xu-yuyuanjiushu" style="cursor:pointer">《与元九书》（节选）</a>／白居易</td></tr>
+  <tr><td>8</td><td><a data-goto="xuanxiu::p-xu-renjiancihua" style="cursor:pointer">《人间词话》十则</a>／王国维</td></tr>
+  <tr><td rowspan="4" style="white-space:nowrap">四 · 叙事传统</td><td>9</td><td><a data-goto="xuanxiu::p-xu-lianpo" style="cursor:pointer">《廉颇蔺相如列传》（节选）</a>／司马迁</td></tr>
+  <tr><td>10</td><td><a data-goto="xuanxiu::p-xu-liuyi" style="cursor:pointer">《柳毅传》</a>／李朝威</td></tr>
+  <tr><td>11</td><td><a data-goto="xuanxiu::p-xu-shezhan" style="cursor:pointer">《诸葛亮舌战群儒》</a>／罗贯中</td></tr>
+  <tr><td>12</td><td><a data-goto="xuanxiu::p-xu-kuangchaoren" style="cursor:pointer">《匡超人》</a>／吴敬梓</td></tr>
+  <tr><td rowspan="4" style="white-space:nowrap">五 · 乐山乐水</td><td>13</td><td><a data-goto="tangchu::p-tengwangge-wangbo" style="cursor:pointer">《滕王阁序》</a>／王勃（全文见初唐四杰页）</td></tr>
+  <tr><td>14</td><td><a data-goto="xuanxiu::p-xu-zhulou" style="cursor:pointer">《黄冈竹楼记》</a>／王禹偁</td></tr>
+  <tr><td>15</td><td><a data-goto="xuanxiu::p-xu-shanshuixun" style="cursor:pointer">《山水训》五则</a>／郭熙</td></tr>
+  <tr><td>16</td><td><a data-goto="xuanxiu::p-xu-mayee" style="cursor:pointer">《麻叶洞天》</a>／徐霞客</td></tr>
+  <tr><td rowspan="4" style="white-space:nowrap">六 · 市井风流</td><td>17</td><td><a data-goto="xuanxiu::p-xu-shijingbiji" style="cursor:pointer">市井笔记三则</a>／孟元老（东角楼街巷、民俗）、刘侗·于奕正（灯市）</td></tr>
+  <tr><td>18</td><td><a data-goto="xuanxiu::p-xu-gaozu" style="cursor:pointer">〔般涉调·哨遍〕《高祖还乡》</a>／睢景臣</td></tr>
+  <tr><td>19</td><td><a data-goto="xuanxiu::p-xu-shirunze" style="cursor:pointer">《施润泽滩阙遇友》</a>／冯梦龙</td></tr>
+  <tr><td>20</td><td><a data-goto="xuanxiu::p-xu-liujingting" style="cursor:pointer">《柳敬亭传》</a>／黄宗羲 · <a data-goto="xuanxiu::p-xu-maling" style="cursor:pointer">《马伶传》</a>／侯方域</td></tr>
+  <tr><td rowspan="2" style="white-space:nowrap">选修 · 革命传统</td><td>第一单元</td><td>毛泽东词六首：<a data-goto="mao::p-mao-jinggangshan" style="cursor:pointer">西江月·井冈山</a>、<a data-goto="mao::p-mao-jiangguizhanzheng" style="cursor:pointer">清平乐·蒋桂战争</a>、<a data-goto="mao::p-yiqine-loushanguan" style="cursor:pointer">忆秦娥·娄山关</a>、<a data-goto="mao::p-mao-liupanshan" style="cursor:pointer">清平乐·六盘山</a>、<a data-goto="mao::p-mao-youshui" style="cursor:pointer">水调歌头·游泳</a>、<a data-goto="mao::p-mao-chongshangjinggangshan" style="cursor:pointer">水调歌头·重上井冈山</a></td></tr>
+  <tr><td>—</td><td>其余单元为现代散文、小说、戏剧与政论；另四册（汉字汉语、学术论著、中国现当代作家作品、跨文化）以语言学、学术论文、现当代文学与外国作品为主，均不在本书古诗文收录范围</td></tr>
+</table>
+</div>
+
+<h2 id="idx-novel"><span class="num">06</span>古代白话小说九篇（五年级下 · 七年级上 · 九年级上）</h2>
+<div class="aside"><b>说明：</b>白话小说在教材里分三段出现：五年级下第二单元是"古典名著之旅"，四篇为改写或节选，重在初见；七年级上《小圣施威降大圣》进入原文的斗法想象；九年级上第六单元才是按长篇小说来读。九篇分属五部书，覆盖史、侠、幻、讽、情五条路。教材均取节选，故另设<a data-goto="novel" style="cursor:pointer">「古代白话小说」</a>专页，按原文对应段落收录并附七维度解析；节选之外的上下文在"创作背景"中补足。</div>
+<div class="tw tw-fit">
+<table class="t-novel">
+  <tr><th>册次 · 课次</th><th>篇目（点击直达）</th><th>作者与出处</th><th>类型</th></tr>
+  <tr><td>五下 · 5</td><td><a data-goto="novel::p-sanguo-caochuan" style="cursor:pointer">《草船借箭》</a></td><td>罗贯中《三国演义》第四十六回</td><td>历史演义</td></tr>
+  <tr><td>五下 · 6</td><td><a data-goto="novel::p-shuihu-jingyang" style="cursor:pointer">《景阳冈》</a></td><td>施耐庵《水浒传》第二十三回</td><td>英雄传奇</td></tr>
+  <tr><td>五下 · 7</td><td><a data-goto="novel::p-xiyou-houwang" style="cursor:pointer">《猴王出世》</a></td><td>吴承恩《西游记》第一回</td><td>神魔小说</td></tr>
+  <tr><td>五下 · 8</td><td><a data-goto="novel::p-honglou-chunqu" style="cursor:pointer">《红楼春趣》</a></td><td>曹雪芹《红楼梦》第七十回</td><td>世情小说</td></tr>
+  <tr><td>七上 · 21</td><td><a data-goto="novel::p-xiyou-xiaosheng" style="cursor:pointer">《小圣施威降大圣》</a></td><td>吴承恩《西游记》第六回</td><td>神魔小说</td></tr>
+  <tr><td>九上 · 22</td><td><a data-goto="novel::p-shuihu-shengchengang" style="cursor:pointer">《智取生辰纲》</a></td><td>施耐庵《水浒传》第十六回</td><td>英雄传奇</td></tr>
+  <tr><td>九上 · 23</td><td><a data-goto="novel::p-rulin-fanjin" style="cursor:pointer">《范进中举》</a></td><td>吴敬梓《儒林外史》第三回</td><td>讽刺小说</td></tr>
+  <tr><td>九上 · 24</td><td><a data-goto="novel::p-sanguo-sangumaolu" style="cursor:pointer">《三顾茅庐》</a></td><td>罗贯中《三国演义》第三十八回</td><td>历史演义</td></tr>
+  <tr><td>九上 · 25</td><td><a data-goto="novel::p-honglou-liulaolao" style="cursor:pointer">《刘姥姥进大观园》</a></td><td>曹雪芹《红楼梦》第四十回</td><td>世情小说</td></tr>
+</table>
+</div>
+
+<div class="aside"><b>使用提示：</b>本表用于快速定位作者所在分页与学段分布。若需某篇作品的详细解析（创作背景、情感脉络、艺术手法等），请点击对应篇名进入细读。教材篇目以各校实际使用版本为准。凡标注"节选"者，均为原作篇幅过长而截取关键段落，已在对应卡片中注明节选范围；教材本身为全文的作品，全书一律呈现全文。</div>
+</section>
+<section class="page" id="jiaocai"><header class="author-cover">
+  <div class="eyebrow">索引 · 按课本册次逐篇查阅</div>
+  <h1>教材全篇顺序索引</h1>
+  <div class="sub">按小学、初中、高中课本先后逐册排列 · 点击篇名直达该篇全文与解析</div>
+  <div class="badges"><span class="tag tag-book">教材·326篇</span><span class="tag tag-shi">统编版</span></div>
+</header>
+
+<div class="sub-toc">
+  <b>本页导航</b>
+  <a href="#jc-xiaoxue">小学（一上—六下）</a>
+  <a href="#jc-chuzhong">初中（七上—九下）</a>
+  <a href="#jc-gaozhong">高中（必修—选必）</a>
+  <a href="#jc-xiandai">近现代与外国诗</a>
+  <a href="#jc-howto">使用说明</a>
+</div>
+
+<h2 id="jc-howto"><span class="num">01</span>使用说明</h2>
+<div class="aside"><b>关于选修：</b>本页严格按<b>必修与选择性必修五册</b>的册次排列，故不含选修篇目。高中选修《中华传统文化专题研讨》二十课另有专页，按六个文化专题（进德修身、道法自然、兴观群怨、叙事传统、乐山乐水、市井风流）编次，请用<a data-goto="xuanxiu" style="cursor:pointer">「中华传统文化专题研讨」</a>页；毛泽东词六首见<a data-goto="mao" style="cursor:pointer">「毛泽东」</a>页。</div>
+<div class="info-grid">
+  <div class="info-box"><h4>排序依据</h4><p>严格按统编版课本的册次与单元先后排列：小学自一年级上册起至六年级下册，初中自七年级上册至九年级下册，高中按必修上、必修下、选择性必修上中下的顺序。同一篇目在不同年级重复出现时，按出现位置分别列出。</p></div>
+  <div class="info-box"><h4>点击直达</h4><p>篇名即链接，点击后自动切换到该作者分页，并滚动定位到该篇的作品卡片，可直接读到原文、创作背景、题材主题、情感脉络、意象与语言、艺术手法、名句释义、文学意义七项解析。标为"—"者说明该篇在本书中按篇目表收录，暂未单列细读。</p></div>
+</div>
+
+<h2 id="jc-xiaoxue"><span class="num">02</span>小学（一年级上—六年级下）</h2>
+<h3 class="jc-grade">一年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangchu::p-yonge-luobinwang">《咏鹅》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="shijing::p-yuefu-jiangnan">《江南》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-hua">《画》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="tangwan::p-minnong-lishen">《悯农》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="libai::p-guanglangyue">《古朗月行》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangchu::p-feng-liqiao">《风》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
 </table>
 
-<div class="aside"><b>说明：</b>本手册是学习辅助性质的系统梳理，教材篇目依据统编版常见目录整理，不同印次、地区与年份的选篇会有出入；涉及生卒、系年与作品归属的争议，均以标签标明，供进一步查考。<a href="#method" data-goto="method" style="cursor:pointer">详见"编例与说明"页</a>。</div>
+<h3 class="jc-grade">一年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangsheng::p-chunxiao-meng">《春晓》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="libai::p-zengwanglun">《赠汪伦》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="libai::p-jingyesi">《静夜思》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangwan::p-xunyinzhe-jiadao">《寻隐者不遇》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-chishang">《池上》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="songshi::p-yangwanli-xiaochi">《小池》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="mingqingshi::p-tangyin-huaji">《画鸡》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+</table>
+
+<h3 class="jc-grade">二年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="wanganshi::p-meihua-wanganshi">《梅花》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="tangwan::p-xiaoerchuidiao-hulingneng">《小儿垂钓》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="tangsheng::p-dengguanquelou-wangzhihuan">《登鹳雀楼》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="libai::p-wanglushan">《望庐山瀑布》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangguwen::p-jiangxue-liuzongyuan">《江雪》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="libai::p-yeshan">《夜宿山寺》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="shijing::p-beichao-chilege">《敕勒歌》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+</table>
+
+<h3 class="jc-grade">二年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangwan::p-cunju-gaoding">《村居》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="tangchu::p-yongliu-he">《咏柳》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="baijuyi::p-fude-bjy">《赋得古原草送别》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="songshi::p-yangwanli-xiaochu">《晓出净慈寺送林子方》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-jueju">《绝句》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="tangwan::p-minnong-lishen">《悯农》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="tangwan::p-zhouyeshuo-zhashenxing">《舟夜书所见》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+</table>
+
+<h3 class="jc-grade">三年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangwan::p-suojian-yuanmei">《所见》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="dumu::p-shanxing-dumu">《山行》</a></td><td>古诗词</td><td>杜牧</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-zengliujingwen">《赠刘景文》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="songshi::p-yeshaoweng-yeshusuojian">《夜书所见》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="libai::p-wangtianmen">《望天门山》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-yinhu">《饮湖上初晴后雨》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="tangwan::p-wangdongting-liuyuxi">《望洞庭》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="libai::p-zaofabaidi">《早发白帝城》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangsheng::p-cailianqu-wang">《采莲曲》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="songwen::p-simaguang-simaguang">《司马光》</a></td><td>文言文</td><td>宋代散文</td></tr>
+</table>
+
+<h3 class="jc-grade">三年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="dufu::p-dufu-jueju">《绝句》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-huichong">《惠崇春江晚景》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="songshi::p-zengji-sanqudaozhong">《三衢道中》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-yijiangnan">《忆江南》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="xiaowen::p-shouzhu">《守株待兔》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="wanganshi::p-yuanri-wanganshi">《元日》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="dumu::p-qingming-dumu">《清明》</a></td><td>古诗词</td><td>杜牧</td></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-jiuyuejiuri">《九月九日忆山东兄弟》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="tangsheng::p-chuzhouxijian-weiyingwu">《滁州西涧》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-dalinsi">《大林寺桃花》</a></td><td>古诗词</td><td>白居易</td></tr>
+</table>
+
+<h3 class="jc-grade">四年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-luzhai">《鹿柴》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-mujiangyin">《暮江吟》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-tixilinbi">《题西林壁》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="songshi::p-luyue-xuemei">《雪梅》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="xiaowen::p-jingwei">《精卫填海》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="shangyin::p-chang-e-shangyin">《嫦娥》</a></td><td>古诗词</td><td>李商隐</td></tr>
+<tr><td><a data-goto="tangsheng::p-chusai-wangchangling">《出塞》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="tangsheng::p-liangzhouci-wangzhihuan">《凉州词》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="liqingzhao::p-xiarijueju-liqingzhao">《夏日绝句》</a></td><td>古诗词</td><td>李清照</td></tr>
+<tr><td><a data-goto="tangsheng::p-biedongda-gao">《别董大》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="xiaowen::p-wangrong">《王戎不取道旁李》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+</table>
+
+<h3 class="jc-grade">四年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="songshi::p-yangwanli-suxinshi">《宿新市徐公店》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="songshi::p-sishitianyuan-fanchengda">《四时田园杂兴》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="xinqiji::p-qingpingyue-xinqiji">《清平乐·村居》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="mao::p-mao-busuanzi-mei">《卜算子·咏梅》</a></td><td>古诗词</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="tangwan::p-feng-luoyin">《蜂》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="libai::p-duzuojingshan">《独坐敬亭山》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangsheng::p-furonglou-wangchangling">《芙蓉楼送辛渐》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="tangwan::p-saixiaqu-lulun">《塞下曲》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="mingqingshi::p-wangmian-momei">《墨梅》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="xiaowen::p-nangying">《囊萤夜读》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="xiaowen::p-tiechu">《铁杵成针》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="dufu::p-jiangpan-dufu">《江畔独步寻花》</a></td><td>古诗词</td><td>杜甫</td></tr>
+</table>
+
+<h3 class="jc-grade">五年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangwan::p-chan-yushinan">《蝉》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="tangwan::p-qiqiao-linjie">《乞巧》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="luyou::p-shier-luyou">《示儿》</a></td><td>古诗词</td><td>陆游</td></tr>
+<tr><td><a data-goto="songshi::p-linsheng-tilinandi">《题临安邸》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="mingqingshi::p-jihaizashi-jiuzhou">《己亥杂诗》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-shaonian-zhongguo">《少年中国说》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="wangwei::p-shanju-ww">《山居秋暝》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="tangwan::p-fengqiao-zhangji">《枫桥夜泊》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="mingqingshi::p-nalanxingde-changxiangsi">《长相思》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="tangwan::p-yugezi-zhangzhihe">《渔歌子》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="xiaowen::p-guren">《古人谈读书》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="songshi::p-zhuxi-guanshuyougan">《观书有感》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+</table>
+
+<h3 class="jc-grade">五年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="songshi::p-yangwanli-zhizinongbing">《稚子弄冰》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="songshi::p-leizhen-cunwan">《村晚》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="novel::p-sanguo-caochuan">《草船借箭》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-shuihu-jingyang">《景阳冈》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-xiyou-houwang">《猴王出世》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-honglou-chunqu">《红楼春趣》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="tangwan::p-youziyin-mengjiao">《游子吟》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-niaomingjian">《鸟鸣涧》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="tangsheng::p-congjunxing-wangchangling">《从军行》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-songyuaner">《送元二使安西》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="luyou::p-qiuyejiangxiao-luyou">《秋夜将晓出篱门迎凉有感》</a></td><td>古诗词</td><td>陆游</td></tr>
+<tr><td><a data-goto="libai::p-huanghelou">《黄鹤楼送孟浩然之广陵》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="xiaowen::p-maodun">《自相矛盾》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="songshi::p-wengjuan-xiangcusiyue">《乡村四月》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="xiaowen::p-yangshi">《杨氏之子》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+</table>
+
+<h3 class="jc-grade">六年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangsheng::p-sujiandejiang-meng">《宿建德江》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-liuyueershiri">《六月二十七日望湖楼醉书》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="xinqiji::p-xijiangyue-xinqiji">《西江月·夜行黄沙道中》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="tangsheng::p-guogurenzhuang-meng">《过故人庄》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="mao::p-qilv-changzheng">《七律·长征》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="xiandai::p-pusaman-dabaidi">《菩萨蛮·大柏地》</a></td><td>近现代旧体</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="songshi::p-zhuxi-chunri">《春日》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="tangchu::p-huixiangoushu-he">《回乡偶书》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="tangwan::p-langtaosha-liuyuxi">《浪淘沙》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="dumu::p-jiangnanchun-dumu">《江南春》</a></td><td>古诗词</td><td>杜牧</td></tr>
+<tr><td><a data-goto="wanganshi::p-shuhuyinxianshengbi-wanganshi">《书湖阴先生壁》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="zhuzi::p-lvshi-boyaguqin">《伯牙鼓琴》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="xiaowen::p-daishong">《书戴嵩画牛》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+</table>
+
+<h3 class="jc-grade">六年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="tangwan::p-hanshi-hanhong">《寒食》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="shijing::p-gushi-tiaotiao">《迢迢牵牛星》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="tangwan::p-shiwuyewangyue-wangjian">《十五夜望月》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="shijing::p-yuefu-changgexing">《长歌行》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="lihe::p-mashi-lihe">《马诗》</a></td><td>古诗词</td><td>李贺</td></tr>
+<tr><td><a data-goto="mingqingshi::p-shihuiyin">《石灰吟》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="mingqingshi::p-zhengxie-zhushi">《竹石》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="xiaowen::p-xueyi">《学弈》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="xiaowen::p-liangxiaoer">《两小儿辩日》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
+<tr><td><a data-goto="shijing::p-caiwei-sj">《采薇》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-chunyexiyu">《春夜喜雨》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-wenguanjun">《闻官军收河南河北》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="tangguwen::p-zaochun-hanyu">《早春呈水部张十八员外》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="fanzhongyan::p-jiangshangyuzhe-fanzhongyan">《江上渔者》</a></td><td>古诗词</td><td>范仲淹</td></tr>
+<tr><td><a data-goto="wanganshi::p-bochuanguazhou-wanganshi">《泊船瓜洲》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="songshi::p-youyuanbuzhi-yeshaoweng">《游园不值》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="songci::p-busuanzi-wang">《卜算子·送鲍浩然之浙东》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="songshi::p-huangtingjian-qingpingyue">《清平乐》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+</table>
+
+<h2 id="jc-chuzhong"><span class="num">03</span>初中（七年级上—九年级下）</h2>
+<h3 class="jc-grade">七年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="caocao::p-guancanghai-cc">《观沧海》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="libai::p-wenchangling">《闻王昌龄左迁龙标遥有此寄》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangchu::p-cibeigushan-wang">《次北固山下》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="yuanqu::p-tianjingsha-qiusi">《天净沙·秋思》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+<tr><td><a data-goto="weijinprose::p-yongxue-shishuo">《咏雪》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="weijinprose::p-chenqiu-shishuo">《陈太丘与友期行》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-lunyu-xuan">《论语十二章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="libai::p-emeishan">《峨眉山月歌》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="dufu::p-jiangnanlijingnian-df">《江南逢李龟年》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="tangsheng::p-xingjunjiuri-cen">《行军九日思长安故园》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="tangsheng::p-yeshangshouxiangcheng-liyi">《夜上受降城闻笛》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="weijinprose::p-zhugeliang-jiezishu">《诫子书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="mingqingwen::p-pusongling-lang">《狼》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-lvshi-chuanjingdeyiren">《穿井得一人》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-liezi-qirenyoutian">《杞人忧天》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="novel::p-xiyou-xiaosheng">《小圣施威降大圣》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="tangwan::p-qiuci-liuyuxi">《秋词》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="shangyin::p-yeyujibei-shangyin">《夜雨寄北》</a></td><td>古诗词</td><td>李商隐</td></tr>
+<tr><td><a data-goto="luyou::p-shiyueyue-luyou">《十一月四日风雨大作》</a></td><td>古诗词</td><td>陆游</td></tr>
+<tr><td><a data-goto="mingqingshi::p-tansitong-tongguan">《潼关》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+</table>
+
+<h3 class="jc-grade">七年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="songwen::p-simaguang-sunquanquanxue">《孙权劝学》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="shijing::p-beichao-mulanshi">《木兰诗》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="ouyangxiu::p-maiyouweng-ouyangxiu">《卖油翁》</a></td><td>古诗词</td><td>欧阳修</td></tr>
+<tr><td><a data-goto="wangwei::p-wangwei-zhuliguan">《竹里馆》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="libai::p-chunye">《春夜洛城闻笛》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangsheng::p-fengrujingshi-cen">《逢入京使》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="tangguwen::p-wanchun-hanyu">《晚春》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="tangwan::p-loushiming-liuyuxi">《陋室铭》</a></td><td>文言文</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="songwen::p-ailianshuo-zhoudunyi">《爱莲说》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="tangchu::p-dengyouzhou-chen">《登幽州台歌》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="dufu::p-wangyue-df">《望岳》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="wanganshi::p-denglaifeng-wanganshi">《登飞来峰》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="luyou::p-youshanxicun-luyou">《游山西村》</a></td><td>古诗词</td><td>陆游</td></tr>
+<tr><td><a data-goto="mingqingshi::p-jihaizashi-jiuzhou">《己亥杂诗》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="mingqingwen::p-jiyun-hezhongshishou">《河中石兽》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="songwen::p-shenkuo-huoban">《活板》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="dumu::p-poqinhuai-dumu">《泊秦淮》</a></td><td>古诗词</td><td>杜牧</td></tr>
+<tr><td><a data-goto="shangyin::p-jiasheng-shangyin">《贾生》</a></td><td>古诗词</td><td>李商隐</td></tr>
+<tr><td><a data-goto="songshi::p-yangwanli-guosongyuan">《过松源晨炊漆公店》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="songshi::p-zhaoshixiu-yueke">《约客》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+</table>
+
+<h3 class="jc-grade">八年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="weijinprose::p-sanxia-ldy">《三峡》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="weijinprose::p-taohongjing-daxiezhongshushu">《答谢中书书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-jichengtiansi">《记承天寺夜游》</a></td><td>文言文</td><td>苏轼</td></tr>
+<tr><td><a data-goto="weijinprose::p-wujun-yuzhuoyuansishu">《与朱元思书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="caocao::p-wangji-yewang">《野望》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="tangsheng::p-huanghelou-cuihao">《黄鹤楼》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="wangwei::p-shizhi-ww">《使至塞上》</a></td><td>古诗词</td><td>王维</td></tr>
+<tr><td><a data-goto="libai::p-dujingmen">《渡荆门送别》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-qiantanghu">《钱塘湖春行》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="shijing::p-tingzhong-qishu">《庭中有奇树》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="caocao::p-caocao-guishuisui">《龟虽寿》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="caocao::p-liuzhen-zengcongdier">《赠从弟》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="caocao::p-caozhi-liangfuxing">《梁甫行》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-dedaoduozhu">《得道多助，失道寡助》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-fuguibunengyin">《富贵不能淫》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-shengyuyouhuan">《生于忧患死于安乐》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-liezi-yugongyishan">《愚公移山》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="hanprose::p-zhouyafu-shiji">《周亚夫军细柳》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="taoyuanming::p-yinjiu-tym">《饮酒》</a></td><td>古诗词</td><td>陶渊明</td></tr>
+<tr><td><a data-goto="dufu::p-chunwang-df">《春望》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="lihe::p-yanmen-lihe">《雁门太守行》</a></td><td>古诗词</td><td>李贺</td></tr>
+<tr><td><a data-goto="dumu::p-chibi-dumu">《赤壁》</a></td><td>古诗词</td><td>杜牧</td></tr>
+<tr><td><a data-goto="liqingzhao::p-yujiaao-liqingzhao">《渔家傲》</a></td><td>古诗词</td><td>李清照</td></tr>
+<tr><td><a data-goto="songci::p-yanshu-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="ouyangxiu::p-caisangzi-ouyangxiu">《采桑子》</a></td><td>古诗词</td><td>欧阳修</td></tr>
+<tr><td><a data-goto="songci::p-zhudunru-xiangjianhuan">《相见欢》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="liqingzhao::p-ruimengling-liqingzhao">《如梦令》</a></td><td>古诗词</td><td>李清照</td></tr>
+</table>
+
+<h3 class="jc-grade">八年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="taoyuanming::p-taohuayuanji-tym">《桃花源记》</a></td><td>文言文</td><td>陶渊明</td></tr>
+<tr><td><a data-goto="tangguwen::p-xiaoshitan-liuzongyuan">《小石潭记》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="mingqingwen::p-weixueyi-hezhouji">《核舟记》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-shihaoli">《石壕吏》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="shijing::p-guanju-sj">《关雎》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="shijing::p-jianjia-sj">《蒹葭》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="shijing::p-shijing-shiwei">《式微》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="shijing::p-shijing-zijin">《子衿》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="tangchu::p-songdufu-wangbo">《送杜少府之任蜀州》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
+<tr><td><a data-goto="tangsheng::p-wangdongting-meng">《望洞庭湖赠张丞相》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="zhuzi::p-zhuangzi-beimingyouyu">《北冥有鱼》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-haoliang-zhuangzi">《庄子与惠子游于濠梁之上》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-suiyou-liji">《虽有嘉肴》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-dadao-liji">《大道之行也》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="tangguwen::p-mashuo-hanyu">《马说》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-maowu">《茅屋为秋风所破歌》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="baijuyi::p-baijuyi-maitanweng">《卖炭翁》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="tangsheng::p-tiposhansi-changjian">《题破山寺后禅院》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="libai::p-songyouren">《送友人》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="sushi::p-busuanzi-sushi">《卜算子·黄州定慧院寓居作》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="luyou::p-busuanzi-luyou">《卜算子·咏梅》</a></td><td>古诗词</td><td>陆游</td></tr>
+</table>
+
+<h3 class="jc-grade">九年级上</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="mao::p-qinyuanchun-xue">《沁园春·雪》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="fanzhongyan::p-yueyanglouji-fanzhongyan">《岳阳楼记》</a></td><td>文言文</td><td>范仲淹</td></tr>
+<tr><td><a data-goto="ouyangxiu::p-zuiwengtingji-ouyangxiu">《醉翁亭记》</a></td><td>文言文</td><td>欧阳修</td></tr>
+<tr><td><a data-goto="mingqingwen::p-huxinting-kanxue">《湖心亭看雪》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="libai::p-xinglunan">《行路难》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="tangwan::p-choule-tang-liuyuxi">《酬乐天扬州初逢席上见赠》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-shuidiaogetou">《水调歌头》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="dufu::p-yueyeyisheid-df">《月夜忆舍弟》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="tangsheng::p-changshaguo-liuchangqing">《长沙过贾谊宅》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="tangguwen::p-zuoqianlanguan-hanyu">《左迁至蓝关示侄孙湘》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="tangwan::p-shangshanzaoxing-wen">《商山早行》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="tangwan::p-xianyang-xuhun">《咸阳城东楼》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
+<tr><td><a data-goto="shangyin::p-wuti-shangyin">《无题》</a></td><td>古诗词</td><td>李商隐</td></tr>
+<tr><td><a data-goto="songci::p-qinguan-xingxiangzi">《行香子》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="xinqiji::p-chounuer-xinqiji">《丑奴儿·书博山道中壁》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="novel::p-shuihu-shengchengang">《智取生辰纲》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-rulin-fanjin">《范进中举》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-sanguo-sangumaolu">《三顾茅庐》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+<tr><td><a data-goto="novel::p-honglou-liulaolao">《刘姥姥进大观园》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
+</table>
+
+<h3 class="jc-grade">九年级下</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-yuwosuoyuoye">《鱼我所欲也》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="hanprose::p-zhanguoce-tangju">《唐雎不辱使命》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="songwen::p-songlian-songdongyang">《送东阳马生序》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="fanzhongyan::p-yujiaao-fanzhongyan">《渔家傲·秋思》</a></td><td>古诗词</td><td>范仲淹</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-jiangchengzi-mizhou">《江城子·密州出猎》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="xinqiji::p-pozhenzi-xinqiji">《破阵子》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="mingqingshi::p-qiujin-manjianghong">《满江红》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="sushi::p-dingfengbo-sushi">《定风波》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="songci::p-chenyiyi-linjiangxian">《临江仙·夜登小阁》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="xinqiji::p-taichangyin-xinqiji">《太常引》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="mingqingshi::p-nalanxingde-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="hanprose::p-zuozhuan-caoguilunzhan">《曹刿论战》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="hanprose::p-zhanguoce-zouji">《邹忌讽齐王纳谏》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="hanprose::p-simaqian-chenshe">《陈涉世家》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="weijinprose::p-zhugeliang-chushibiao">《出师表》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="shijing::p-yuefu-shiwucongjun">《十五从军征》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="tangsheng::p-baixuege-censhen">《白雪歌送武判官归京》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="xinqiji::p-nanxiangzi-xinqiji">《南乡子·登京口北固亭有怀》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="mingqingshi::p-guolingdingyang">《过零丁洋》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="yuanqu::p-shanpoyang-tongguan">《山坡羊·潼关怀古》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+<tr><td><a data-goto="mingqingshi::p-nananjun">《南安军》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="mingqingshi::p-xiawanchun-bieyunjian">《别云间》</a></td><td>古诗词</td><td>明清诗词</td></tr>
+<tr><td><a data-goto="yuanqu::p-shanpoyang-lishan">《山坡羊·骊山怀古》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+<tr><td><a data-goto="yuanqu::p-wangpan-chaotianzi">《朝天子·咏喇叭》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+</table>
+
+<h2 id="jc-gaozhong"><span class="num">04</span>高中（必修与选择性必修）</h2>
+<h3 class="jc-grade">必修上册</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="mao::p-qinyuanchun-changsha">《沁园春·长沙》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="shijing::p-shijing-fuyi">《芣苢》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="songshi::p-chayangge-yang">《插秧歌》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="caocao::p-duange-cc">《短歌行》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
+<tr><td><a data-goto="taoyuanming::p-guiyuantianju-tym">《归园田居》</a></td><td>古诗词</td><td>陶渊明</td></tr>
+<tr><td><a data-goto="libai::p-mengyou">《梦游天姥吟留别》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="dufu::p-denggao-df">《登高》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="baijuyi::p-pipa-bjy">《琵琶行并序》</a></td><td>古诗词</td><td>白居易</td></tr>
+<tr><td><a data-goto="sushi::p-niannujiao-sushi">《念奴娇·赤壁怀古》</a></td><td>古诗词</td><td>苏轼</td></tr>
+<tr><td><a data-goto="xinqiji::p-yongyule-xinqiji">《永遇乐·京口北固亭怀古》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
+<tr><td><a data-goto="liqingzhao::p-shengshengman-liqingzhao">《声声慢》</a></td><td>古诗词</td><td>李清照</td></tr>
+<tr><td><a data-goto="zhuzi::p-quanxue-xun">《劝学》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="tangguwen::p-shishuo-hanyu">《师说》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-chibifu">《赤壁赋》</a></td><td>文言文</td><td>苏轼</td></tr>
+<tr><td><a data-goto="mingqingwen::p-yaonai-dengtaishanji">《登泰山记》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="shijing::p-shijing-jingnv">《静女》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="shijing::p-shejiang-caifurong">《涉江采芙蓉》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="songci::p-yumeiren-liyu">《虞美人》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="songci::p-qinguan-queqiaoxian">《鹊桥仙》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+</table>
+
+<h3 class="jc-grade">必修下册</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="zhuzi::p-shizuo-lunyu">《子路曾皙冉有公西华侍坐》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-qihuanjinwen">《齐桓晋文之事》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-zhuangzi-paodingjieniu">《庖丁解牛》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="hanprose::p-zhuzhiwu-zuozhuan">《烛之武退秦师》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="hanprose::p-hongmenyan-sima">《鸿门宴》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="yuanqu::p-guanhanqing-doueyuan">《窦娥冤》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+<tr><td><a data-goto="hanprose::p-jianzhuke-li">《谏逐客书》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="mingqingwen::p-linjuemin-yuqishu">《与妻书》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="mingqingwen::p-pusongling-cuzhi">《促织》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="hanprose::p-jianzongshisi-wei">《谏太宗十思疏》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="wanganshi::p-dasimaliyishu-wanganshi">《答司马谏议书》</a></td><td>文言文</td><td>王安石</td></tr>
+<tr><td><a data-goto="dumu::p-afanggongfu-dumu">《阿房宫赋》</a></td><td>文言文</td><td>杜牧</td></tr>
+<tr><td><a data-goto="songwen::p-liuguolun-suxun">《六国论》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-dengyueyanglou">《登岳阳楼》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="wanganshi::p-guizhixiang-wanganshi">《桂枝香·金陵怀古》</a></td><td>古诗词</td><td>王安石</td></tr>
+<tr><td><a data-goto="songci::p-zhangxiaoxiang-niannujiao">《念奴娇·过洞庭》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="yuanqu::p-youyuan-tang">《游园》</a></td><td>古诗词</td><td>元曲作家</td></tr>
+<tr><td><a data-goto="yuanqu::p-wangshifu-changting">《长亭送别》</a></td><td>戏曲</td><td>元曲作家</td></tr>
+</table>
+<div class="note">注：《长亭送别》在人教版旧教材必修四第四单元，为传统背诵篇目；统编版必修下册第二单元收《窦娥冤》《雷雨》《哈姆莱特》，未列本课，故附于此并标注归属，正文见「元曲作家」页。</div>
+
+<h3 class="jc-grade">选择性必修上册</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="zhuzi::p-lunyu-xuan">《论语十二章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-liji-daxuezhidao">《大学之道》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-mengzi-burenzhixin">《人皆有不忍人之心》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-laozi-sizhang">《老子四章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-zhuangzi-wushizhihu">《五石之瓠》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="zhuzi::p-mozi-jianai">《兼爱》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
+<tr><td><a data-goto="shijing::p-shijing-wuyi">《无衣》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="songci::p-chunjianghuayeyue-zhang">《春江花月夜》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="libai::p-jiangjinjiu">《将进酒》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="sushi::p-sushi-jiangchengzi-yimao">《江城子·乙卯正月二十日夜记梦》</a></td><td>古诗词</td><td>苏轼</td></tr>
+</table>
+
+<h3 class="jc-grade">选择性必修中册</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="hanprose::p-simaqian-qunyuanliezhuan">《屈原列传》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="hanprose::p-bangu-suwuzhuan">《苏武传》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="hanprose::p-jiayi-guoqinlun">《过秦论》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
+<tr><td><a data-goto="ouyangxiu::p-wudaishilingguanchuanxu-ouyangxiu">《五代史伶官传序》</a></td><td>文言文</td><td>欧阳修</td></tr>
+<tr><td><a data-goto="tangsheng::p-yangexing-gao">《燕歌行并序》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
+<tr><td><a data-goto="lihe::p-konghou-lihe">《李凭箜篌引》</a></td><td>古诗词</td><td>李贺</td></tr>
+<tr><td><a data-goto="shangyin::p-jinse-shangyin">《锦瑟》</a></td><td>古诗词</td><td>李商隐</td></tr>
+<tr><td><a data-goto="luyou::p-shufen-luyou">《书愤》</a></td><td>古诗词</td><td>陆游</td></tr>
+</table>
+
+<h3 class="jc-grade">选择性必修下册</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="shijing::p-shijing-meng">《氓》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="quyuan::p-lisao-qu">《离骚》</a></td><td>古诗词</td><td>屈原与《楚辞》</td></tr>
+<tr><td><a data-goto="shijing::p-yuefu-kongque">《孔雀东南飞》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
+<tr><td><a data-goto="libai::p-shudaonan">《蜀道难》</a></td><td>古诗词</td><td>李白</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-shuxiang">《蜀相》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="songci::p-wanghaichao-liuyong">《望海潮》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="songci::p-jiangkui-yangzhouman">《扬州慢》</a></td><td>古诗词</td><td>两宋词人</td></tr>
+<tr><td><a data-goto="weijinprose::p-limi-chenqingbiao">《陈情表》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="mingqingwen::p-xiangjixuanzhi">《项脊轩志》</a></td><td>文言文</td><td>明清散文</td></tr>
+<tr><td><a data-goto="weijinprose::p-lanting-wxz">《兰亭集序》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="taoyuanming::p-guiqulaixici-tym">《归去来兮辞》</a></td><td>文言文</td><td>陶渊明</td></tr>
+<tr><td><a data-goto="tangguwen::p-zhongshu-guotuotuo-liuzongyuan">《种树郭橐驼传》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
+<tr><td><a data-goto="songwen::p-shizhongshan-sushi">《石钟山记》</a></td><td>文言文</td><td>宋代散文</td></tr>
+<tr><td><a data-goto="weijinprose::p-baozhao-nixinglunan">《拟行路难》</a></td><td>古诗词</td><td>魏晋南北朝散文</td></tr>
+<tr><td><a data-goto="dufu::p-dufu-kezhi">《客至》</a></td><td>古诗词</td><td>杜甫</td></tr>
+<tr><td><a data-goto="songshi::p-dengkuaige-huang">《登快阁》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
+<tr><td><a data-goto="luyou::p-linanyuchun-luyou">《临安春雨初霁》</a></td><td>古诗词</td><td>陆游</td></tr>
+</table>
+
+<h2 id="jc-xiandai"><span class="num">05</span>近现代旧体、现代诗与外国诗</h2>
+<h3 class="jc-grade">小学</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="mao::p-qilv-changzheng">《七律·长征》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="xiandai::p-pusaman-dabaidi">《菩萨蛮·大柏地》</a></td><td>近现代旧体</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-shaonian-zhongguo">《少年中国说》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+</table>
+
+<h3 class="jc-grade">初中</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="mao::p-qinyuanchun-xue">《沁园春·雪》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="xiandai::p-woai-zhetudi">《我爱这土地》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-yuguangzhong-xiangchou">《乡愁》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-siyuetian">《你是人间的四月天》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-wokan">《我看》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-meiling-sanzhang">《梅岭三章》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-haiyan">《海燕》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-shenyimo-yueye">《月夜》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-xiaohong-mupan">《萧红墓畔口占》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-duanzhang">《断章》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-ludi-fengyuyin">《风雨》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-tongyi">《统一》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+</table>
+
+<h3 class="jc-grade">高中</h3>
+<table class="jc-table">
+<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
+<tr><td><a data-goto="mao::p-qinyuanchun-changsha">《沁园春·长沙》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
+<tr><td><a data-goto="xiandai::p-lizai-diqiu">《立在地球边上放号》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-hongzhu">《红烛》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-eriduoxuefeng">《峨日朵雪峰之侧》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+<tr><td><a data-goto="xiandai::p-zhiyunque">《致云雀》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
+</table>
+
+<div class="aside"><b>说明：</b>本索引是全书的总入口。若想按作者系统研读，请回「教材篇目总索引」页或直接使用左侧目录；若想按文学史时序通读，请从首页的"全书结构地图"进入。</div>
 </section>
 <section class="page" id="xiaowen"><header class="author-cover">
   <div class="eyebrow">统编小学 · 文言启蒙 · 寓言与故事</div>
@@ -10587,667 +11278,6 @@
 </div>
 <p class="note">注：选修教材各版本选目略有出入，本表依《中华传统文化专题研讨》常见目录整理；第一单元以《论语》整本书阅读与专题研讨为主，故不列单篇。第二十课两篇合为一课，同格分列。</p>
 </section>
-<section class="page" id="indexall"><header class="author-cover">
-  <div class="eyebrow">附录 · 速查工具</div>
-  <h1>教材篇目总索引</h1>
-  <div class="sub">按作者汇总统编版小学、初中、高中语文教材古代作品篇目 · 点击篇名或作者名直达对应内容</div>
-</header>
-
-<div class="lead">
-本索引把全书涉及的教材篇目按作者汇总，便于按图索骥。表中<b>作者名</b>可直达其专页或人物条目，<b>篇名</b>可直达该篇原文与解析。教材选篇在不同印次、地区间略有出入，此处依统编版常见目录整理，作学习梳理之用，不作版本定论。
-</div>
-
-<h2 id="idx-new"><span class="num">01</span>专页速查：小学文言与近现代诗词</h2>
-<div class="aside"><b>提示：</b>若想按<b>课本册次</b>（小学一上→高中选必下）逐篇查阅并点击直达，请用附录中的<a data-goto="jiaocai" style="cursor:pointer">「教材顺序全篇索引」</a>页；本页则按<b>作者与学段</b>速查，篇名均可点击直达。</div>
-<div class="tw">
-<table class="t-new">
-<colgroup><col style="width:158px"><col></colgroup>
-  <tr><th>专页</th><th>收录内容</th></tr>
-  <tr><td><a data-goto="xiaowen" style="cursor:pointer">小学文言启蒙</a></td><td><span class="tt"><a data-goto="xiaowen::p-shouzhu" style="cursor:pointer">守株待兔</a></span>、<span class="tt"><a data-goto="xiaowen::p-jingwei" style="cursor:pointer">精卫填海</a></span>、<span class="tt"><a data-goto="xiaowen::p-wangrong" style="cursor:pointer">王戎不取道旁李</a></span>、<span class="tt"><a data-goto="xiaowen::p-nangying" style="cursor:pointer">囊萤夜读</a></span>、<span class="tt"><a data-goto="xiaowen::p-tiechu" style="cursor:pointer">铁杵成针</a></span>、<span class="tt"><a data-goto="xiaowen::p-guren" style="cursor:pointer">古人谈读书</a></span>、<span class="tt"><a data-goto="xiaowen::p-maodun" style="cursor:pointer">自相矛盾</a></span>、<span class="tt"><a data-goto="xiaowen::p-yangshi" style="cursor:pointer">杨氏之子</a></span>、<span class="tt"><a data-goto="xiaowen::p-daishong" style="cursor:pointer">书戴嵩画牛</a></span>、<span class="tt"><a data-goto="xiaowen::p-xueyi" style="cursor:pointer">学弈</a></span>、<span class="tt"><a data-goto="xiaowen::p-liangxiaoer" style="cursor:pointer">两小儿辩日</a></span>（共11篇，均附完整原文）</td></tr>
-  <tr><td><a data-goto="xiandai" style="cursor:pointer">近现代诗词</a></td><td><span class="tt"><a data-goto="xiandai::p-shaonian-zhongguo" style="cursor:pointer">少年中国说</a></span>、<span class="tt"><a data-goto="xiandai::p-pusaman-dabaidi" style="cursor:pointer">菩萨蛮·大柏地</a></span>、<span class="tt"><a data-goto="xiandai::p-woai-zhetudi" style="cursor:pointer">我爱这土地</a></span>、<span class="tt"><a data-goto="xiandai::p-siyuetian" style="cursor:pointer">你是人间的四月天</a></span>、<span class="tt"><a data-goto="xiandai::p-wokan" style="cursor:pointer">我看</a></span>、<span class="tt"><a data-goto="xiandai::p-duanzhang" style="cursor:pointer">断章</a></span>、<span class="tt"><a data-goto="xiandai::p-meiling-sanzhang" style="cursor:pointer">梅岭三章</a></span>、<span class="tt"><a data-goto="xiandai::p-xiaohong-mupan" style="cursor:pointer">萧红墓畔口占</a></span>、<span class="tt"><a data-goto="xiandai::p-tongyi" style="cursor:pointer">统一</a></span>、<span class="tt"><a data-goto="xiandai::p-haiyan" style="cursor:pointer">海燕</a></span>、<span class="tt"><a data-goto="xiandai::p-lizai-diqiu" style="cursor:pointer">立在地球边上放号</a></span>、<span class="tt"><a data-goto="xiandai::p-hongzhu" style="cursor:pointer">红烛</a></span>、<span class="tt"><a data-goto="xiandai::p-eriduoxuefeng" style="cursor:pointer">峨日朵雪峰之侧</a></span>、<span class="tt"><a data-goto="xiandai::p-zhiyunque" style="cursor:pointer">致云雀</a></span>（共14篇，外国诗注译者）</td></tr>
-</table>
-</div>
-
-<h2 id="idx-ming"><span class="num">02</span>重点作家篇目速查</h2>
-<div class="aside"><b>用法：</b>十八位重点作家各有专页，点<b>作者名</b>进入该页通读生平与全部篇目；点<b>篇名</b>直接跳到那一首的原文与解析。同一篇目跨学段重出者，两处链接指向同一篇。</div>
-<div class="tw">
-<table class="t-ming">
-<colgroup><col style="width:86px"><col style="width:34%"><col style="width:33%"><col></colgroup>
-  <tr><th>作者</th><th>小学</th><th>初中</th><th>高中</th></tr>
-  <tr><td><a data-goto="libai" style="cursor:pointer"><b>李白</b></a></td><td><span class="tt"><a data-goto="libai::p-guanglangyue" style="cursor:pointer">古朗月行</a></span>、<span class="tt"><a data-goto="libai::p-jingyesi" style="cursor:pointer">静夜思</a></span>、<span class="tt"><a data-goto="libai::p-zengwanglun" style="cursor:pointer">赠汪伦</a></span>、<span class="tt"><a data-goto="libai::p-wanglushan" style="cursor:pointer">望庐山瀑布</a></span>、<span class="tt"><a data-goto="libai::p-yeshan" style="cursor:pointer">夜宿山寺</a></span>、<span class="tt"><a data-goto="libai::p-wangtianmen" style="cursor:pointer">望天门山</a></span>、<span class="tt"><a data-goto="libai::p-zaofabaidi" style="cursor:pointer">早发白帝城</a></span>、<span class="tt"><a data-goto="libai::p-huanghelou" style="cursor:pointer">黄鹤楼送孟浩然</a></span>、<span class="tt"><a data-goto="libai::p-duzuojingshan" style="cursor:pointer">独坐敬亭山</a></span></td><td><span class="tt"><a data-goto="libai::p-wenchangling" style="cursor:pointer">闻王昌龄左迁龙标</a></span>、<span class="tt"><a data-goto="libai::p-emeishan" style="cursor:pointer">峨眉山月歌</a></span>、<span class="tt"><a data-goto="libai::p-chunye" style="cursor:pointer">春夜洛城闻笛</a></span>、<span class="tt"><a data-goto="libai::p-dujingmen" style="cursor:pointer">渡荆门送别</a></span>、<span class="tt"><a data-goto="libai::p-songyouren" style="cursor:pointer">送友人</a></span>、<span class="tt"><a data-goto="libai::p-xinglunan" style="cursor:pointer">行路难</a></span>、<span class="tt"><a data-goto="libai::p-yuexia" style="cursor:pointer">月下独酌</a></span></td><td><span class="tt"><a data-goto="libai::p-shudaonan" style="cursor:pointer">蜀道难</a></span>、<span class="tt"><a data-goto="libai::p-jiangjinjiu" style="cursor:pointer">将进酒</a></span>、<span class="tt"><a data-goto="libai::p-mengyou" style="cursor:pointer">梦游天姥吟留别</a></span></td></tr>
-  <tr><td><a data-goto="dufu" style="cursor:pointer"><b>杜甫</b></a></td><td><span class="tt"><a data-goto="dufu::p-dufu-jueju" style="cursor:pointer">绝句二首</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-chunyexiyu" style="cursor:pointer">春夜喜雨</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-wenguanjun" style="cursor:pointer">闻官军收河南河北</a></span></td><td><span class="tt"><a data-goto="dufu::p-wangyue-df" style="cursor:pointer">望岳</a></span>、<span class="tt"><a data-goto="dufu::p-chunwang-df" style="cursor:pointer">春望</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-shihaoli" style="cursor:pointer">石壕吏</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-maowu" style="cursor:pointer">茅屋为秋风所破歌</a></span></td><td><span class="tt"><a data-goto="dufu::p-denggao-df" style="cursor:pointer">登高</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-shuxiang" style="cursor:pointer">蜀相</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-kezhi" style="cursor:pointer">客至</a></span>、<span class="tt"><a data-goto="dufu::p-dufu-dengyueyanglou" style="cursor:pointer">登岳阳楼</a></span></td></tr>
-  <tr><td><a data-goto="sushi" style="cursor:pointer"><b>苏轼</b></a></td><td><span class="tt"><a data-goto="sushi::p-sushi-yinhu" style="cursor:pointer">饮湖上初晴后雨</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-zengliujingwen" style="cursor:pointer">赠刘景文</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-huichong" style="cursor:pointer">惠崇春江晚景</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-tixilinbi" style="cursor:pointer">题西林壁</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-liuyueershiri" style="cursor:pointer">六月二十七日望湖楼醉书</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-huanxisha" style="cursor:pointer">浣溪沙</a></span></td><td><span class="tt"><a data-goto="sushi::p-sushi-jichengtiansi" style="cursor:pointer">记承天寺夜游</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-shuidiaogetou" style="cursor:pointer">水调歌头</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-jiangchengzi-mizhou" style="cursor:pointer">江城子·密州出猎</a></span>、<span class="tt"><a data-goto="sushi::p-dingfengbo-sushi" style="cursor:pointer">定风波</a></span></td><td><span class="tt"><a data-goto="sushi::p-niannujiao-sushi" style="cursor:pointer">念奴娇·赤壁怀古</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-chibifu" style="cursor:pointer">赤壁赋</a></span>、<span class="tt"><a data-goto="sushi::p-sushi-jiangchengzi-yimao" style="cursor:pointer">江城子·乙卯正月二十日夜记梦</a></span></td></tr>
-  <tr><td><a data-goto="baijuyi" style="cursor:pointer"><b>白居易</b></a></td><td><span class="tt"><a data-goto="baijuyi::p-baijuyi-chishang" style="cursor:pointer">池上</a></span>、<span class="tt"><a data-goto="baijuyi::p-fude-bjy" style="cursor:pointer">赋得古原草送别</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-yijiangnan" style="cursor:pointer">忆江南</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-dalinsi" style="cursor:pointer">大林寺桃花</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-mujiangyin" style="cursor:pointer">暮江吟</a></span></td><td><span class="tt"><a data-goto="baijuyi::p-baijuyi-qiantanghu" style="cursor:pointer">钱塘湖春行</a></span>、<span class="tt"><a data-goto="baijuyi::p-baijuyi-maitanweng" style="cursor:pointer">卖炭翁</a></span></td><td><span class="tt"><a data-goto="baijuyi::p-pipa-bjy" style="cursor:pointer">琵琶行并序</a></span></td></tr>
-  <tr><td><a data-goto="wangwei" style="cursor:pointer"><b>王维</b></a></td><td><span class="tt"><a data-goto="wangwei::p-wangwei-hua" style="cursor:pointer">画</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-jiuyuejiuri" style="cursor:pointer">九月九日忆山东兄弟</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-luzhai" style="cursor:pointer">鹿柴</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-songyuaner" style="cursor:pointer">送元二使安西</a></span>、<span class="tt"><a data-goto="wangwei::p-wangwei-niaomingjian" style="cursor:pointer">鸟鸣涧</a></span>、<span class="tt"><a data-goto="wangwei::p-shanju-ww" style="cursor:pointer">山居秋暝</a></span></td><td><span class="tt"><a data-goto="wangwei::p-wangwei-zhuliguan" style="cursor:pointer">竹里馆</a></span>、<span class="tt"><a data-goto="wangwei::p-shizhi-ww" style="cursor:pointer">使至塞上</a></span></td><td><span class="tt"><a data-goto="wangwei::p-shanju-ww" style="cursor:pointer">山居秋暝</a></span></td></tr>
-  <tr><td><a data-goto="xinqiji" style="cursor:pointer"><b>辛弃疾</b></a></td><td><span class="tt"><a data-goto="xinqiji::p-qingpingyue-xinqiji" style="cursor:pointer">清平乐·村居</a></span>、<span class="tt"><a data-goto="xinqiji::p-xijiangyue-xinqiji" style="cursor:pointer">西江月·夜行黄沙道中</a></span></td><td><span class="tt"><a data-goto="xinqiji::p-chounuer-xinqiji" style="cursor:pointer">丑奴儿</a></span>、<span class="tt"><a data-goto="xinqiji::p-pozhenzi-xinqiji" style="cursor:pointer">破阵子</a></span>、<span class="tt"><a data-goto="xinqiji::p-nanxiangzi-xinqiji" style="cursor:pointer">南乡子</a></span>、<span class="tt"><a data-goto="xinqiji::p-taichangyin-xinqiji" style="cursor:pointer">太常引</a></span></td><td><span class="tt"><a data-goto="xinqiji::p-yongyule-xinqiji" style="cursor:pointer">永遇乐·京口北固亭怀古</a></span></td></tr>
-  <tr><td><a data-goto="luyou" style="cursor:pointer"><b>陆游</b></a></td><td><span class="tt"><a data-goto="luyou::p-shier-luyou" style="cursor:pointer">示儿</a></span>、<span class="tt"><a data-goto="luyou::p-qiuyejiangxiao-luyou" style="cursor:pointer">秋夜将晓出篱门迎凉有感</a></span></td><td><span class="tt"><a data-goto="luyou::p-youshanxicun-luyou" style="cursor:pointer">游山西村</a></span>、<span class="tt"><a data-goto="luyou::p-shiyueyue-luyou" style="cursor:pointer">十一月四日风雨大作</a></span>、<span class="tt"><a data-goto="luyou::p-busuanzi-luyou" style="cursor:pointer">卜算子·咏梅</a></span></td><td><span class="tt"><a data-goto="luyou::p-shufen-luyou" style="cursor:pointer">书愤</a></span>、<span class="tt"><a data-goto="luyou::p-linanyuchun-luyou" style="cursor:pointer">临安春雨初霁</a></span></td></tr>
-  <tr><td><a data-goto="liqingzhao" style="cursor:pointer"><b>李清照</b></a></td><td><span class="tt"><a data-goto="liqingzhao::p-xiarijueju-liqingzhao" style="cursor:pointer">夏日绝句</a></span></td><td><span class="tt"><a data-goto="liqingzhao::p-ruimengling-liqingzhao" style="cursor:pointer">如梦令</a></span>、<span class="tt"><a data-goto="liqingzhao::p-yujiaao-liqingzhao" style="cursor:pointer">渔家傲</a></span></td><td><span class="tt"><a data-goto="liqingzhao::p-shengshengman-liqingzhao" style="cursor:pointer">声声慢</a></span></td></tr>
-  <tr><td><a data-goto="wanganshi" style="cursor:pointer"><b>王安石</b></a></td><td><span class="tt"><a data-goto="wanganshi::p-meihua-wanganshi" style="cursor:pointer">梅花</a></span>、<span class="tt"><a data-goto="wanganshi::p-yuanri-wanganshi" style="cursor:pointer">元日</a></span>、<span class="tt"><a data-goto="wanganshi::p-shuhuyinxianshengbi-wanganshi" style="cursor:pointer">书湖阴先生壁</a></span>、<span class="tt"><a data-goto="wanganshi::p-bochuanguazhou-wanganshi" style="cursor:pointer">泊船瓜洲</a></span></td><td><span class="tt"><a data-goto="wanganshi::p-denglaifeng-wanganshi" style="cursor:pointer">登飞来峰</a></span></td><td><span class="tt"><a data-goto="wanganshi::p-guizhixiang-wanganshi" style="cursor:pointer">桂枝香·金陵怀古</a></span>、<span class="tt"><a data-goto="wanganshi::p-dasimaliyishu-wanganshi" style="cursor:pointer">答司马谏议书</a></span></td></tr>
-  <tr><td><a data-goto="fanzhongyan" style="cursor:pointer"><b>范仲淹</b></a></td><td><span class="tt"><a data-goto="fanzhongyan::p-jiangshangyuzhe-fanzhongyan" style="cursor:pointer">江上渔者</a></span></td><td><span class="tt"><a data-goto="fanzhongyan::p-yueyanglouji-fanzhongyan" style="cursor:pointer">岳阳楼记</a></span>、<span class="tt"><a data-goto="fanzhongyan::p-yujiaao-fanzhongyan" style="cursor:pointer">渔家傲·秋思</a></span></td><td>—</td></tr>
-  <tr><td><a data-goto="ouyangxiu" style="cursor:pointer"><b>欧阳修</b></a></td><td>—</td><td><span class="tt"><a data-goto="ouyangxiu::p-maiyouweng-ouyangxiu" style="cursor:pointer">卖油翁</a></span>、<span class="tt"><a data-goto="ouyangxiu::p-zuiwengtingji-ouyangxiu" style="cursor:pointer">醉翁亭记</a></span>、<span class="tt"><a data-goto="ouyangxiu::p-caisangzi-ouyangxiu" style="cursor:pointer">采桑子</a></span></td><td><span class="tt"><a data-goto="ouyangxiu::p-wudaishilingguanchuanxu-ouyangxiu" style="cursor:pointer">五代史伶官传序</a></span></td></tr>
-  <tr><td><a data-goto="shangyin" style="cursor:pointer"><b>李商隐</b></a></td><td><span class="tt"><a data-goto="shangyin::p-chang-e-shangyin" style="cursor:pointer">嫦娥</a></span></td><td><span class="tt"><a data-goto="shangyin::p-yeyujibei-shangyin" style="cursor:pointer">夜雨寄北</a></span>、<span class="tt"><a data-goto="shangyin::p-jiasheng-shangyin" style="cursor:pointer">贾生</a></span>、<span class="tt"><a data-goto="shangyin::p-wuti-shangyin" style="cursor:pointer">无题</a></span></td><td><span class="tt"><a data-goto="shangyin::p-jinse-shangyin" style="cursor:pointer">锦瑟</a></span></td></tr>
-  <tr><td><a data-goto="dumu" style="cursor:pointer"><b>杜牧</b></a></td><td><span class="tt"><a data-goto="dumu::p-shanxing-dumu" style="cursor:pointer">山行</a></span>、<span class="tt"><a data-goto="dumu::p-qingming-dumu" style="cursor:pointer">清明</a></span>、<span class="tt"><a data-goto="dumu::p-jiangnanchun-dumu" style="cursor:pointer">江南春</a></span></td><td><span class="tt"><a data-goto="dumu::p-chibi-dumu" style="cursor:pointer">赤壁</a></span>、<span class="tt"><a data-goto="dumu::p-poqinhuai-dumu" style="cursor:pointer">泊秦淮</a></span></td><td><span class="tt"><a data-goto="dumu::p-afanggongfu-dumu" style="cursor:pointer">阿房宫赋</a></span></td></tr>
-  <tr><td><a data-goto="lihe" style="cursor:pointer"><b>李贺</b></a></td><td><span class="tt"><a data-goto="lihe::p-mashi-lihe" style="cursor:pointer">马诗</a></span></td><td><span class="tt"><a data-goto="lihe::p-yanmen-lihe" style="cursor:pointer">雁门太守行</a></span></td><td><span class="tt"><a data-goto="lihe::p-konghou-lihe" style="cursor:pointer">李凭箜篌引</a></span></td></tr>
-  <tr><td><a data-goto="taoyuanming" style="cursor:pointer"><b>陶渊明</b></a></td><td>—</td><td><span class="tt"><a data-goto="taoyuanming::p-yinjiu-tym" style="cursor:pointer">饮酒</a></span>、<span class="tt"><a data-goto="taoyuanming::p-taohuayuanji-tym" style="cursor:pointer">桃花源记</a></span></td><td><span class="tt"><a data-goto="taoyuanming::p-guiyuantianju-tym" style="cursor:pointer">归园田居</a></span>、<span class="tt"><a data-goto="taoyuanming::p-guiqulaixici-tym" style="cursor:pointer">归去来兮辞</a></span></td></tr>
-  <tr><td><a data-goto="quyuan" style="cursor:pointer"><b>屈原</b></a></td><td>—</td><td>—</td><td><span class="tt"><a data-goto="quyuan::p-lisao-qu" style="cursor:pointer">离骚</a>（节选）</span>、<span class="tt"><a data-goto="quyuan::p-guoshang-qu" style="cursor:pointer">国殇</a></span></td></tr>
-  <tr><td><a data-goto="mao" style="cursor:pointer"><b>毛泽东</b></a></td><td><span class="tt"><a data-goto="mao::p-qilv-changzheng" style="cursor:pointer">七律·长征</a></span>、<span class="tt"><a data-goto="mao::p-mao-busuanzi-mei" style="cursor:pointer">卜算子·咏梅</a></span></td><td>—</td><td><span class="tt"><a data-goto="mao::p-qinyuanchun-changsha" style="cursor:pointer">沁园春·长沙</a></span></td></tr>
-</table>
-</div>
-
-<h2 id="idx-groups"><span class="num">03</span>合篇作者分组速查</h2>
-<div class="aside"><b>用法：</b>合篇页一位作者一节，点<b>作者名</b>即跳到该页对应的人物条目与篇目清单。</div>
-<div class="tw">
-<table class="t-groups">
-<colgroup><col style="width:182px"><col></colgroup>
-  <tr><th>分页</th><th>涵盖作者（点击直达）</th></tr>
-  <tr><td><a data-goto="shijing" style="cursor:pointer">诗经与民间歌谣</a></td><td><a data-goto="shijing::a-shijing" style="cursor:pointer">《诗经》</a>、<a data-goto="shijing::a-yuefu" style="cursor:pointer">汉乐府</a>、<a data-goto="shijing::a-beichao" style="cursor:pointer">北朝民歌</a>、<a data-goto="shijing::a-gushi" style="cursor:pointer">《古诗十九首》</a></td></tr>
-  <tr><td><a data-goto="zhuzi" style="cursor:pointer">先秦诸子散文</a></td><td><a data-goto="zhuzi::a-kongzi" style="cursor:pointer">孔子</a>、<a data-goto="zhuzi::a-mengzi" style="cursor:pointer">孟子</a>、<a data-goto="zhuzi::a-zhuangzi" style="cursor:pointer">庄子</a>、<a data-goto="zhuzi::a-xunzi" style="cursor:pointer">荀子</a>、<a data-goto="zhuzi::a-laozi" style="cursor:pointer">老子</a>、<a data-goto="zhuzi::a-mozi" style="cursor:pointer">墨子</a>、<a data-goto="zhuzi::a-liezi" style="cursor:pointer">列子</a>、<a data-goto="zhuzi::a-lvli" style="cursor:pointer">吕氏春秋</a>、<a data-goto="zhuzi::a-liji" style="cursor:pointer">礼记</a></td></tr>
-  <tr><td><a data-goto="hanprose" style="cursor:pointer">两汉史传与辞赋</a></td><td><a data-goto="hanprose::a-simaqian" style="cursor:pointer">司马迁</a>、<a data-goto="hanprose::a-bangu" style="cursor:pointer">班固</a>、<a data-goto="hanprose::a-jiayi" style="cursor:pointer">贾谊</a>、<a data-goto="hanprose::a-lisi" style="cursor:pointer">李斯</a>、<a data-goto="hanprose::a-liuxiang" style="cursor:pointer">刘向</a>、<a data-goto="hanprose::a-zuozhuan" style="cursor:pointer">《左传》</a>、<a data-goto="hanprose::a-hanfu" style="cursor:pointer">汉赋</a>、<a data-goto="hanprose::a-weizheng" style="cursor:pointer">魏征（唐，附列）</a></td></tr>
-  <tr><td><a data-goto="caocao" style="cursor:pointer">曹操与建安诗人</a></td><td><a data-goto="caocao::a-caocao" style="cursor:pointer">曹操</a>、<a data-goto="caocao::a-caozhi" style="cursor:pointer">曹植</a>、<a data-goto="caocao::a-liuzhen" style="cursor:pointer">刘桢</a>、<a data-goto="caocao::a-wangji" style="cursor:pointer">王绩</a></td></tr>
-  <tr><td><a data-goto="weijinprose" style="cursor:pointer">魏晋南北朝散文</a></td><td><a data-goto="weijinprose::a-lidaoyuan" style="cursor:pointer">郦道元</a>、<a data-goto="weijinprose::a-taohongjing" style="cursor:pointer">陶弘景</a>、<a data-goto="weijinprose::a-wujun" style="cursor:pointer">吴均</a>、<a data-goto="weijinprose::a-wangxizhi" style="cursor:pointer">王羲之</a>、<a data-goto="weijinprose::a-liuyiqing" style="cursor:pointer">刘义庆</a>、<a data-goto="weijinprose::a-zhugeliang" style="cursor:pointer">诸葛亮</a>、<a data-goto="weijinprose::a-limi" style="cursor:pointer">李密</a>、<a data-goto="weijinprose::a-baozhao" style="cursor:pointer">鲍照</a></td></tr>
-  <tr><td><a data-goto="tangchu" style="cursor:pointer">初唐四杰与陈子昂</a></td><td><a data-goto="tangchu::a-wangbo" style="cursor:pointer">王勃</a>、<a data-goto="tangchu::a-yangjiong" style="cursor:pointer">杨炯</a>、<a data-goto="tangchu::a-luzhaolin" style="cursor:pointer">卢照邻</a>、<a data-goto="tangchu::a-luobinwang" style="cursor:pointer">骆宾王</a>、<a data-goto="tangchu::a-chenziang" style="cursor:pointer">陈子昂</a></td></tr>
-  <tr><td><a data-goto="tangsheng" style="cursor:pointer">盛唐山水与边塞</a></td><td><a data-goto="tangsheng::a-menghaoran" style="cursor:pointer">孟浩然</a>、<a data-goto="tangsheng::a-gaoshi" style="cursor:pointer">高适</a>、<a data-goto="tangsheng::a-censhen" style="cursor:pointer">岑参</a>、<a data-goto="tangsheng::a-wangchangling" style="cursor:pointer">王昌龄</a>、<a data-goto="tangsheng::a-wangzhihuan" style="cursor:pointer">王之涣</a>、<a data-goto="tangsheng::a-cuihao" style="cursor:pointer">崔颢</a>、<a data-goto="tangsheng::a-changjian" style="cursor:pointer">常建</a>、<a data-goto="tangsheng::a-liuchangqing" style="cursor:pointer">刘长卿</a>、<a data-goto="tangsheng::a-weiyingwu" style="cursor:pointer">韦应物</a>、<a data-goto="tangsheng::a-wanghan" style="cursor:pointer">王翰</a>、<a data-goto="tangsheng::a-liyi" style="cursor:pointer">李益</a></td></tr>
-  <tr><td><a data-goto="tangwan" style="cursor:pointer">中晚唐诗人</a></td><td><a data-goto="tangwan::a-liuyuxi" style="cursor:pointer">刘禹锡</a>、<a data-goto="tangwan::a-liuzongyuan-brief" style="cursor:pointer">柳宗元</a>、<a data-goto="tangwan::a-hanyu-brief" style="cursor:pointer">韩愈</a>、<a data-goto="tangwan::a-wentingyun" style="cursor:pointer">温庭筠</a>、<a data-goto="tangwan::a-luoyin" style="cursor:pointer">罗隐</a>、<a data-goto="tangwan::a-jiadao" style="cursor:pointer">贾岛</a>、<a data-goto="tangwan::a-lulun" style="cursor:pointer">卢纶</a>、<a data-goto="tangwan::a-zhangji" style="cursor:pointer">张继</a>、<a data-goto="tangwan::a-zhangzhihe" style="cursor:pointer">张志和</a>、<a data-goto="tangwan::a-hulingneng" style="cursor:pointer">胡令能</a>、<a data-goto="tangwan::a-lishen" style="cursor:pointer">李绅</a>、<a data-goto="tangwan::a-wangjian" style="cursor:pointer">王建</a>、<a data-goto="tangwan::a-hanhong" style="cursor:pointer">韩翃</a>、<a data-goto="tangwan::a-yushinan" style="cursor:pointer">虞世南</a>、<a data-goto="tangwan::a-linjie" style="cursor:pointer">林杰</a>、<a data-goto="tangwan::a-yuanmei" style="cursor:pointer">袁枚</a>、<a data-goto="tangwan::a-gaoding" style="cursor:pointer">高鼎</a>、<a data-goto="tangwan::a-zhashenxing" style="cursor:pointer">查慎行</a></td></tr>
-  <tr><td><a data-goto="tangguwen" style="cursor:pointer">唐代古文：韩柳</a></td><td><a data-goto="tangguwen::a-hanyu" style="cursor:pointer">韩愈</a>、<a data-goto="tangguwen::a-liuzongyuan" style="cursor:pointer">柳宗元</a></td></tr>
-  <tr><td><a data-goto="songci" style="cursor:pointer">两宋词人</a></td><td><a data-goto="songci::a-liuyong" style="cursor:pointer">柳永</a>、<a data-goto="songci::a-yanshu" style="cursor:pointer">晏殊</a>、<a data-goto="songci::a-qinguan" style="cursor:pointer">秦观</a>、<a data-goto="songci::a-zhoubangyan" style="cursor:pointer">周邦彦</a>、<a data-goto="songci::a-jiangkui" style="cursor:pointer">姜夔</a>、<a data-goto="songci::a-zhangxiaoxiang" style="cursor:pointer">张孝祥</a>、<a data-goto="songci::a-liukezhuang" style="cursor:pointer">刘克庄</a>、<a data-goto="songci::a-zhudunru" style="cursor:pointer">朱敦儒</a>、<a data-goto="songci::a-chenyiyi" style="cursor:pointer">陈与义</a>、<a data-goto="songci::a-liyu" style="cursor:pointer">李煜</a>、<a data-goto="songci::a-zhangruoxu" style="cursor:pointer">张若虚（唐，附列）</a></td></tr>
-  <tr><td><a data-goto="songshi" style="cursor:pointer">宋代诗人</a></td><td><a data-goto="songshi::a-yangwanli" style="cursor:pointer">杨万里</a>、<a data-goto="songshi::a-fanchengda" style="cursor:pointer">范成大</a>、<a data-goto="songshi::a-yeshaoweng" style="cursor:pointer">叶绍翁</a>、<a data-goto="songshi::a-zengji" style="cursor:pointer">曾几</a>、<a data-goto="songshi::a-wengjuan" style="cursor:pointer">翁卷</a>、<a data-goto="songshi::a-leizhen" style="cursor:pointer">雷震</a>、<a data-goto="songshi::a-luyue" style="cursor:pointer">卢钺</a>、<a data-goto="songshi::a-linsheng" style="cursor:pointer">林升</a>、<a data-goto="songshi::a-zhuxi" style="cursor:pointer">朱熹</a>、<a data-goto="songshi::a-zhaoshixiu" style="cursor:pointer">赵师秀</a>、<a data-goto="songshi::a-huangtingjian" style="cursor:pointer">黄庭坚</a></td></tr>
-  <tr><td><a data-goto="songwen" style="cursor:pointer">宋代散文</a></td><td><a data-goto="songwen::a-suxun" style="cursor:pointer">苏洵</a>、<a data-goto="songwen::a-simaguang" style="cursor:pointer">司马光</a>、<a data-goto="songwen::a-shenkuo" style="cursor:pointer">沈括</a>、<a data-goto="songwen::a-zhoudunyi" style="cursor:pointer">周敦颐</a>、<a data-goto="songwen::a-songlian" style="cursor:pointer">宋濂</a>、<a data-goto="songwen::a-suzhe" style="cursor:pointer">苏辙</a>、<a data-goto="songwen::a-zenggong" style="cursor:pointer">曾巩</a></td></tr>
-  <tr><td><a data-goto="yuanqu" style="cursor:pointer">元曲作家</a></td><td><a data-goto="yuanqu::a-mazhiyuan" style="cursor:pointer">马致远</a>、<a data-goto="yuanqu::a-zhangyanghao" style="cursor:pointer">张养浩</a>、<a data-goto="yuanqu::a-wangpan" style="cursor:pointer">王磐</a>、<a data-goto="yuanqu::a-guanhanqing" style="cursor:pointer">关汉卿</a>、<a data-goto="yuanqu::a-wangshifu" style="cursor:pointer">王实甫</a>、<a data-goto="yuanqu::a-tangxianzu" style="cursor:pointer">汤显祖（明，附列）</a></td></tr>
-  <tr><td><a data-goto="mingqingwen" style="cursor:pointer">明清散文</a></td><td><a data-goto="mingqingwen::a-guiyouguang" style="cursor:pointer">归有光</a>、<a data-goto="mingqingwen::a-zhangdai" style="cursor:pointer">张岱</a>、<a data-goto="mingqingwen::a-pusongling" style="cursor:pointer">蒲松龄</a>、<a data-goto="mingqingwen::a-yaonai" style="cursor:pointer">姚鼐</a>、<a data-goto="mingqingwen::a-jiyun" style="cursor:pointer">纪昀</a>、<a data-goto="mingqingwen::a-weixueyi" style="cursor:pointer">魏学洢</a>、<a data-goto="mingqingwen::a-linjuemin" style="cursor:pointer">林觉民</a>、<a data-goto="mingqingwen::a-fangbao" style="cursor:pointer">方苞</a></td></tr>
-  <tr><td><a data-goto="mingqingshi" style="cursor:pointer">明清诗词</a></td><td><a data-goto="mingqingshi::a-yuqian" style="cursor:pointer">于谦</a>、<a data-goto="mingqingshi::a-zhengxie" style="cursor:pointer">郑燮</a>、<a data-goto="mingqingshi::a-gongzizhen" style="cursor:pointer">龚自珍</a>、<a data-goto="mingqingshi::a-nalanxingde" style="cursor:pointer">纳兰性德</a>、<a data-goto="mingqingshi::a-tangyin" style="cursor:pointer">唐寅</a>、<a data-goto="mingqingshi::a-wangmian" style="cursor:pointer">王冕</a>、<a data-goto="mingqingshi::a-xiawanchun" style="cursor:pointer">夏完淳</a>、<a data-goto="mingqingshi::a-qiujin" style="cursor:pointer">秋瑾</a>、<a data-goto="mingqingshi::a-tansitong" style="cursor:pointer">谭嗣同</a></td></tr>
-</table>
-</div>
-
-<h2 id="idx-extend"><span class="num">04</span>课外延伸篇目速查</h2>
-<p>以下篇目不在统编教材正选目录内，属常见课外延伸或不同版本选篇。全书已为每篇补全原文与七维度细读，点击<b>篇名</b>可直达该篇。</p>
-<div class="tw">
-<table class="t-extend">
-<colgroup><col style="width:176px"><col style="width:150px"><col></colgroup>
-  <tr><th>所在分页</th><th>作者</th><th>延伸篇目（点击直达）</th></tr>
-  <tr><td><a data-goto="libai" style="cursor:pointer">李白专篇</a></td><td>李白</td><td><span class="tt"><a data-goto="libai::p-xuanzhou-libai" style="cursor:pointer">宣州谢朓楼饯别校书叔云</a></span></td></tr>
-  <tr><td><a data-goto="quyuan" style="cursor:pointer">屈原与楚辞</a></td><td>屈原</td><td><span class="tt"><a data-goto="quyuan::p-xiangfuren-qu" style="cursor:pointer">湘夫人</a></span></td></tr>
-  <tr><td><a data-goto="shijing" style="cursor:pointer">诗经与民间歌谣</a></td><td>《古诗十九首》</td><td><span class="tt"><a data-goto="shijing::p-shejiang-caifurong" style="cursor:pointer">涉江采芙蓉</a>（此篇为正选，附列备查）</span></td></tr>
-  <tr><td><a data-goto="taoyuanming" style="cursor:pointer">陶渊明</a></td><td>陶渊明</td><td><span class="tt"><a data-goto="taoyuanming::p-zashi-tym" style="cursor:pointer">杂诗其一</a></span></td></tr>
-  <tr><td><a data-goto="dufu" style="cursor:pointer">杜甫</a></td><td>杜甫</td><td><span class="tt"><a data-goto="dufu::p-xinhunbie-df" style="cursor:pointer">新婚别</a>（三别之一）</span></td></tr>
-  <tr><td><a data-goto="tangchu" style="cursor:pointer">初唐四杰</a></td><td><span class="tt">卢照邻</span>、<span class="tt">骆宾王</span></td><td><span class="tt"><a data-goto="tangchu::p-changanguyi-luzhaolin" style="cursor:pointer">长安古意</a>（节选）</span>、<span class="tt"><a data-goto="tangchu::p-zaivuchan-luobinwang" style="cursor:pointer">在狱咏蝉</a></span></td></tr>
-  <tr><td><a data-goto="tangsheng" style="cursor:pointer">盛唐山水与边塞</a></td><td><span class="tt">孟浩然</span>、<span class="tt">高适</span>、<span class="tt">王昌龄</span>、<span class="tt">王之涣</span></td><td><span class="tt"><a data-goto="tangsheng::p-wangdongting-meng" style="cursor:pointer">望洞庭湖赠张丞相</a></span>、<span class="tt"><a data-goto="tangsheng::p-yangexing-gao" style="cursor:pointer">燕歌行</a>（节选）</span>、<span class="tt"><a data-goto="tangsheng::p-cailianqu-wang" style="cursor:pointer">采莲曲</a></span>、<span class="tt"><a data-goto="tangsheng::p-liangzhouci-wangzhihuan" style="cursor:pointer">凉州词</a>（黄河远上）</span></td></tr>
-  <tr><td><a data-goto="tangwan" style="cursor:pointer">中晚唐诗人</a></td><td>温庭筠</td><td><span class="tt"><a data-goto="tangwan::p-posaman-wen" style="cursor:pointer">菩萨蛮</a>（小山重叠金明灭）</span></td></tr>
-  <tr><td><a data-goto="tangguwen" style="cursor:pointer">唐代古文：韩柳</a></td><td><span class="tt">韩愈</span>、<span class="tt">柳宗元</span></td><td><span class="tt"><a data-goto="tangguwen::p-jishierlang-hanyu" style="cursor:pointer">祭十二郎文</a>（节选）</span>、<span class="tt"><a data-goto="tangguwen::p-dengliuzhou-liuzongyuan" style="cursor:pointer">登柳州城楼</a></span></td></tr>
-  <tr><td><a data-goto="ouyangxiu" style="cursor:pointer">欧阳修</a></td><td>欧阳修</td><td><span class="tt"><a data-goto="ouyangxiu::p-tashaxing-ouyangxiu" style="cursor:pointer">踏莎行</a>（候馆梅残）</span></td></tr>
-  <tr><td><a data-goto="liqingzhao" style="cursor:pointer">李清照</a></td><td>李清照</td><td><span class="tt"><a data-goto="liqingzhao::p-yijianmei-liqingzhao" style="cursor:pointer">一剪梅</a></span>、<span class="tt"><a data-goto="liqingzhao::p-wulingchun-liqingzhao" style="cursor:pointer">武陵春</a></span></td></tr>
-  <tr><td><a data-goto="xinqiji" style="cursor:pointer">辛弃疾</a></td><td>辛弃疾</td><td><span class="tt"><a data-goto="xinqiji::p-pusaman-xinqiji" style="cursor:pointer">菩萨蛮·书江西造口壁</a></span>、<span class="tt"><a data-goto="xinqiji::p-qingyuan-xinqiji" style="cursor:pointer">青玉案·元夕</a></span></td></tr>
-  <tr><td><a data-goto="songwen" style="cursor:pointer">宋代散文</a></td><td>曾巩</td><td><span class="tt"><a data-goto="songwen::p-mochiji-zenggong" style="cursor:pointer">墨池记</a></span></td></tr>
-  <tr><td><a data-goto="songci" style="cursor:pointer">两宋词人</a></td><td>张若虚</td><td><span class="tt"><a data-goto="songci::p-chunjianghuayeyue-zhang" style="cursor:pointer">春江花月夜</a>（正选，附列备查）</span></td></tr>
-  <tr><td><a data-goto="songshi" style="cursor:pointer">宋代诗人</a></td><td>黄庭坚</td><td><span class="tt"><a data-goto="songshi::p-dengkuaige-huang" style="cursor:pointer">登快阁</a>（正选，附列备查）</span></td></tr>
-  <tr><td><a data-goto="yuanqu" style="cursor:pointer">元曲作家</a></td><td>汤显祖</td><td><span class="tt"><a data-goto="yuanqu::p-youyuan-tang" style="cursor:pointer">游园【皂罗袍】</a>（正选，附列备查）</span></td></tr>
-  <tr><td><a data-goto="mingqingwen" style="cursor:pointer">明清散文</a></td><td>方苞</td><td><span class="tt"><a data-goto="mingqingwen::p-yuzhongzaji-fangbao" style="cursor:pointer">狱中杂记</a>（节选）</span></td></tr>
-  <tr><td><a data-goto="mao" style="cursor:pointer">毛泽东</a></td><td>毛泽东</td><td><span class="tt"><a data-goto="mao::p-qinyuanchun-xue" style="cursor:pointer">沁园春·雪</a></span>、<span class="tt"><a data-goto="mao::p-yiqine-loushanguan" style="cursor:pointer">忆秦娥·娄山关</a></span>、<span class="tt"><a data-goto="mao::p-qilv-nanjing" style="cursor:pointer">七律·人民解放军占领南京</a></span></td></tr>
-</table>
-</div>
-
-<h2 id="idx-xuanxiu"><span class="num">05</span>拓展：高中选修《中华传统文化专题研讨》</h2>
-<div class="aside"><b>说明：</b>选修六册中，与古诗文直接相关的为《中华传统文化专题研讨》（二十课）与《中国革命传统作品专题研讨》第一单元的毛泽东词六首；前者已按六单元逐课收录于<a data-goto="xuanxiu" style="cursor:pointer">「中华传统文化专题研讨」</a>专页，后者补入<a data-goto="mao" style="cursor:pointer">「毛泽东」</a>页。下表按单元列出篇目，点击篇名可直达该篇原文与解析。</div>
-<div class="tw">
-<table class="t-xuanxiu">
-<colgroup><col style="width:150px"><col style="width:92px"><col></colgroup>
-  <tr><th>单元</th><th>课文</th><th>篇目与作者</th></tr>
-  <tr><td style="white-space:nowrap">一 · 进德修身</td><td>整本书阅读</td><td>《论语》整本书阅读（作品导读，见<a data-goto="zhuzi" style="cursor:pointer">先秦诸子散文</a>页）；本单元不另选单篇，以通读与专题研讨为主，建议配合选择性必修上册《〈论语〉十二章》对读；研讨题：孔门弟子群像 · 论学与论政 · 情境对话中的教育方法</td></tr>
-  <tr><td rowspan="4" style="white-space:nowrap">二 · 道法自然</td><td>1</td><td><a data-goto="xuanxiu::p-xu-laozi" style="cursor:pointer">《老子》十章</a>／老子</td></tr>
-  <tr><td>2</td><td><a data-goto="xuanxiu::p-xu-zhuangzi" style="cursor:pointer">《庄子》寓言三则</a>／庄子（匠石与栎社树、浑沌之死、鲁侯养鸟）</td></tr>
-  <tr><td>3</td><td><a data-goto="xuanxiu::p-xu-huainanzi" style="cursor:pointer">《淮南子》二则</a>／刘安（原道训、修务训）</td></tr>
-  <tr><td>4</td><td><a data-goto="xuanxiu::p-xu-juejiaoshu" style="cursor:pointer">《与山巨源绝交书》</a>／嵇康</td></tr>
-  <tr><td rowspan="4" style="white-space:nowrap">三 · 兴观群怨</td><td>5</td><td><a data-goto="xuanxiu::p-xu-maoshixu" style="cursor:pointer">《毛诗序》</a>／毛氏</td></tr>
-  <tr><td>6</td><td><a data-goto="xuanxiu::p-xu-shilun" style="cursor:pointer">诗论三则</a>／刘勰《明诗》、钟嵘《诗品序》、叶燮《原诗》</td></tr>
-  <tr><td>7</td><td><a data-goto="xuanxiu::p-xu-yuyuanjiushu" style="cursor:pointer">《与元九书》（节选）</a>／白居易</td></tr>
-  <tr><td>8</td><td><a data-goto="xuanxiu::p-xu-renjiancihua" style="cursor:pointer">《人间词话》十则</a>／王国维</td></tr>
-  <tr><td rowspan="4" style="white-space:nowrap">四 · 叙事传统</td><td>9</td><td><a data-goto="xuanxiu::p-xu-lianpo" style="cursor:pointer">《廉颇蔺相如列传》（节选）</a>／司马迁</td></tr>
-  <tr><td>10</td><td><a data-goto="xuanxiu::p-xu-liuyi" style="cursor:pointer">《柳毅传》</a>／李朝威</td></tr>
-  <tr><td>11</td><td><a data-goto="xuanxiu::p-xu-shezhan" style="cursor:pointer">《诸葛亮舌战群儒》</a>／罗贯中</td></tr>
-  <tr><td>12</td><td><a data-goto="xuanxiu::p-xu-kuangchaoren" style="cursor:pointer">《匡超人》</a>／吴敬梓</td></tr>
-  <tr><td rowspan="4" style="white-space:nowrap">五 · 乐山乐水</td><td>13</td><td><a data-goto="tangchu::p-tengwangge-wangbo" style="cursor:pointer">《滕王阁序》</a>／王勃（全文见初唐四杰页）</td></tr>
-  <tr><td>14</td><td><a data-goto="xuanxiu::p-xu-zhulou" style="cursor:pointer">《黄冈竹楼记》</a>／王禹偁</td></tr>
-  <tr><td>15</td><td><a data-goto="xuanxiu::p-xu-shanshuixun" style="cursor:pointer">《山水训》五则</a>／郭熙</td></tr>
-  <tr><td>16</td><td><a data-goto="xuanxiu::p-xu-mayee" style="cursor:pointer">《麻叶洞天》</a>／徐霞客</td></tr>
-  <tr><td rowspan="4" style="white-space:nowrap">六 · 市井风流</td><td>17</td><td><a data-goto="xuanxiu::p-xu-shijingbiji" style="cursor:pointer">市井笔记三则</a>／孟元老（东角楼街巷、民俗）、刘侗·于奕正（灯市）</td></tr>
-  <tr><td>18</td><td><a data-goto="xuanxiu::p-xu-gaozu" style="cursor:pointer">〔般涉调·哨遍〕《高祖还乡》</a>／睢景臣</td></tr>
-  <tr><td>19</td><td><a data-goto="xuanxiu::p-xu-shirunze" style="cursor:pointer">《施润泽滩阙遇友》</a>／冯梦龙</td></tr>
-  <tr><td>20</td><td><a data-goto="xuanxiu::p-xu-liujingting" style="cursor:pointer">《柳敬亭传》</a>／黄宗羲 · <a data-goto="xuanxiu::p-xu-maling" style="cursor:pointer">《马伶传》</a>／侯方域</td></tr>
-  <tr><td rowspan="2" style="white-space:nowrap">选修 · 革命传统</td><td>第一单元</td><td>毛泽东词六首：<a data-goto="mao::p-mao-jinggangshan" style="cursor:pointer">西江月·井冈山</a>、<a data-goto="mao::p-mao-jiangguizhanzheng" style="cursor:pointer">清平乐·蒋桂战争</a>、<a data-goto="mao::p-yiqine-loushanguan" style="cursor:pointer">忆秦娥·娄山关</a>、<a data-goto="mao::p-mao-liupanshan" style="cursor:pointer">清平乐·六盘山</a>、<a data-goto="mao::p-mao-youshui" style="cursor:pointer">水调歌头·游泳</a>、<a data-goto="mao::p-mao-chongshangjinggangshan" style="cursor:pointer">水调歌头·重上井冈山</a></td></tr>
-  <tr><td>—</td><td>其余单元为现代散文、小说、戏剧与政论；另四册（汉字汉语、学术论著、中国现当代作家作品、跨文化）以语言学、学术论文、现当代文学与外国作品为主，均不在本书古诗文收录范围</td></tr>
-</table>
-</div>
-
-<h2 id="idx-novel"><span class="num">06</span>古代白话小说九篇（五年级下 · 七年级上 · 九年级上）</h2>
-<div class="aside"><b>说明：</b>白话小说在教材里分三段出现：五年级下第二单元是"古典名著之旅"，四篇为改写或节选，重在初见；七年级上《小圣施威降大圣》进入原文的斗法想象；九年级上第六单元才是按长篇小说来读。九篇分属五部书，覆盖史、侠、幻、讽、情五条路。教材均取节选，故另设<a data-goto="novel" style="cursor:pointer">「古代白话小说」</a>专页，按原文对应段落收录并附七维度解析；节选之外的上下文在"创作背景"中补足。</div>
-<div class="tw tw-fit">
-<table class="t-novel">
-  <tr><th>册次 · 课次</th><th>篇目（点击直达）</th><th>作者与出处</th><th>类型</th></tr>
-  <tr><td>五下 · 5</td><td><a data-goto="novel::p-sanguo-caochuan" style="cursor:pointer">《草船借箭》</a></td><td>罗贯中《三国演义》第四十六回</td><td>历史演义</td></tr>
-  <tr><td>五下 · 6</td><td><a data-goto="novel::p-shuihu-jingyang" style="cursor:pointer">《景阳冈》</a></td><td>施耐庵《水浒传》第二十三回</td><td>英雄传奇</td></tr>
-  <tr><td>五下 · 7</td><td><a data-goto="novel::p-xiyou-houwang" style="cursor:pointer">《猴王出世》</a></td><td>吴承恩《西游记》第一回</td><td>神魔小说</td></tr>
-  <tr><td>五下 · 8</td><td><a data-goto="novel::p-honglou-chunqu" style="cursor:pointer">《红楼春趣》</a></td><td>曹雪芹《红楼梦》第七十回</td><td>世情小说</td></tr>
-  <tr><td>七上 · 21</td><td><a data-goto="novel::p-xiyou-xiaosheng" style="cursor:pointer">《小圣施威降大圣》</a></td><td>吴承恩《西游记》第六回</td><td>神魔小说</td></tr>
-  <tr><td>九上 · 22</td><td><a data-goto="novel::p-shuihu-shengchengang" style="cursor:pointer">《智取生辰纲》</a></td><td>施耐庵《水浒传》第十六回</td><td>英雄传奇</td></tr>
-  <tr><td>九上 · 23</td><td><a data-goto="novel::p-rulin-fanjin" style="cursor:pointer">《范进中举》</a></td><td>吴敬梓《儒林外史》第三回</td><td>讽刺小说</td></tr>
-  <tr><td>九上 · 24</td><td><a data-goto="novel::p-sanguo-sangumaolu" style="cursor:pointer">《三顾茅庐》</a></td><td>罗贯中《三国演义》第三十八回</td><td>历史演义</td></tr>
-  <tr><td>九上 · 25</td><td><a data-goto="novel::p-honglou-liulaolao" style="cursor:pointer">《刘姥姥进大观园》</a></td><td>曹雪芹《红楼梦》第四十回</td><td>世情小说</td></tr>
-</table>
-</div>
-
-<div class="aside"><b>使用提示：</b>本表用于快速定位作者所在分页与学段分布。若需某篇作品的详细解析（创作背景、情感脉络、艺术手法等），请点击对应篇名进入细读。教材篇目以各校实际使用版本为准。凡标注"节选"者，均为原作篇幅过长而截取关键段落，已在对应卡片中注明节选范围；教材本身为全文的作品，全书一律呈现全文。</div>
-</section>
-<section class="page" id="jiaocai"><header class="author-cover">
-  <div class="eyebrow">附录 · 教材顺序全篇索引</div>
-  <h1>教材全篇顺序索引</h1>
-  <div class="sub">按小学、初中、高中课本先后逐册排列 · 点击篇名直达该篇全文与解析</div>
-  <div class="badges"><span class="tag tag-book">教材·326篇</span><span class="tag tag-shi">统编版</span></div>
-</header>
-
-<div class="sub-toc">
-  <b>本页导航</b>
-  <a href="#jc-xiaoxue">小学（一上—六下）</a>
-  <a href="#jc-chuzhong">初中（七上—九下）</a>
-  <a href="#jc-gaozhong">高中（必修—选必）</a>
-  <a href="#jc-xiandai">近现代与外国诗</a>
-  <a href="#jc-howto">使用说明</a>
-</div>
-
-<h2 id="jc-howto"><span class="num">01</span>使用说明</h2>
-<div class="aside"><b>关于选修：</b>本页严格按<b>必修与选择性必修五册</b>的册次排列，故不含选修篇目。高中选修《中华传统文化专题研讨》二十课另有专页，按六个文化专题（进德修身、道法自然、兴观群怨、叙事传统、乐山乐水、市井风流）编次，请用<a data-goto="xuanxiu" style="cursor:pointer">「中华传统文化专题研讨」</a>页；毛泽东词六首见<a data-goto="mao" style="cursor:pointer">「毛泽东」</a>页。</div>
-<div class="info-grid">
-  <div class="info-box"><h4>排序依据</h4><p>严格按统编版课本的册次与单元先后排列：小学自一年级上册起至六年级下册，初中自七年级上册至九年级下册，高中按必修上、必修下、选择性必修上中下的顺序。同一篇目在不同年级重复出现时，按出现位置分别列出。</p></div>
-  <div class="info-box"><h4>点击直达</h4><p>篇名即链接，点击后自动切换到该作者分页，并滚动定位到该篇的作品卡片，可直接读到原文、创作背景、题材主题、情感脉络、意象与语言、艺术手法、名句释义、文学意义七项解析。标为"—"者说明该篇在本书中按篇目表收录，暂未单列细读。</p></div>
-</div>
-
-<h2 id="jc-xiaoxue"><span class="num">02</span>小学（一年级上—六年级下）</h2>
-<h3 class="jc-grade">一年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangchu::p-yonge-luobinwang">《咏鹅》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="shijing::p-yuefu-jiangnan">《江南》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-hua">《画》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="tangwan::p-minnong-lishen">《悯农》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="libai::p-guanglangyue">《古朗月行》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangchu::p-feng-liqiao">《风》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-</table>
-
-<h3 class="jc-grade">一年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangsheng::p-chunxiao-meng">《春晓》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="libai::p-zengwanglun">《赠汪伦》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="libai::p-jingyesi">《静夜思》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangwan::p-xunyinzhe-jiadao">《寻隐者不遇》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-chishang">《池上》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="songshi::p-yangwanli-xiaochi">《小池》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="mingqingshi::p-tangyin-huaji">《画鸡》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-</table>
-
-<h3 class="jc-grade">二年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="wanganshi::p-meihua-wanganshi">《梅花》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="tangwan::p-xiaoerchuidiao-hulingneng">《小儿垂钓》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="tangsheng::p-dengguanquelou-wangzhihuan">《登鹳雀楼》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="libai::p-wanglushan">《望庐山瀑布》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangguwen::p-jiangxue-liuzongyuan">《江雪》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="libai::p-yeshan">《夜宿山寺》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="shijing::p-beichao-chilege">《敕勒歌》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-</table>
-
-<h3 class="jc-grade">二年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangwan::p-cunju-gaoding">《村居》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="tangchu::p-yongliu-he">《咏柳》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="baijuyi::p-fude-bjy">《赋得古原草送别》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="songshi::p-yangwanli-xiaochu">《晓出净慈寺送林子方》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-jueju">《绝句》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="tangwan::p-minnong-lishen">《悯农》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="tangwan::p-zhouyeshuo-zhashenxing">《舟夜书所见》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-</table>
-
-<h3 class="jc-grade">三年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangwan::p-suojian-yuanmei">《所见》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="dumu::p-shanxing-dumu">《山行》</a></td><td>古诗词</td><td>杜牧</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-zengliujingwen">《赠刘景文》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="songshi::p-yeshaoweng-yeshusuojian">《夜书所见》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="libai::p-wangtianmen">《望天门山》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-yinhu">《饮湖上初晴后雨》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="tangwan::p-wangdongting-liuyuxi">《望洞庭》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="libai::p-zaofabaidi">《早发白帝城》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangsheng::p-cailianqu-wang">《采莲曲》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="songwen::p-simaguang-simaguang">《司马光》</a></td><td>文言文</td><td>宋代散文</td></tr>
-</table>
-
-<h3 class="jc-grade">三年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="dufu::p-dufu-jueju">《绝句》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-huichong">《惠崇春江晚景》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="songshi::p-zengji-sanqudaozhong">《三衢道中》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-yijiangnan">《忆江南》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="xiaowen::p-shouzhu">《守株待兔》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="wanganshi::p-yuanri-wanganshi">《元日》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="dumu::p-qingming-dumu">《清明》</a></td><td>古诗词</td><td>杜牧</td></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-jiuyuejiuri">《九月九日忆山东兄弟》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="tangsheng::p-chuzhouxijian-weiyingwu">《滁州西涧》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-dalinsi">《大林寺桃花》</a></td><td>古诗词</td><td>白居易</td></tr>
-</table>
-
-<h3 class="jc-grade">四年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-luzhai">《鹿柴》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-mujiangyin">《暮江吟》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-tixilinbi">《题西林壁》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="songshi::p-luyue-xuemei">《雪梅》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="xiaowen::p-jingwei">《精卫填海》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="shangyin::p-chang-e-shangyin">《嫦娥》</a></td><td>古诗词</td><td>李商隐</td></tr>
-<tr><td><a data-goto="tangsheng::p-chusai-wangchangling">《出塞》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="tangsheng::p-liangzhouci-wangzhihuan">《凉州词》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="liqingzhao::p-xiarijueju-liqingzhao">《夏日绝句》</a></td><td>古诗词</td><td>李清照</td></tr>
-<tr><td><a data-goto="tangsheng::p-biedongda-gao">《别董大》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="xiaowen::p-wangrong">《王戎不取道旁李》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-</table>
-
-<h3 class="jc-grade">四年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="songshi::p-yangwanli-suxinshi">《宿新市徐公店》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="songshi::p-sishitianyuan-fanchengda">《四时田园杂兴》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="xinqiji::p-qingpingyue-xinqiji">《清平乐·村居》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="mao::p-mao-busuanzi-mei">《卜算子·咏梅》</a></td><td>古诗词</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="tangwan::p-feng-luoyin">《蜂》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="libai::p-duzuojingshan">《独坐敬亭山》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangsheng::p-furonglou-wangchangling">《芙蓉楼送辛渐》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="tangwan::p-saixiaqu-lulun">《塞下曲》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="mingqingshi::p-wangmian-momei">《墨梅》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="xiaowen::p-nangying">《囊萤夜读》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="xiaowen::p-tiechu">《铁杵成针》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="dufu::p-jiangpan-dufu">《江畔独步寻花》</a></td><td>古诗词</td><td>杜甫</td></tr>
-</table>
-
-<h3 class="jc-grade">五年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangwan::p-chan-yushinan">《蝉》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="tangwan::p-qiqiao-linjie">《乞巧》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="luyou::p-shier-luyou">《示儿》</a></td><td>古诗词</td><td>陆游</td></tr>
-<tr><td><a data-goto="songshi::p-linsheng-tilinandi">《题临安邸》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="mingqingshi::p-jihaizashi-jiuzhou">《己亥杂诗》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-shaonian-zhongguo">《少年中国说》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="wangwei::p-shanju-ww">《山居秋暝》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="tangwan::p-fengqiao-zhangji">《枫桥夜泊》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="mingqingshi::p-nalanxingde-changxiangsi">《长相思》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="tangwan::p-yugezi-zhangzhihe">《渔歌子》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="xiaowen::p-guren">《古人谈读书》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="songshi::p-zhuxi-guanshuyougan">《观书有感》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-</table>
-
-<h3 class="jc-grade">五年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="songshi::p-yangwanli-zhizinongbing">《稚子弄冰》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="songshi::p-leizhen-cunwan">《村晚》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="novel::p-sanguo-caochuan">《草船借箭》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-shuihu-jingyang">《景阳冈》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-xiyou-houwang">《猴王出世》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-honglou-chunqu">《红楼春趣》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="tangwan::p-youziyin-mengjiao">《游子吟》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-niaomingjian">《鸟鸣涧》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="tangsheng::p-congjunxing-wangchangling">《从军行》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-songyuaner">《送元二使安西》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="luyou::p-qiuyejiangxiao-luyou">《秋夜将晓出篱门迎凉有感》</a></td><td>古诗词</td><td>陆游</td></tr>
-<tr><td><a data-goto="libai::p-huanghelou">《黄鹤楼送孟浩然之广陵》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="xiaowen::p-maodun">《自相矛盾》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="songshi::p-wengjuan-xiangcusiyue">《乡村四月》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="xiaowen::p-yangshi">《杨氏之子》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-</table>
-
-<h3 class="jc-grade">六年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangsheng::p-sujiandejiang-meng">《宿建德江》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-liuyueershiri">《六月二十七日望湖楼醉书》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="xinqiji::p-xijiangyue-xinqiji">《西江月·夜行黄沙道中》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="tangsheng::p-guogurenzhuang-meng">《过故人庄》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="mao::p-qilv-changzheng">《七律·长征》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="xiandai::p-pusaman-dabaidi">《菩萨蛮·大柏地》</a></td><td>近现代旧体</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="songshi::p-zhuxi-chunri">《春日》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="tangchu::p-huixiangoushu-he">《回乡偶书》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="tangwan::p-langtaosha-liuyuxi">《浪淘沙》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="dumu::p-jiangnanchun-dumu">《江南春》</a></td><td>古诗词</td><td>杜牧</td></tr>
-<tr><td><a data-goto="wanganshi::p-shuhuyinxianshengbi-wanganshi">《书湖阴先生壁》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="zhuzi::p-lvshi-boyaguqin">《伯牙鼓琴》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="xiaowen::p-daishong">《书戴嵩画牛》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-</table>
-
-<h3 class="jc-grade">六年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="tangwan::p-hanshi-hanhong">《寒食》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="shijing::p-gushi-tiaotiao">《迢迢牵牛星》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="tangwan::p-shiwuyewangyue-wangjian">《十五夜望月》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="shijing::p-yuefu-changgexing">《长歌行》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="lihe::p-mashi-lihe">《马诗》</a></td><td>古诗词</td><td>李贺</td></tr>
-<tr><td><a data-goto="mingqingshi::p-shihuiyin">《石灰吟》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="mingqingshi::p-zhengxie-zhushi">《竹石》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="xiaowen::p-xueyi">《学弈》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="xiaowen::p-liangxiaoer">《两小儿辩日》</a></td><td>文言文</td><td>小学文言启蒙</td></tr>
-<tr><td><a data-goto="shijing::p-caiwei-sj">《采薇》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-chunyexiyu">《春夜喜雨》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-wenguanjun">《闻官军收河南河北》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="tangguwen::p-zaochun-hanyu">《早春呈水部张十八员外》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="fanzhongyan::p-jiangshangyuzhe-fanzhongyan">《江上渔者》</a></td><td>古诗词</td><td>范仲淹</td></tr>
-<tr><td><a data-goto="wanganshi::p-bochuanguazhou-wanganshi">《泊船瓜洲》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="songshi::p-youyuanbuzhi-yeshaoweng">《游园不值》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="songci::p-busuanzi-wang">《卜算子·送鲍浩然之浙东》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="songshi::p-huangtingjian-qingpingyue">《清平乐》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-</table>
-
-<h2 id="jc-chuzhong"><span class="num">03</span>初中（七年级上—九年级下）</h2>
-<h3 class="jc-grade">七年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="caocao::p-guancanghai-cc">《观沧海》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="libai::p-wenchangling">《闻王昌龄左迁龙标遥有此寄》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangchu::p-cibeigushan-wang">《次北固山下》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="yuanqu::p-tianjingsha-qiusi">《天净沙·秋思》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-<tr><td><a data-goto="weijinprose::p-yongxue-shishuo">《咏雪》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="weijinprose::p-chenqiu-shishuo">《陈太丘与友期行》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-lunyu-xuan">《论语十二章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="libai::p-emeishan">《峨眉山月歌》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="dufu::p-jiangnanlijingnian-df">《江南逢李龟年》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="tangsheng::p-xingjunjiuri-cen">《行军九日思长安故园》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="tangsheng::p-yeshangshouxiangcheng-liyi">《夜上受降城闻笛》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="weijinprose::p-zhugeliang-jiezishu">《诫子书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="mingqingwen::p-pusongling-lang">《狼》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-lvshi-chuanjingdeyiren">《穿井得一人》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-liezi-qirenyoutian">《杞人忧天》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="novel::p-xiyou-xiaosheng">《小圣施威降大圣》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="tangwan::p-qiuci-liuyuxi">《秋词》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="shangyin::p-yeyujibei-shangyin">《夜雨寄北》</a></td><td>古诗词</td><td>李商隐</td></tr>
-<tr><td><a data-goto="luyou::p-shiyueyue-luyou">《十一月四日风雨大作》</a></td><td>古诗词</td><td>陆游</td></tr>
-<tr><td><a data-goto="mingqingshi::p-tansitong-tongguan">《潼关》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-</table>
-
-<h3 class="jc-grade">七年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="songwen::p-simaguang-sunquanquanxue">《孙权劝学》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="shijing::p-beichao-mulanshi">《木兰诗》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="ouyangxiu::p-maiyouweng-ouyangxiu">《卖油翁》</a></td><td>古诗词</td><td>欧阳修</td></tr>
-<tr><td><a data-goto="wangwei::p-wangwei-zhuliguan">《竹里馆》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="libai::p-chunye">《春夜洛城闻笛》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangsheng::p-fengrujingshi-cen">《逢入京使》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="tangguwen::p-wanchun-hanyu">《晚春》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="tangwan::p-loushiming-liuyuxi">《陋室铭》</a></td><td>文言文</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="songwen::p-ailianshuo-zhoudunyi">《爱莲说》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="tangchu::p-dengyouzhou-chen">《登幽州台歌》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="dufu::p-wangyue-df">《望岳》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="wanganshi::p-denglaifeng-wanganshi">《登飞来峰》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="luyou::p-youshanxicun-luyou">《游山西村》</a></td><td>古诗词</td><td>陆游</td></tr>
-<tr><td><a data-goto="mingqingshi::p-jihaizashi-jiuzhou">《己亥杂诗》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="mingqingwen::p-jiyun-hezhongshishou">《河中石兽》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="songwen::p-shenkuo-huoban">《活板》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="dumu::p-poqinhuai-dumu">《泊秦淮》</a></td><td>古诗词</td><td>杜牧</td></tr>
-<tr><td><a data-goto="shangyin::p-jiasheng-shangyin">《贾生》</a></td><td>古诗词</td><td>李商隐</td></tr>
-<tr><td><a data-goto="songshi::p-yangwanli-guosongyuan">《过松源晨炊漆公店》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="songshi::p-zhaoshixiu-yueke">《约客》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-</table>
-
-<h3 class="jc-grade">八年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="weijinprose::p-sanxia-ldy">《三峡》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="weijinprose::p-taohongjing-daxiezhongshushu">《答谢中书书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-jichengtiansi">《记承天寺夜游》</a></td><td>文言文</td><td>苏轼</td></tr>
-<tr><td><a data-goto="weijinprose::p-wujun-yuzhuoyuansishu">《与朱元思书》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="caocao::p-wangji-yewang">《野望》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="tangsheng::p-huanghelou-cuihao">《黄鹤楼》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="wangwei::p-shizhi-ww">《使至塞上》</a></td><td>古诗词</td><td>王维</td></tr>
-<tr><td><a data-goto="libai::p-dujingmen">《渡荆门送别》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-qiantanghu">《钱塘湖春行》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="shijing::p-tingzhong-qishu">《庭中有奇树》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="caocao::p-caocao-guishuisui">《龟虽寿》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="caocao::p-liuzhen-zengcongdier">《赠从弟》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="caocao::p-caozhi-liangfuxing">《梁甫行》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-dedaoduozhu">《得道多助，失道寡助》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-fuguibunengyin">《富贵不能淫》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-shengyuyouhuan">《生于忧患死于安乐》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-liezi-yugongyishan">《愚公移山》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="hanprose::p-zhouyafu-shiji">《周亚夫军细柳》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="taoyuanming::p-yinjiu-tym">《饮酒》</a></td><td>古诗词</td><td>陶渊明</td></tr>
-<tr><td><a data-goto="dufu::p-chunwang-df">《春望》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="lihe::p-yanmen-lihe">《雁门太守行》</a></td><td>古诗词</td><td>李贺</td></tr>
-<tr><td><a data-goto="dumu::p-chibi-dumu">《赤壁》</a></td><td>古诗词</td><td>杜牧</td></tr>
-<tr><td><a data-goto="liqingzhao::p-yujiaao-liqingzhao">《渔家傲》</a></td><td>古诗词</td><td>李清照</td></tr>
-<tr><td><a data-goto="songci::p-yanshu-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="ouyangxiu::p-caisangzi-ouyangxiu">《采桑子》</a></td><td>古诗词</td><td>欧阳修</td></tr>
-<tr><td><a data-goto="songci::p-zhudunru-xiangjianhuan">《相见欢》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="liqingzhao::p-ruimengling-liqingzhao">《如梦令》</a></td><td>古诗词</td><td>李清照</td></tr>
-</table>
-
-<h3 class="jc-grade">八年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="taoyuanming::p-taohuayuanji-tym">《桃花源记》</a></td><td>文言文</td><td>陶渊明</td></tr>
-<tr><td><a data-goto="tangguwen::p-xiaoshitan-liuzongyuan">《小石潭记》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="mingqingwen::p-weixueyi-hezhouji">《核舟记》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-shihaoli">《石壕吏》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="shijing::p-guanju-sj">《关雎》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="shijing::p-jianjia-sj">《蒹葭》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="shijing::p-shijing-shiwei">《式微》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="shijing::p-shijing-zijin">《子衿》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="tangchu::p-songdufu-wangbo">《送杜少府之任蜀州》</a></td><td>古诗词</td><td>初唐四杰与陈子昂</td></tr>
-<tr><td><a data-goto="tangsheng::p-wangdongting-meng">《望洞庭湖赠张丞相》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="zhuzi::p-zhuangzi-beimingyouyu">《北冥有鱼》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-haoliang-zhuangzi">《庄子与惠子游于濠梁之上》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-suiyou-liji">《虽有嘉肴》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-dadao-liji">《大道之行也》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="tangguwen::p-mashuo-hanyu">《马说》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-maowu">《茅屋为秋风所破歌》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="baijuyi::p-baijuyi-maitanweng">《卖炭翁》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="tangsheng::p-tiposhansi-changjian">《题破山寺后禅院》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="libai::p-songyouren">《送友人》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="sushi::p-busuanzi-sushi">《卜算子·黄州定慧院寓居作》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="luyou::p-busuanzi-luyou">《卜算子·咏梅》</a></td><td>古诗词</td><td>陆游</td></tr>
-</table>
-
-<h3 class="jc-grade">九年级上</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="mao::p-qinyuanchun-xue">《沁园春·雪》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="fanzhongyan::p-yueyanglouji-fanzhongyan">《岳阳楼记》</a></td><td>文言文</td><td>范仲淹</td></tr>
-<tr><td><a data-goto="ouyangxiu::p-zuiwengtingji-ouyangxiu">《醉翁亭记》</a></td><td>文言文</td><td>欧阳修</td></tr>
-<tr><td><a data-goto="mingqingwen::p-huxinting-kanxue">《湖心亭看雪》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="libai::p-xinglunan">《行路难》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="tangwan::p-choule-tang-liuyuxi">《酬乐天扬州初逢席上见赠》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-shuidiaogetou">《水调歌头》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="dufu::p-yueyeyisheid-df">《月夜忆舍弟》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="tangsheng::p-changshaguo-liuchangqing">《长沙过贾谊宅》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="tangguwen::p-zuoqianlanguan-hanyu">《左迁至蓝关示侄孙湘》</a></td><td>古诗词</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="tangwan::p-shangshanzaoxing-wen">《商山早行》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="tangwan::p-xianyang-xuhun">《咸阳城东楼》</a></td><td>古诗词</td><td>中晚唐诗人</td></tr>
-<tr><td><a data-goto="shangyin::p-wuti-shangyin">《无题》</a></td><td>古诗词</td><td>李商隐</td></tr>
-<tr><td><a data-goto="songci::p-qinguan-xingxiangzi">《行香子》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="xinqiji::p-chounuer-xinqiji">《丑奴儿·书博山道中壁》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="novel::p-shuihu-shengchengang">《智取生辰纲》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-rulin-fanjin">《范进中举》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-sanguo-sangumaolu">《三顾茅庐》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-<tr><td><a data-goto="novel::p-honglou-liulaolao">《刘姥姥进大观园》</a></td><td>白话小说</td><td>古代白话小说</td></tr>
-</table>
-
-<h3 class="jc-grade">九年级下</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-yuwosuoyuoye">《鱼我所欲也》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="hanprose::p-zhanguoce-tangju">《唐雎不辱使命》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="songwen::p-songlian-songdongyang">《送东阳马生序》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="fanzhongyan::p-yujiaao-fanzhongyan">《渔家傲·秋思》</a></td><td>古诗词</td><td>范仲淹</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-jiangchengzi-mizhou">《江城子·密州出猎》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="xinqiji::p-pozhenzi-xinqiji">《破阵子》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="mingqingshi::p-qiujin-manjianghong">《满江红》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="sushi::p-dingfengbo-sushi">《定风波》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="songci::p-chenyiyi-linjiangxian">《临江仙·夜登小阁》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="xinqiji::p-taichangyin-xinqiji">《太常引》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="mingqingshi::p-nalanxingde-huanxisha">《浣溪沙》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="hanprose::p-zuozhuan-caoguilunzhan">《曹刿论战》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="hanprose::p-zhanguoce-zouji">《邹忌讽齐王纳谏》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="hanprose::p-simaqian-chenshe">《陈涉世家》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="weijinprose::p-zhugeliang-chushibiao">《出师表》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="shijing::p-yuefu-shiwucongjun">《十五从军征》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="tangsheng::p-baixuege-censhen">《白雪歌送武判官归京》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="xinqiji::p-nanxiangzi-xinqiji">《南乡子·登京口北固亭有怀》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="mingqingshi::p-guolingdingyang">《过零丁洋》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="yuanqu::p-shanpoyang-tongguan">《山坡羊·潼关怀古》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-<tr><td><a data-goto="mingqingshi::p-nananjun">《南安军》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="mingqingshi::p-xiawanchun-bieyunjian">《别云间》</a></td><td>古诗词</td><td>明清诗词</td></tr>
-<tr><td><a data-goto="yuanqu::p-shanpoyang-lishan">《山坡羊·骊山怀古》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-<tr><td><a data-goto="yuanqu::p-wangpan-chaotianzi">《朝天子·咏喇叭》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-</table>
-
-<h2 id="jc-gaozhong"><span class="num">04</span>高中（必修与选择性必修）</h2>
-<h3 class="jc-grade">必修上册</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="mao::p-qinyuanchun-changsha">《沁园春·长沙》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="shijing::p-shijing-fuyi">《芣苢》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="songshi::p-chayangge-yang">《插秧歌》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="caocao::p-duange-cc">《短歌行》</a></td><td>古诗词</td><td>曹操与建安诗人</td></tr>
-<tr><td><a data-goto="taoyuanming::p-guiyuantianju-tym">《归园田居》</a></td><td>古诗词</td><td>陶渊明</td></tr>
-<tr><td><a data-goto="libai::p-mengyou">《梦游天姥吟留别》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="dufu::p-denggao-df">《登高》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="baijuyi::p-pipa-bjy">《琵琶行并序》</a></td><td>古诗词</td><td>白居易</td></tr>
-<tr><td><a data-goto="sushi::p-niannujiao-sushi">《念奴娇·赤壁怀古》</a></td><td>古诗词</td><td>苏轼</td></tr>
-<tr><td><a data-goto="xinqiji::p-yongyule-xinqiji">《永遇乐·京口北固亭怀古》</a></td><td>古诗词</td><td>辛弃疾</td></tr>
-<tr><td><a data-goto="liqingzhao::p-shengshengman-liqingzhao">《声声慢》</a></td><td>古诗词</td><td>李清照</td></tr>
-<tr><td><a data-goto="zhuzi::p-quanxue-xun">《劝学》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="tangguwen::p-shishuo-hanyu">《师说》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-chibifu">《赤壁赋》</a></td><td>文言文</td><td>苏轼</td></tr>
-<tr><td><a data-goto="mingqingwen::p-yaonai-dengtaishanji">《登泰山记》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="shijing::p-shijing-jingnv">《静女》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="shijing::p-shejiang-caifurong">《涉江采芙蓉》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="songci::p-yumeiren-liyu">《虞美人》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="songci::p-qinguan-queqiaoxian">《鹊桥仙》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-</table>
-
-<h3 class="jc-grade">必修下册</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="zhuzi::p-shizuo-lunyu">《子路曾皙冉有公西华侍坐》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-qihuanjinwen">《齐桓晋文之事》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-zhuangzi-paodingjieniu">《庖丁解牛》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="hanprose::p-zhuzhiwu-zuozhuan">《烛之武退秦师》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="hanprose::p-hongmenyan-sima">《鸿门宴》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="yuanqu::p-guanhanqing-doueyuan">《窦娥冤》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-<tr><td><a data-goto="hanprose::p-jianzhuke-li">《谏逐客书》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="mingqingwen::p-linjuemin-yuqishu">《与妻书》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="mingqingwen::p-pusongling-cuzhi">《促织》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="hanprose::p-jianzongshisi-wei">《谏太宗十思疏》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="wanganshi::p-dasimaliyishu-wanganshi">《答司马谏议书》</a></td><td>文言文</td><td>王安石</td></tr>
-<tr><td><a data-goto="dumu::p-afanggongfu-dumu">《阿房宫赋》</a></td><td>文言文</td><td>杜牧</td></tr>
-<tr><td><a data-goto="songwen::p-liuguolun-suxun">《六国论》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-dengyueyanglou">《登岳阳楼》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="wanganshi::p-guizhixiang-wanganshi">《桂枝香·金陵怀古》</a></td><td>古诗词</td><td>王安石</td></tr>
-<tr><td><a data-goto="songci::p-zhangxiaoxiang-niannujiao">《念奴娇·过洞庭》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="yuanqu::p-youyuan-tang">《游园》</a></td><td>古诗词</td><td>元曲作家</td></tr>
-<tr><td><a data-goto="yuanqu::p-wangshifu-changting">《长亭送别》</a></td><td>戏曲</td><td>元曲作家</td></tr>
-</table>
-<div class="note">注：《长亭送别》在人教版旧教材必修四第四单元，为传统背诵篇目；统编版必修下册第二单元收《窦娥冤》《雷雨》《哈姆莱特》，未列本课，故附于此并标注归属，正文见「元曲作家」页。</div>
-
-<h3 class="jc-grade">选择性必修上册</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="zhuzi::p-lunyu-xuan">《论语十二章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-liji-daxuezhidao">《大学之道》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-mengzi-burenzhixin">《人皆有不忍人之心》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-laozi-sizhang">《老子四章》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-zhuangzi-wushizhihu">《五石之瓠》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="zhuzi::p-mozi-jianai">《兼爱》</a></td><td>文言文</td><td>先秦诸子散文</td></tr>
-<tr><td><a data-goto="shijing::p-shijing-wuyi">《无衣》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="songci::p-chunjianghuayeyue-zhang">《春江花月夜》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="libai::p-jiangjinjiu">《将进酒》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="sushi::p-sushi-jiangchengzi-yimao">《江城子·乙卯正月二十日夜记梦》</a></td><td>古诗词</td><td>苏轼</td></tr>
-</table>
-
-<h3 class="jc-grade">选择性必修中册</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="hanprose::p-simaqian-qunyuanliezhuan">《屈原列传》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="hanprose::p-bangu-suwuzhuan">《苏武传》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="hanprose::p-jiayi-guoqinlun">《过秦论》</a></td><td>文言文</td><td>两汉史传与辞赋</td></tr>
-<tr><td><a data-goto="ouyangxiu::p-wudaishilingguanchuanxu-ouyangxiu">《五代史伶官传序》</a></td><td>文言文</td><td>欧阳修</td></tr>
-<tr><td><a data-goto="tangsheng::p-yangexing-gao">《燕歌行并序》</a></td><td>古诗词</td><td>盛唐山水与边塞诗人</td></tr>
-<tr><td><a data-goto="lihe::p-konghou-lihe">《李凭箜篌引》</a></td><td>古诗词</td><td>李贺</td></tr>
-<tr><td><a data-goto="shangyin::p-jinse-shangyin">《锦瑟》</a></td><td>古诗词</td><td>李商隐</td></tr>
-<tr><td><a data-goto="luyou::p-shufen-luyou">《书愤》</a></td><td>古诗词</td><td>陆游</td></tr>
-</table>
-
-<h3 class="jc-grade">选择性必修下册</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="shijing::p-shijing-meng">《氓》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="quyuan::p-lisao-qu">《离骚》</a></td><td>古诗词</td><td>屈原与《楚辞》</td></tr>
-<tr><td><a data-goto="shijing::p-yuefu-kongque">《孔雀东南飞》</a></td><td>古诗词</td><td>《诗经》与民间歌谣</td></tr>
-<tr><td><a data-goto="libai::p-shudaonan">《蜀道难》</a></td><td>古诗词</td><td>李白</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-shuxiang">《蜀相》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="songci::p-wanghaichao-liuyong">《望海潮》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="songci::p-jiangkui-yangzhouman">《扬州慢》</a></td><td>古诗词</td><td>两宋词人</td></tr>
-<tr><td><a data-goto="weijinprose::p-limi-chenqingbiao">《陈情表》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="mingqingwen::p-xiangjixuanzhi">《项脊轩志》</a></td><td>文言文</td><td>明清散文</td></tr>
-<tr><td><a data-goto="weijinprose::p-lanting-wxz">《兰亭集序》</a></td><td>文言文</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="taoyuanming::p-guiqulaixici-tym">《归去来兮辞》</a></td><td>文言文</td><td>陶渊明</td></tr>
-<tr><td><a data-goto="tangguwen::p-zhongshu-guotuotuo-liuzongyuan">《种树郭橐驼传》</a></td><td>文言文</td><td>唐代古文：韩柳</td></tr>
-<tr><td><a data-goto="songwen::p-shizhongshan-sushi">《石钟山记》</a></td><td>文言文</td><td>宋代散文</td></tr>
-<tr><td><a data-goto="weijinprose::p-baozhao-nixinglunan">《拟行路难》</a></td><td>古诗词</td><td>魏晋南北朝散文</td></tr>
-<tr><td><a data-goto="dufu::p-dufu-kezhi">《客至》</a></td><td>古诗词</td><td>杜甫</td></tr>
-<tr><td><a data-goto="songshi::p-dengkuaige-huang">《登快阁》</a></td><td>古诗词</td><td>宋代诗人</td></tr>
-<tr><td><a data-goto="luyou::p-linanyuchun-luyou">《临安春雨初霁》</a></td><td>古诗词</td><td>陆游</td></tr>
-</table>
-
-<h2 id="jc-xiandai"><span class="num">05</span>近现代旧体、现代诗与外国诗</h2>
-<h3 class="jc-grade">小学</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="mao::p-qilv-changzheng">《七律·长征》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="xiandai::p-pusaman-dabaidi">《菩萨蛮·大柏地》</a></td><td>近现代旧体</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-shaonian-zhongguo">《少年中国说》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-</table>
-
-<h3 class="jc-grade">初中</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="mao::p-qinyuanchun-xue">《沁园春·雪》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="xiandai::p-woai-zhetudi">《我爱这土地》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-yuguangzhong-xiangchou">《乡愁》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-siyuetian">《你是人间的四月天》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-wokan">《我看》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-meiling-sanzhang">《梅岭三章》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-haiyan">《海燕》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-shenyimo-yueye">《月夜》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-xiaohong-mupan">《萧红墓畔口占》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-duanzhang">《断章》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-ludi-fengyuyin">《风雨》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-tongyi">《统一》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-</table>
-
-<h3 class="jc-grade">高中</h3>
-<table class="jc-table">
-<tr><th>篇目（点击直达）</th><th>体裁</th><th>所在篇章</th></tr>
-<tr><td><a data-goto="mao::p-qinyuanchun-changsha">《沁园春·长沙》</a></td><td>近现代旧体</td><td>毛泽东</td></tr>
-<tr><td><a data-goto="xiandai::p-lizai-diqiu">《立在地球边上放号》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-hongzhu">《红烛》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-eriduoxuefeng">《峨日朵雪峰之侧》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-<tr><td><a data-goto="xiandai::p-zhiyunque">《致云雀》</a></td><td>现代诗</td><td>近现代诗词</td></tr>
-</table>
-
-<div class="aside"><b>说明：</b>本索引是全书的总入口。若想按作者系统研读，请回「教材篇目总索引」页或直接使用左侧目录；若想按文学史时序通读，请从首页的"全书结构地图"进入。</div>
-</section>
 <section class="page" id="method"><header class="author-cover">
   <div class="eyebrow">附录 · 体例说明</div>
   <h1>编例与说明</h1>
@@ -11265,7 +11295,7 @@
   <div class="info-box"><h4>分篇原则与页内结构</h4><p>作品数量多、文学史地位重要者单独成篇（如杜甫、苏轼、李白），并<b>按生平阶段分块</b>：篇侧设目录栏，每阶段先述其处境与时代背景，再紧接该阶段所作之诗，使人与其诗互见。篇目较少、时代相近或风格可比者合并成篇（如初唐四杰、两宋词人、明清散文），则<b>逐位作者排列——作者卡片之后紧接其名篇解析</b>，读完一位再看下一位，不在页尾集中堆放全部代表作。</p></div>
 </div>
 
-<div class="aside"><b>三种进入方式：</b>① 左侧目录按时代与学段分组，适合按作者系统研读；②「教材顺序全篇索引」按小学一上至高中选必下的课本先后逐册排列，篇名即链接，点击直达该篇全文与解析，适合随课查阅；③「教材篇目总索引」按作者与学段速查，适合定位某位作者在本书中的位置，其末另附<b>选修二十课与毛泽东词六首</b>的篇目表；④「中华传统文化专题研讨」专页按选修六单元逐课排列，可与五册对照阅读。此外，每一篇右侧另有<b>本篇目录栏</b>，列出该篇的阶段、作者与作品，随阅读滚动并高亮当前小节，长页之中可随时定位；窄屏下收为页首可展开的条目条。若要跨页查找某位诗人或某一篇，用顶栏的<b>搜索框</b>：输入作者名、篇名或其中一段字即可，候选按"分页—诗人—诗篇—章节"的相关度排列，↑↓选择、回车直达，按 <b>/</b> 可随时唤出搜索框。</div>
+<div class="aside"><b>四种进入方式：</b>① 左侧目录按时代与学段分组，适合按作者系统研读；②首页之后的「教材篇目总索引」按作者与学段速查，适合定位某位作者在本书中的位置，其末另附<b>选修二十课与白话小说九篇</b>的速查表；③紧随其后的「教材全篇顺序索引」按小学一上至高中选必下的课本先后逐册排列，篇名即链接，点击直达该篇全文与解析，适合随课查阅；④「中华传统文化专题研讨」专页按选修六单元逐课排列，可与五册对照阅读。此外，每一篇右侧另有<b>本篇目录栏</b>，列出该篇的阶段、作者与作品，随阅读滚动并高亮当前小节，长页之中可随时定位；窄屏下收为页首可展开的条目条。若要跨页查找某位诗人或某一篇，用顶栏的<b>搜索框</b>：输入作者名、篇名或其中一段字即可，候选按"分页—诗人—诗篇—章节"的相关度排列，↑↓选择、回车直达，按 <b>/</b> 可随时唤出搜索框。</div>
 
 <h2 id="method-structure"><span class="num">02</span>每篇的五项内容</h2>
 <table>
@@ -11395,6 +11425,9 @@
   }
   /* 作者的字号别称：搜「青莲居士」「东坡」「稼轩」也能命中 */
   var ALIAS={
+    '篇目总索引':'教材篇目总索引 总索引 篇目索引 作者索引 速查 篇目速查',
+    '全篇顺序索引':'教材全篇顺序索引 教材顺序索引 册次索引 课本顺序 教材顺序 顺序索引',
+    '编例与说明':'编例 体例 说明 凡例',
     '李白':'李太白 太白 青莲居士 诗仙 谪仙人 李十二 醉仙',
     '杜甫':'杜子美 子美 少陵野老 诗圣 杜工部 老杜 少陵',
     '白居易':'白乐天 乐天 香山居士 醉吟先生 白香山 白傅',

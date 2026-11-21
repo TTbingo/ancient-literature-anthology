@@ -73,6 +73,29 @@ EXTRA_CSS = r"""
     cursor:pointer;color:var(--ink-soft);font-size:14px;box-shadow:var(--shadow);}
   .quick:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
   .quick b{display:block;color:var(--accent2);font-size:15px;margin-bottom:4px;}
+  /* 首页「阅读线索」表：四列，说明占主宽，末两列窄 */
+  table.clue{table-layout:fixed;}
+  table.clue th{text-align:left;white-space:nowrap;}
+  table.clue th:nth-child(1),table.clue td:nth-child(1){width:19%;}
+  table.clue th:nth-child(3),table.clue td:nth-child(3){width:25%;}
+  table.clue th:nth-child(4),table.clue td:nth-child(4){width:21%;}
+  table.clue td{vertical-align:top;line-height:1.85;font-size:13.5px;}
+  table.clue td:first-child{color:var(--accent);font-weight:bold;line-height:1.7;}
+  table.clue td:nth-child(3) a,table.clue td:nth-child(4){font-size:13px;}
+  table.clue td:nth-child(3) a{display:inline-block;margin:0 6px 2px 0;white-space:nowrap;}
+  @media(max-width:820px){
+    table.clue{table-layout:auto;border:none;background:none;}
+    table.clue,table.clue tbody,table.clue tr,table.clue td{display:block;width:auto;}
+    table.clue tr:first-child{display:none;}
+    table.clue tr{background:var(--paper);border:1px solid var(--line);border-radius:8px;
+      padding:13px 15px;margin:0 0 10px;}
+    table.clue td,table.clue td:nth-child(1),table.clue td:nth-child(3),table.clue td:nth-child(4){border:none;padding:0;width:auto;font-size:13px;line-height:1.8;}
+    table.clue td:first-child{font-size:15px;margin-bottom:6px;}
+    table.clue td:nth-child(3),table.clue td:nth-child(4){font-size:12.5px;color:var(--ink-soft);margin-top:7px;}
+    table.clue td:nth-child(3)::before{content:"对应分页：";color:#8a8378;}
+    table.clue td:nth-child(4)::before{content:"代表作者：";color:#8a8378;}
+    table.clue td:nth-child(3) a{margin-right:9px;}
+  }
   /* ===== 页内目录与生平阶段 ===== */
   .sub-toc{background:#faf6ec;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:22px 0;}
   .sub-toc>b{display:block;font-size:11.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:9px;
@@ -325,6 +348,9 @@ JS = r"""
   }
   /* 作者的字号别称：搜「青莲居士」「东坡」「稼轩」也能命中 */
   var ALIAS={
+    '篇目总索引':'教材篇目总索引 总索引 篇目索引 作者索引 速查 篇目速查',
+    '全篇顺序索引':'教材全篇顺序索引 教材顺序索引 册次索引 课本顺序 教材顺序 顺序索引',
+    '编例与说明':'编例 体例 说明 凡例',
     '李白':'李太白 太白 青莲居士 诗仙 谪仙人 李十二 醉仙',
     '杜甫':'杜子美 子美 少陵野老 诗圣 杜工部 老杜 少陵',
     '白居易':'白乐天 乐天 香山居士 醉吟先生 白香山 白傅',
@@ -729,6 +755,8 @@ JS = r"""
 # (id, group, label)
 PAGES = [
  ("home","导览","首页 · 全书总览"),
+ ("indexall","索引 · 教材篇目","篇目总索引（按作者）"),
+ ("jiaocai","索引 · 教材篇目","全篇顺序索引（按册次）"),
  ("xiaowen","小学 · 文言启蒙","小学文言启蒙（11篇）"),
  ("quyuan","先秦两汉","屈原与《楚辞》"),
  ("shijing","先秦两汉","《诗经》与民间歌谣"),
@@ -765,8 +793,6 @@ PAGES = [
  ("mao","元明清近代","毛泽东"),
  ("xiandai","近现代","近现代诗词（14篇）"),
  ("xuanxiu","高中选修 · 专题研讨","中华传统文化专题研讨（选修）"),
- ("indexall","附录","教材篇目总索引"),
- ("jiaocai","附录","教材顺序全篇索引（点击直达）"),
  ("method","附录","编例与说明"),
 ]
 
