@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李白诗词与人生历程系统解析（教材篇目全集版）</title>
+<style>
+  :root{
+    --bg:#f7f4ec; --paper:#fffdf8; --ink:#26231f; --ink-soft:#514b43;
+    --line:#ded6c6; --accent:#9b2f2f; --accent2:#2e5a6b; --gold:#a1792f;
+    --tag-shi:#2e6b4f; --tag-chuan:#9b2f2f; --tag-guan:#2e5a6b;
+    --tag-book:#8a5a1a;
+    --shadow:0 2px 14px rgba(60,50,35,.08);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+    line-height:1.85;font-size:16px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px 80px;}
+  header.cover{text-align:center;padding:70px 20px 40px;border-bottom:2px solid var(--line);}
+  header.cover .eyebrow{color:var(--accent);letter-spacing:.35em;font-size:13px;margin-bottom:18px;}
+  header.cover h1{font-size:36px;margin:0 0 16px;letter-spacing:.04em;color:#1c1a17;}
+  header.cover .sub{color:var(--ink-soft);font-size:17px;}
+  header.cover .meta{margin-top:24px;color:#8a8378;font-size:13px;letter-spacing:.05em;}
+  .lead{background:var(--paper);border-left:4px solid var(--gold);padding:20px 26px;margin:36px 0;
+    border-radius:0 8px 8px 0;box-shadow:var(--shadow);color:var(--ink-soft);}
+  h2{font-size:26px;color:#1c1a17;margin:56px 0 6px;padding-bottom:12px;border-bottom:2px solid var(--accent);
+    letter-spacing:.04em;}
+  h2 .num{color:var(--accent);font-size:15px;display:block;letter-spacing:.2em;margin-bottom:6px;}
+  h3{font-size:20px;margin:34px 0 12px;color:var(--accent2);}
+  h4{font-size:16px;margin:22px 0 8px;color:#1c1a17;}
+  p{margin:12px 0;}
+  a{color:var(--accent2);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .toc{background:var(--paper);padding:24px 30px;border-radius:10px;box-shadow:var(--shadow);margin:30px 0;}
+  .toc h2{margin:0 0 14px;border:none;font-size:20px;}
+  .toc ol{margin:0;padding-left:22px;}
+  .toc li{margin:6px 0;}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;align-items:center;}
+  .tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:20px;color:#fff;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.05em;vertical-align:middle;}
+  .tag-shi{background:var(--tag-shi);} .tag-chuan{background:var(--tag-chuan);}
+  .tag-guan{background:var(--tag-guan);} .tag-book{background:var(--tag-book);}
+  .stage{background:var(--paper);border-radius:12px;padding:30px 32px;margin:30px 0;box-shadow:var(--shadow);
+    border-top:5px solid var(--accent2);}
+  .stage .years{color:var(--accent);font-weight:bold;font-size:14px;letter-spacing:.1em;}
+  .timeline{list-style:none;padding:0;margin:20px 0;border-left:2px solid var(--line);margin-left:10px;}
+  .timeline li{position:relative;padding:6px 0 6px 26px;color:var(--ink-soft);font-size:15px;}
+  .timeline li::before{content:"";position:absolute;left:-7px;top:14px;width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--accent2);}
+  .timeline li b{color:var(--ink);}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  .info-box{background:#faf6ec;border:1px solid var(--line);border-radius:8px;padding:16px 18px;}
+  .info-box h4{margin:0 0 6px;color:var(--accent2);font-size:15px;}
+  .info-box p{margin:4px 0;font-size:14.5px;color:var(--ink-soft);}
+  .poem{border:1px solid var(--line);border-radius:10px;padding:24px 26px;margin:26px 0;background:#fffefb;}
+  .poem .ptitle{font-size:21px;color:#1c1a17;font-weight:bold;margin-bottom:4px;}
+  .poem .pmeta{font-size:13px;color:#8a8378;margin-bottom:14px;}
+  .verse{background:#f7f3e8;border:1px dashed var(--gold);border-radius:6px;padding:14px 18px;margin:14px 0;
+    color:#3a2f1d;font-size:15.5px;line-height:2;}
+  .dim{margin:12px 0;}
+  .dim .k{display:inline-block;min-width:96px;font-weight:bold;color:var(--accent);font-size:14.5px;
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;vertical-align:top;}
+  .dim .v{color:var(--ink-soft);font-size:15px;}
+  .aside{background:#eef3f5;border-left:3px solid var(--accent2);padding:12px 18px;margin:18px 0;border-radius:0 6px 6px 0;
+    font-size:14.5px;color:#33474f;}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:#f0e9d8;color:#3a2f1d;font-weight:bold;}
+  td{background:#fffefb;color:var(--ink-soft);}
+  .note{font-size:13.5px;color:#8a8378;}
+  footer{margin-top:60px;padding-top:24px;border-top:2px solid var(--line);font-size:13.5px;color:#8a8378;}
+  footer h3{color:var(--ink-soft);font-size:16px;}
+  @media(max-width:640px){
+    header.cover h1{font-size:26px;} .wrap{padding:0 14px 60px;}
+    .info-grid{grid-template-columns:1fr;} .stage,.poem{padding:20px 18px;}
+    .dim .k{display:block;min-width:0;} h2{font-size:22px;}
+    table{font-size:12.5px;} th,td{padding:6px 7px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="cover">
+  <div class="eyebrow">盛唐诗魂 · 生命与文本的互证</div>
+  <h1>李白诗词与人生历程系统解析</h1>
+  <div class="sub">以六阶段生平为经，以代表作细读为纬 · 统编教材篇目全集版</div>
+  <div class="meta">少年出蜀 · 漫游求仕 · 长安翰林 · 赐金放还 · 战乱流离 · 晚年流放</div>
+</header>
+
+<div class="lead">
+本文以李白（约701—762）的生平时间线为骨架，把每一阶段的<b>人生节点、历史事件、盛唐社会环境、交游人物</b>与相应诗词的创作勾连起来，说明"怎样的境遇催生怎样的诗"。全本收录<b>统编版中小学语文教材全部李白诗词19首</b>（小学9首、初中7首、高中3首）并逐首完整呈现原文；另纳入体现其一生转折的拓展名篇。每首作品按创作背景、题材主题、情感脉络、意象与语言、艺术手法、名句释义、文学意义七个维度细读，并标明可考年份与地点。凡史料有分歧处，均以标签区分<b>史实</b>、<b>传说</b>与<b>学界观点</b>。
+<div class="legend">
+  <span class="tag tag-book">教材</span><span class="note">统编版中小学语文教材收录篇目</span>
+  <span class="tag tag-shi">史实</span><span class="note">有唐代原始文献或可靠史料支撑</span>
+  <span class="tag tag-chuan">传说</span><span class="note">民间流传、缺乏可靠证据</span>
+  <span class="tag tag-guan">学界观点</span><span class="note">系年或解读存在争议、为推论</span>
+</div>
+</div>
+
+<nav class="toc">
+  <h2>目录</h2>
+  <ol>
+    <li><a href="#index">统编教材李白篇目索引（19首）</a></li>
+    <li><a href="#overview">宏观脉络：一生六阶段总览</a></li>
+    <li><a href="#s1">少年出蜀（701—725）</a></li>
+    <li><a href="#s2">漫游求仕（725—742）</a></li>
+    <li><a href="#s3">入长安供奉翰林（742—744）</a></li>
+    <li><a href="#s4">赐金放还（744—755）</a></li>
+    <li><a href="#s5">战乱流离（755—757）</a></li>
+    <li><a href="#s6">晚年流放与终章（758—762）</a></li>
+    <li><a href="#conclusion">结语：创作与人生的深层关系</a></li>
+    <li><a href="#method">参照文献与方法说明</a></li>
+  </ol>
+</nav>
+
+<h2 id="index"><span class="num">INDEX</span>统编教材李白篇目索引（19首）</h2>
+<p>下列各篇均为统编版语文教材收录的李白作品，按学段排列并标注其在本文中的章节位置，便于对照阅读。教材年级编排在不同印次间略有出入，此处依常见目录标注。<span class="note">（拓展名篇不计入下表，见各阶段正文。）</span></p>
+<table>
+  <tr><th>学段</th><th>篇目</th><th>年级</th><th>创作阶段 / 章节</th></tr>
+  <tr><td rowspan="9">小学</td><td><a href="#p-guanglangyue">《古朗月行》（节选）</a></td><td>一年级上</td><td>少年出蜀</td></tr>
+  <tr><td><a href="#p-jingyesi">《静夜思》</a></td><td>一年级下</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-zengwanglun">《赠汪伦》</a></td><td>二年级上</td><td>赐金放还</td></tr>
+  <tr><td><a href="#p-wanglushan">《望庐山瀑布》</a></td><td>二年级上</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-yeshan">《夜宿山寺》</a></td><td>二年级上</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-wangtianmen">《望天门山》</a></td><td>三年级上</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-zaofabaidi">《早发白帝城》</a></td><td>三年级下</td><td>晚年流放</td></tr>
+  <tr><td><a href="#p-huanghelou">《黄鹤楼送孟浩然之广陵》</a></td><td>四年级上</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-duzuojingshan">《独坐敬亭山》</a></td><td>四年级下</td><td>晚年流放</td></tr>
+  <tr><td rowspan="7">初中</td><td><a href="#p-wenchangling">《闻王昌龄左迁龙标遥有此寄》</a></td><td>七年级上</td><td>赐金放还</td></tr>
+  <tr><td><a href="#p-emeishan">《峨眉山月歌》</a></td><td>七年级上</td><td>少年出蜀</td></tr>
+  <tr><td><a href="#p-chunye">《春夜洛城闻笛》</a></td><td>七年级下</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-dujingmen">《渡荆门送别》</a></td><td>八年级上</td><td>漫游求仕</td></tr>
+  <tr><td><a href="#p-songyouren">《送友人》</a></td><td>八年级下</td><td>赐金放还</td></tr>
+  <tr><td><a href="#p-xinglunan">《行路难》（其一）</a></td><td>九年级上</td><td>赐金放还</td></tr>
+  <tr><td><a href="#p-yuexia">《月下独酌》（其一）</a></td><td>九年级下·课外</td><td>长安翰林</td></tr>
+  <tr><td rowspan="3">高中</td><td><a href="#p-shudaonan">《蜀道难》</a></td><td>必修</td><td>长安翰林</td></tr>
+  <tr><td><a href="#p-jiangjinjiu">《将进酒》</a></td><td>必修</td><td>赐金放还</td></tr>
+  <tr><td><a href="#p-mengyou">《梦游天姥吟留别》</a></td><td>必修</td><td>赐金放还</td></tr>
+</table>
+
+<h2 id="overview"><span class="num">OVERVIEW</span>宏观脉络：一生六阶段总览</h2>
+<p>李白一生六十二载，真正"安顿"的时间极短，绝大部分在漫游与漂泊中度过。他的创作高峰与人生转折高度重合：<b>顺境生华美应制，逆境出愤懑浩歌</b>；越是理想受挫，诗中的浪漫想象与人格宣言越强烈。把握这条"理想—现实"的张力线，是理解其全部作品的钥匙。</p>
+<table>
+  <tr><th>阶段</th><th>年份 / 年龄</th><th>核心境遇</th><th>创作关键词</th><th>教材篇目数</th></tr>
+  <tr><td>少年出蜀</td><td>701—725 / 0—25</td><td>西域血缘、蜀地成长，任侠学剑、纵横之术</td><td>锐气、大鹏、乡月</td><td>2</td></tr>
+  <tr><td>漫游求仕</td><td>725—742 / 25—42</td><td>"酒隐安陆"、干谒四方、初入长安失意</td><td>山水、送别、隐逸、乡愁</td><td>8</td></tr>
+  <tr><td>长安翰林</td><td>742—744 / 42—44</td><td>奉诏入京、供奉翰林，荣宠与幻灭</td><td>应制、谪仙、蜀道、独酌</td><td>2</td></tr>
+  <tr><td>赐金放还</td><td>744—755 / 44—55</td><td>再离长安、与杜甫交游、忧患初觉</td><td>愤懑、傲骨、游仙、友情</td><td>6</td></tr>
+  <tr><td>战乱流离</td><td>755—757 / 55—57</td><td>安史之乱、入永王幕、浔阳系狱</td><td>忠愤、忧乱、幻灭</td><td>0</td></tr>
+  <tr><td>晚年流放</td><td>758—762 / 58—62</td><td>长流夜郎、白帝遇赦、漂泊终老</td><td>轻舟、冲淡、绝唱</td><td>3</td></tr>
+</table>
+
+<section class="stage" id="s1">
+  <span class="years">第一阶段 · 701—725</span>
+  <h2><span class="num">CHAPTER Ⅰ</span>少年出蜀：西域血缘与蜀地塑形</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>约701（长安元年）</b>：出生。<span class="tag tag-guan">学界观点</span>生年据《为宋中丞自荐表》"年五十有七"（至德二年757）推得，为主流共识；出生地则有<b>西域碎叶说</b>（今吉尔吉斯斯坦托克马克附近，郭沫若1971系统论证，并有阿克别希姆古城考古佐证）与<b>蜀地江油说</b>（詹锳等据魏颢"身既生蜀"、北宋旧宅碑）之争，至今无定论。<span class="tag tag-shi">史实</span>先世隋末流寓西域，神龙初（705）归蜀。</li>
+    <li><b>705—715</b>：五岁诵六甲、十岁观百家（见其自述《上安州裴长史书》），<span class="tag tag-shi">史实</span>少年受蜀地道教与纵横术双重熏陶。"铁杵磨成针"传说即附会于此期。<span class="tag tag-chuan">传说</span></li>
+    <li><b>约715（十五岁）</b>：好剑术、喜任侠，已有诗赋，开始干谒。<span class="tag tag-shi">史实</span></li>
+    <li><b>约718（十八岁）</b>：隐居戴天大匡山（今四川江油），从纵横家赵蕤学帝王之术。<span class="tag tag-shi">史实</span></li>
+    <li><b>约721</b>：谒渝州刺史李邕受轻慢，作《上李邕》。<span class="tag tag-guan">学界观点</span>系年约在此时。</li>
+    <li><b>724—725</b>：游成都、峨眉，舟行东下渝州；开元十三年"仗剑去国，辞亲远游"，出蜀。<span class="tag tag-shi">史实</span></li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>开元初年，盛唐气象初升。蜀地远离政治中心而道教兴盛（青城山等），任侠与纵横之术在士人中流行。家族的西域背景赋予其开放的视野与浪漫气质——这是理解其诗中"开阔、奇幻、不拘一格"的精神底色。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>赵蕤</b>：纵横家，与李白并称"蜀中二杰"，授以《长短经》与帝王之学，奠定其"奋其智能，愿为辅弼"的功业理想。<b>李邕</b>：渝州刺史，其轻慢激起少年李白《上李邕》的傲岸自白。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem" id="p-guanglangyue">
+    <div class="ptitle">《古朗月行》（节选） <span class="tag tag-book">教材·小学一年级上</span></div>
+    <div class="pmeta">少年时期习作 · 蜀地 · <span class="tag tag-guan">学界观点：约童年至少年所作，具体年份无考</span></div>
+    <div class="verse">小时不识月，呼作白玉盘。<br>又疑瑶台镜，飞在青云端。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">《古朗月行》为乐府旧题（属《杂曲歌辞》），是李白童年至少年时期对月亮的稚拙想象。教材节选前四句，全诗后段转入"蟾蜍蚀圆影，大明夜已残"的忧虞，成人与儿童视角迥异。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">咏月，以儿童视角写对月亮的天真认知，是李白浪漫主义想象力的最早样本。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">好奇、惊喜、想象飞扬——不识月的混沌与"呼作""又疑"的试探，写出孩童认知世界的鲜活过程。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">白玉盘、瑶台镜、青云端，皆为晶莹高洁之物；语言浅白如话，却境界澄澈。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">比喻与假设（"呼作""又疑"）叠加，以儿童的错误认知制造诗意；"瑶台"用西王母神话，植入道教仙界意象。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"小时不识月，呼作白玉盘"——小时候不认识月亮，把它叫作白玉做的盘子。"呼作"二字传神地写出孩童脱口而出的天真。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">全诗以童趣开篇、以忧思收束，暗含从天真到世故的生命转折；节选部分则是中国古典诗歌中写儿童心理的名句，也是李白"月亮情结"的源头。</span></div>
+  </div>
+
+  <div class="poem">
+    <div class="ptitle">《上李邕》</div>
+    <div class="pmeta">约721年 · 渝州（今重庆）· <span class="tag tag-guan">学界观点：系年约在此时</span></div>
+    <div class="verse">大鹏一日同风起，扶摇直上九万里。<br>假令风歇时下来，犹能簸却沧溟水。<br>世人见我恒殊调，闻余大言皆冷笑。<br>宣父犹能畏后生，丈夫未可轻年少。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白拜谒渝州刺史李邕受到冷遇，少年意气的他写下这首近乎"自荐兼抗辩"的诗。李邕当时已是文坛宿老，李白以少年之身直斥其"未可轻年少"。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">干谒自荐与咏物言志的结合，借"大鹏"宣示少年抱负与不屈人格。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由大鹏冲天的磅礴自信，转到对"世人冷笑"的愤懑，再以孔子"后生可畏"反诘收束，始终昂扬不甘。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">核心意象是《庄子·逍遥游》的大鹏——"扶摇九万里""簸却沧溟水"，壮阔奇伟；语言斩钉截铁，无半点吞吞吐吐。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">反用典故：借孔子（宣父）"后生可畏"（《论语·子罕》）反讽轻慢少年者；以大鹏自比，把自荐信写成傲岸宣言。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"大鹏一日同风起，扶摇直上九万里"——只要机遇（风）到来，我便能一飞冲天；即便风歇落下，也足以簸干沧海之水。是少年对自身价值的极高自信。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">此诗的大鹏意象与晚年绝笔《临路歌》"大鹏飞兮振八裔，中天摧兮力不济"首尾呼应，构成李白一生理想起落的完整象征弧线。</span></div>
+  </div>
+
+  <div class="poem" id="p-emeishan">
+    <div class="ptitle">《峨眉山月歌》 <span class="tag tag-book">教材·初中七年级上</span></div>
+    <div class="pmeta">约725年 · 出蜀途中（峨眉山—平羌江—清溪—渝州）· <span class="tag tag-shi">史实：出蜀年份</span></div>
+    <div class="verse">峨眉山月半轮秋，影入平羌江水流。<br>夜发清溪向三峡，思君不见下渝州。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白出蜀，舟行由峨眉山沿平羌江（今青衣江）东下，经清溪、渝州，向三峡而去。这是他告别蜀地的途中之作。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水行旅与思乡怀人，"峨眉山月"既是故乡记忆，也是沿途相伴的友情象征。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">出蜀的昂扬新鲜与对故土、友人的依依惜别交织；明亮而不沉重，是少年远行的复杂心绪。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">全诗二十八字连缀峨眉山、平羌江、清溪、三峡、渝州五个地名，却以一轮"月"贯穿，毫无堆砌之感；语言清空如画。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以月为线索串联空间转换，视角随舟行流动；"影入平羌江水流"化静为动，月影与江水共奔流。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"夜发清溪向三峡，思君不见下渝州"——连夜从清溪出发驶向三峡，思念友人却不得见，小船已驶过渝州；"君"一般指蜀中友人（亦有认为指月或故人）。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">七绝名篇，明人王世贞等赞其"四句入地名者五，古今目为绝唱"；标志李白绝句"以少总多、自然流转"的早期成熟，也是"峨眉山月"这一贯穿其创作的核心意象的首次亮相。</span></div>
+  </div>
+</section>
+
+<section class="stage" id="s2">
+  <span class="years">第二阶段 · 725—742</span>
+  <h2><span class="num">CHAPTER Ⅱ</span>漫游求仕：壮游、干谒与隐逸</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>725</b>：出蜀，舟行过荆门山（今湖北宜昌），作《渡荆门送别》；继续东下，过天门山（今安徽芜湖），作《望天门山》。<span class="tag tag-shi">史实</span></li>
+    <li><b>726</b>：春往扬州，秋病卧扬州，作《静夜思》；冬北游汝州至安陆；途经陈州识李邕，结识孟浩然。<span class="tag tag-shi">史实</span></li>
+    <li><b>727</b>：居安陆寿山，娶故宰相许圉师之孙女，此后"酒隐安陆"近十年。</li>
+    <li><b>728—730</b>：出游江夏，与孟浩然相会；三十岁初入长安，谒张说、张垍，献赋无门，失望而归；离京后东下梁园，又南游吴越、金陵，作《望庐山瀑布》《夜宿山寺》等。</li>
+    <li><b>733—736</b>：应元丹丘邀赴嵩山隐居；与岑勋、元丹丘相会。<span class="tag tag-guan">学界观点</span>《将进酒》或作于此期间。游洛阳时作《春夜洛城闻笛》。</li>
+    <li><b>738</b>：游襄阳，作《赠孟浩然》；至颍阳元丹丘山居。结识王昌龄等。</li>
+    <li><b>740</b>：许夫人约卒于此年前后，带子女离安陆至东鲁；与孔巢父、韩准等隐居徂徕山，号"竹溪六逸"。</li>
+    <li><b>742</b>：游泰山，作《游泰山六首》；元丹丘将其《玉真仙人词》呈玉真公主，为其入京铺路。</li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>开元盛世，漫游与干谒成为士人求仕的重要路径。隐逸（尤其终南山、嵩山）常被视为"终南捷径"；道教受皇室推崇，李白受道箓、结交道士，既是信仰也是社交策略。这一时期他不断向权贵上书自荐，屡屡碰壁，积累了对盛唐表面繁荣下政治现实的清醒认识。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>孟浩然</b>：盛唐隐逸诗人，李白敬慕其"白首卧松云"的高洁；<b>元丹丘</b>：道士，李白最重要的隐居之友，多次提供山居与引荐；<b>岑勋</b>：友人，《将进酒》中的"岑夫子"；此外有王昌龄、韩朝宗、玉真公主等。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem" id="p-dujingmen">
+    <div class="ptitle">《渡荆门送别》 <span class="tag tag-book">教材·初中八年级上</span></div>
+    <div class="pmeta">约725年 · 荆门山（今湖北宜昌）· <span class="tag tag-shi">史实：出蜀经荆门</span></div>
+    <div class="verse">渡远荆门外，来从楚国游。<br>山随平野尽，江入大荒流。<br>月下飞天镜，云生结海楼。<br>仍怜故乡水，万里送行舟。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白出蜀乘船东下，穿过荆门山，由蜀地进入楚地平原。这是他第一次离开巴蜀、面对辽阔中原的纪行之作。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">送别诗（实为别故乡），写初出蜀的壮阔见闻与对故乡的眷恋。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由"渡远"的豪迈开阔，到"山随平野尽"的新奇，再到"仍怜故乡水"的深情回望——昂扬中藏着一缕乡愁。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">平野、大荒、天镜（月影）、海楼（云霞如海市蜃楼）、故乡水，境界宏阔；"随""入""飞""结"四个动词极富动态。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">移步换景，以舟行视角展现地貌剧变；拟人化的结尾——不说自己思念故乡，反说故乡水恋恋不舍送我远行，含蓄深情。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"山随平野尽，江入大荒流"——群山随着平原的出现而消失，江水奔流入辽阔荒野。以高度概括的笔墨写出蜀地群山到楚地平原的地貌转折，景象壮阔。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白早期五律的代表，与杜甫"星垂平野阔，月涌大江流"并称写江之名联；标志其山水诗由蜀地奇险转向楚地开阔。</span></div>
+  </div>
+
+  <div class="poem" id="p-wangtianmen">
+    <div class="ptitle">《望天门山》 <span class="tag tag-book">教材·小学三年级上</span></div>
+    <div class="pmeta">约725年 · 天门山（今安徽芜湖、马鞍山间）· <span class="tag tag-shi">史实：出蜀途经</span></div>
+    <div class="verse">天门中断楚江开，碧水东流至此回。<br>两岸青山相对出，孤帆一片日边来。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白出蜀东下，舟行经过天门山（东梁山、西梁山夹江对峙），望两岸青山·江流而作。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水写景，表现长江冲破天门、浩荡东去的雄奇气势。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">豪迈、昂扬、开阔——少年出蜀的澎湃心绪与山河的壮丽互为映照。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">天门、楚江、碧水、青山、孤帆、白日，色彩明丽；"断""开""回""出""来"一连串动词使静态山水充满力量。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">动静结合、视角转换：先写江水的冲决之力，再写舟行中青山"相对出"的视觉动感，末以"孤帆一片日边来"点出自我的存在。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"两岸青山相对出，孤帆一片日边来"——两岸青山对峙着扑入眼帘，一叶孤帆从红日映照的天边驶来。"出"字写出舟行时山迎面而来的动态。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">二十八字写尽长江形胜，是李白山水诗中"以动写静、以小见大"的典范，也是小学阶段感受其壮阔气象的入门之作。</span></div>
+  </div>
+
+  <div class="poem" id="p-yeshan">
+    <div class="ptitle">《夜宿山寺》 <span class="tag tag-book">教材·小学二年级上</span></div>
+    <div class="pmeta">约730年前后 · 湖北黄梅山中寺院 · <span class="tag tag-guan">学界观点：作者归属有争议，或作于李白，一说无名氏</span></div>
+    <div class="verse">危楼高百尺，手可摘星辰。<br>不敢高声语，恐惊天上人。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">传为李白漫游湖北黄梅一带夜宿山中寺庙时所作，写寺楼之高。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水写景，以夸张笔法写楼高接天，充满儿童般的奇想。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">惊喜、敬畏又带俏皮——"恐惊天上人"的顾虑天真烂漫。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">危楼、百尺、星辰、天上人，皆高渺之物；语言浅显，想象奇特。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">极度夸张（高百尺、摘星辰）配合心理描写（不敢高声语），把"高"写得可感可触。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"不敢高声语，恐惊天上人"——不敢大声说话，怕惊动了天上的仙人。以心理的"不敢"反衬楼之极高，想象奇绝。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">以近乎童谣的语言写登临之感，是李白"想落天外"式夸张的通俗范本（作者归属存疑，教学中使用广泛）。</span></div>
+  </div>
+
+  <div class="poem" id="p-wanglushan">
+    <div class="ptitle">《望庐山瀑布》 <span class="tag tag-book">教材·小学二年级上</span></div>
+    <div class="pmeta">约729年前后 · 庐山（今江西）· <span class="tag tag-guan">学界观点：系年不确，约在漫游吴越、江州时期</span></div>
+    <div class="verse">日照香炉生紫烟，遥看瀑布挂前川。<br>飞流直下三千尺，疑是银河落九天。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">出蜀后漫游吴越、江州一带，登庐山望瀑布而作。是其壮游期山水诗的代表。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">纯然山水写景，表现对自然奇观的惊叹与豪迈开阔的胸襟。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">从"生紫烟"的静谧恍惚，到"挂前川"的遥望，再到"直下三千尺"的惊心动魄，情绪层层推向高潮。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">香炉峰、紫烟、瀑布、银河、九天，皆壮丽超逸；一个"挂"字写出远望瀑布如白练悬空的静态，与"飞流直下"的动势形成张力。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">夸张（三千尺）加超现实想象（银河落九天），由实入虚；日光、紫烟营造出道教仙气般的氛围。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"飞流直下三千尺，疑是银河落九天"——瀑布飞泻似有三千尺之长，恍惚间以为是银河从最高天倾泻而下。"疑"字点明这是想象，而非实写。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">盛唐山水诗浪漫主义的高峰，以虚写实、化静为动，集中体现李白"想落天外"的艺术个性。</span></div>
+  </div>
+
+  <div class="poem" id="p-jingyesi">
+    <div class="ptitle">《静夜思》 <span class="tag tag-book">教材·小学一年级下</span></div>
+    <div class="pmeta">约726年 · 扬州（今江苏）· <span class="tag tag-guan">学界观点：系年有争议，郁贤皓系于开元十四年（726）</span></div>
+    <div class="verse">床前明月光，疑是地上霜。<br>举头望明月，低头思故乡。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白出蜀后病卧扬州旅舍，秋夜月色如霜，触动乡思而作。一说作于蜀地，系年学界未有定论。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">思乡，以月为媒介的羁旅怀乡之情。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由"疑是霜"的恍惚，到"举头望月"的不自觉，再到"低头思故乡"的沉潜——一个动作序列完成了从无意识到深情的过程。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">明月、霜、月光，意象澄澈；语言朴素如口语，二十字无一僻字，却意味深长。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以"疑"字写错觉，以"举头""低头"的对比动作写心理转折；于平淡中见深情，所谓"清水出芙蓉，天然去雕饰"。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"举头望明月，低头思故乡"——抬头望天上明月，低头想起远方的故乡。望月与思乡的自然联结，使此句成为中国人普遍的乡愁表达。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">中国古典诗歌中流传最广的思乡之作，是李白"月"意象最具日常性、最深入人心的呈现；也是多数人接触李白的第一首诗。</span></div>
+  </div>
+
+  <div class="poem" id="p-chunye">
+    <div class="ptitle">《春夜洛城闻笛》 <span class="tag tag-book">教材·初中七年级下</span></div>
+    <div class="pmeta">约734年 · 洛阳（今河南）· <span class="tag tag-guan">学界观点：约开元二十二年游洛阳时作</span></div>
+    <div class="verse">谁家玉笛暗飞声，散入春风满洛城。<br>此夜曲中闻折柳，何人不起故园情。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白漫游洛阳期间，春夜听到远处传来笛声，吹的正是《折杨柳》曲调，触发羁旅乡愁。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">闻笛思乡，借音乐触发的故园之情。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由"暗飞声"的悄然惊觉，到"满洛城"的弥漫，再到"闻折柳"的触动，终以"何人不起"的普遍化感叹收束——由一己体验升华为人类共情。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">玉笛、春风、洛城、折柳，意象清婉；"暗""散""满"写出笛声的无处不在。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以声写情、以曲传意——"折柳"谐音"留"，古人送别折柳相赠，笛声中的《折杨柳》天然携带离别意味，不需明说而乡愁自现。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"此夜曲中闻折柳，何人不起故园情"——今夜听到《折杨柳》的曲调，有谁不会涌起思乡之情呢？以反问加强情感的普遍性。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">七绝中"以声传情"的名篇，与《静夜思》同为李白乡愁诗的代表，展示了音乐意象在其诗中的独特功能。</span></div>
+  </div>
+
+  <div class="poem" id="p-huanghelou">
+    <div class="ptitle">《黄鹤楼送孟浩然之广陵》 <span class="tag tag-book">教材·小学四年级上</span></div>
+    <div class="pmeta">约730年前后 · 江夏黄鹤楼（今武汉）· <span class="tag tag-guan">学界观点：系年在728—730年间</span></div>
+    <div class="verse">故人西辞黄鹤楼，烟花三月下扬州。<br>孤帆远影碧空尽，唯见长江天际流。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">孟浩然自江夏东下扬州（广陵），李白于黄鹤楼送别。此时李白正处于漫游求仕的畅达期，两人交谊深厚。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">送别诗，兼含对友人的倾慕与对扬州繁华胜游的向往。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">惜别而不伤，明丽旷达；"烟花三月"的绚烂冲淡了离愁，结尾以浩渺江水寄寓悠长情思。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">黄鹤楼、烟花三月、孤帆、碧空、长江天际，意象开阔清新，色彩明丽。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以景结情、意在景中：目送孤帆消失于碧空尽头，唯见长江向天际奔流，将不舍化作永恒的凝望。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"孤帆远影碧空尽，唯见长江天际流"——友人的孤帆渐行渐远，消失在碧空尽头，眼前只剩长江滚滚流向天边。无言的伫立比直诉离情更深沉。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">七绝送别的典范，展现"少年李白"式的明朗豁达，与其晚年沉郁的送别诗形成对照。</span></div>
+  </div>
+
+  <div class="poem">
+    <div class="ptitle">《赠孟浩然》</div>
+    <div class="pmeta">约738年 · 襄阳（今湖北）· <span class="tag tag-guan">学界观点：系年约在游襄阳时</span></div>
+    <div class="verse">吾爱孟夫子，风流天下闻。<br>红颜弃轩冕，白首卧松云。<br>醉月频中圣，迷花不事君。<br>高山安可仰，徒此揖清芬。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白漫游襄阳期间赠予孟浩然，表达对这位年长隐逸诗人的由衷敬慕。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">赠答诗，赞颂友人高洁的隐逸人格，也寄托自己对自由生活的向往。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">开篇直抒"吾爱"，中段铺陈其品格，结尾"高山仰止"收束，一路倾慕、景仰。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">"轩冕"（官爵）与"松云"（山林）对比，"醉月""迷花"写出洒脱；语言疏朗自然。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">用典而不着痕迹——"中圣"典出《三国志》，指醉酒；"高山仰止"化用《诗经》，表达敬慕。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"红颜弃轩冕，白首卧松云"——年轻时便抛弃功名利禄，到老高卧松云之间。概括孟浩然一生不仕的高洁。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">体现李白早年对隐逸人格的高度推崇，与其终身不改的"事君济世"之志构成耐人寻味的内在张力。</span></div>
+  </div>
+</section>
+
+<section class="stage" id="s3">
+  <span class="years">第三阶段 · 742—744</span>
+  <h2><span class="num">CHAPTER Ⅲ</span>入长安供奉翰林：荣宠之巅与幻灭之始</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>742（天宝元年，四十二岁）</b>：经玉真公主、道士吴筠推荐，奉诏入京，作《南陵别儿童入京》"仰天大笑出门去，我辈岂是蓬蒿人"。玄宗召见于金銮殿，"降辇步迎……以七宝床赐食，御手调羹以饭之"（李阳冰《草堂集序》），命待诏翰林。<span class="tag tag-shi">史实</span></li>
+    <li><b>742</b>：见太子宾客、秘书监贺知章（时年八十四），贺读其《蜀道难》（一说《乌栖曲》），惊叹"子，谪仙人也"，解金龟换酒。<span class="tag tag-shi">史实</span></li>
+    <li><b>743（天宝二年）</b>：侍从温泉宫；奉诏于沉香亭为杨贵妃赏牡丹作《清平调三首》。"贵妃研墨、力士脱靴"等美谈流传。<span class="tag tag-chuan">传说：脱靴等细节</span></li>
+    <li><b>744（天宝三载）春</b>：赐金放还。原因诸说并存：自污纵酒、帝用疏之（李阳冰《草堂集序》）；张垍谗逐（魏颢《李翰林集序》）；高力士衔怨（传说）。<span class="tag tag-guan">学界观点：原因不一</span></li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>天宝初年，玄宗已从开元前期的勤政转向宴乐，宠信高力士，委政于李林甫；表面繁花似锦，危机暗伏。李白被召入京，实为点缀升平的文学侍从（翰林待诏），与其"申管晏之谈，谋帝王之术"的辅弼理想相去甚远——这一落差是理解他长安期与此后全部创作的枢纽。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>贺知章</b>：文坛宿老，"谪仙"之誉的授予者，是李白在朝中最重要的知音；与张旭、崔宗之、李适之等并称"饮中八仙"（杜甫《饮中八仙歌》记之）。<b>张垍</b>（玄宗女婿）、<b>高力士</b>则成为其政治上的对立面。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem" id="p-shudaonan">
+    <div class="ptitle">《蜀道难》 <span class="tag tag-book">教材·高中必修</span></div>
+    <div class="pmeta">系年争议较大 · 一说入长安前后（约742），一说更早蜀地漫游期 · <span class="tag tag-guan">学界观点：无定论</span></div>
+    <div class="verse">噫吁嚱，危乎高哉！蜀道之难，难于上青天！<br>蚕丛及鱼凫，开国何茫然！<br>尔来四万八千岁，不与秦塞通人烟。<br>西当太白有鸟道，可以横绝峨眉巅。<br>地崩山摧壮士死，然后天梯石栈相钩连。<br>上有六龙回日之高标，下有冲波逆折之回川。<br>黄鹤之飞尚不得过，猿猱欲度愁攀援。<br>青泥何盘盘，百步九折萦岩峦。<br>扪参历井仰胁息，以手抚膺坐长叹。<br>问君西游何时还？畏途巉岩不可攀。<br>但见悲鸟号古木，雄飞雌从绕林间。<br>又闻子规啼夜月，愁空山。<br>蜀道之难，难于上青天，使人听此凋朱颜！<br>连峰去天不盈尺，枯松倒挂倚绝壁。<br>飞湍瀑流争喧豗，砯崖转石万壑雷。<br>其险也如此，嗟尔远道之人胡为乎来哉！<br>剑阁峥嵘而崔嵬，一夫当关，万夫莫开。<br>所守或匪亲，化为狼与豺。<br>朝避猛虎，夕避长蛇，磨牙吮血，杀人如麻。<br>锦城虽云乐，不如早还家。<br>蜀道之难，难于上青天，侧身西望长咨嗟！</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">乐府旧题，或为送友人入蜀而作，或寄寓功业难求之慨。贺知章读此诗而惊叹"谪仙人"是明确史料，故其成名与长安初见紧密相连；具体作年学界仍无定论（詹锳系于742年前后，安旗等另有异说）。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">借乐府旧题写蜀道山川之险，兼具送别、山水与政治寓托（后世有讽章仇兼琼、讽玄宗幸蜀等推测，均为学界观点）。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由惊呼发端，历经神话、险境、悲鸟、子规的层层渲染，最终归于"侧身西望长咨嗟"的深沉慨叹——雄奇中潜藏忧惧。全篇以"蜀道之难，难于上青天"三次咏叹为骨架，一唱三叹。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">蚕丛鱼凫、五丁开山、太白鸟道、六龙回日、猿猱、悲鸟、子规、飞湍瀑流、豺狼虎豹、剑阁、锦城，意象奇崛密集；语言破空而来，句式长短不拘，以散文句法入诗。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">神话传说（蚕丛鱼凫、五丁开山、六龙回日）与极度夸张结合；"扪参历井仰胁息"写山高逼天；"飞湍瀑流争喧豗，砯崖转石万壑雷"以声衬险；结末"所守或匪亲，化为狼与豺"由写景转入政治警戒。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"蜀道之难，难于上青天"——蜀道的艰难，胜过登天；既是写实的夸张，也成为一切艰险之路的象征。"一夫当关，万夫莫开"写剑阁地势险要，一人把守，万人难攻。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白乐府与浪漫主义的奇崛高峰，全诗气象雄放、想象飞腾；正是此诗（连同《乌栖曲》）令贺知章叹为"谪仙"，奠定了李白神话般的文化身份，也是高中阶段理解其浪漫主义的核心文本。</span></div>
+  </div>
+
+  <div class="poem">
+    <div class="ptitle">《清平调三首》</div>
+    <div class="pmeta">约743年 · 长安沉香亭 · <span class="tag tag-shi">史实：奉诏应制作品</span></div>
+    <div class="verse">其一<br>云想衣裳花想容，春风拂槛露华浓。<br>若非群玉山头见，会向瑶台月下逢。<br>其二<br>一枝秾艳露凝香，云雨巫山枉断肠。<br>借问汉宫谁得似，可怜飞燕倚新妆。<br>其三<br>名花倾国两相欢，常得君王带笑看。<br>解释春风无限恨，沉香亭北倚阑干。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">玄宗与杨贵妃于沉香亭赏牡丹，命李白进《清平调》词三章（据《松窗杂录》）。是典型的奉诏应制之作。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">应制咏物，借牡丹写杨贵妃之美；主流视为颂美之作，亦有"讽喻"说（学界争议）。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">华美、雍容、得意；折射出李白初入翰林时"身骑飞龙天马驹"的荣耀感。三首层层推进：由容貌之美，到仙姿之绝，再到君王宠爱。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">云、花、春风、露华、群玉山、瑶台、巫山云雨、赵飞燕、沉香亭，富丽而空灵；语言流丽华美而不雕琢，所谓"清水出芙蓉"。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">反写手法——不说衣裳如云、容貌如花，而说云想化为其衣、花想化为其容；以仙女（群玉山、瑶台）、巫山神女、赵飞燕作比衬托；"春风"在第一、三首呼应。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"云想衣裳花想容，春风拂槛露华浓"——云彩羡慕她的衣裳，花朵羡慕她的容貌；春风拂过栏杆，露珠润泽使牡丹（亦喻贵妃）更显娇艳浓丽。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">应制诗中的杰作，显示李白驾驭华美题材的非凡能力；同时是其宫廷生涯"高光与局限"的象征——才华被用作点缀升平。</span></div>
+  </div>
+
+  <div class="poem" id="p-yuexia">
+    <div class="ptitle">《月下独酌》（其一） <span class="tag tag-book">教材·初中九年级下·课外古诗词诵读</span></div>
+    <div class="pmeta">约743—744年 · 长安 · <span class="tag tag-guan">学界观点：系年在供奉翰林期间</span></div>
+    <div class="verse">花间一壶酒，独酌无相亲。<br>举杯邀明月，对影成三人。<br>月既不解饮，影徒随我身。<br>暂伴月将影，行乐须及春。<br>我歌月徘徊，我舞影零乱。<br>醒时同交欢，醉后各分散。<br>永结无情游，相期邈云汉。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白供奉翰林期间，政治上不得志、朝中知音相继离去，月夜独自饮酒，写下此诗。繁华长安中的孤独是其真正底色。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">月下独酌，写孤独中以想象自遣、与月影为友的旷达。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">开篇"独酌无相亲"的孤寂→"邀明月""对影成三人"的热闹→"月既不解饮"的清醒→"永结无情游"的超越——孤独—排遣—升华，起伏有致。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">花、酒、明月、身影、云汉，意象清冷空明；语言如话，却情致深婉。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">拟人化与想象——把月与影当作有情友人，化"一人"为"三人"，以热闹写孤独，反衬手法极为高明；"无情游"化用《庄子》"相视而笑，莫逆于心"之意。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"举杯邀明月，对影成三人"——举起酒杯邀请明月，加上自己的影子，仿佛有了三人相伴。以奇想化解孤独，成为千古传诵的名句。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白"月"意象的代表作之一，孤独而不颓丧、浪漫中含哲思；与《静夜思》共同构成其月诗的双璧。</span></div>
+  </div>
+</section>
+
+<section class="stage" id="s4">
+  <span class="years">第四阶段 · 744—755</span>
+  <h2><span class="num">CHAPTER Ⅳ</span>赐金放还：理想受挫与傲骨宣言</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>744</b>：赐金放还，离长安。在洛阳结识杜甫（712—770）、高适（704—765），三人同游梁宋（今河南开封、商丘一带）。<span class="tag tag-shi">史实</span>此为李白一生的重大转折——由积极进取转向对现实的深刻疏离。</li>
+    <li><b>745</b>：于齐州紫极宫请高天师授道箓，正式入道；在东鲁与杜甫再次相会，"醉眠秋共被，携手日同行"（杜甫诗）。离东鲁南下前作《梦游天姥吟留别》。</li>
+    <li><b>约740年代后期</b>：家寄东鲁，续娶宗楚客孙女（宗氏夫人）。</li>
+    <li><b>约748</b>：闻友人王昌龄被贬龙标（今湖南黔阳），作《闻王昌龄左迁龙标遥有此寄》。<span class="tag tag-guan">学界观点：系年约在天宝七载前后</span></li>
+    <li><b>752（天宝十一载）</b>：北游幽燕，实地探察安禄山虚实，深感其图谋不轨、朝廷养虎成患，忧心如焚。<span class="tag tag-shi">史实</span>《将进酒》有学者系于此年。同年游泾县桃花潭，作《赠汪伦》。</li>
+    <li><b>753</b>：在宣城作《宣州谢朓楼饯别校书叔云》。</li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>赐金放还后，李白"身在江湖，心存魏阙"：一面纵情山水、求仙问道，一面始终关切国事。天宝后期，玄宗怠政、边将坐大，社会危机日益深重。这一时期反而成为他创作最丰沛、思想最成熟的阶段——愤懑、傲骨与忧患意识交汇，催生出《将进酒》《梦游天姥吟留别》等巅峰之作。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>杜甫</b>：这次相遇是中国文学史大事，此后杜甫写十余首诗怀念李白；<b>高适</b>：边塞诗人，与二人同游梁宋；<b>元丹丘</b>、<b>岑勋</b>：嵩山纵酒之友，《将进酒》的在场者；<b>王昌龄</b>：被贬龙标的友人；<b>汪伦</b>：泾县友人，以踏歌相送名垂青史。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem" id="p-xinglunan">
+    <div class="ptitle">《行路难》（其一） <span class="tag tag-book">教材·初中九年级上</span></div>
+    <div class="pmeta">约744年离长安后 · <span class="tag tag-guan">学界观点：系年在赐金放还前后</span></div>
+    <div class="verse">金樽清酒斗十千，玉盘珍羞直万钱。<br>停杯投箸不能食，拔剑四顾心茫然。<br>欲渡黄河冰塞川，将登太行雪满山。<br>闲来垂钓碧溪上，忽复乘舟梦日边。<br>行路难！行路难！多歧路，今安在？<br>长风破浪会有时，直挂云帆济沧海。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">赐金放还、政治理想受挫后，李白在宴饮中写此诗，抒发仕途艰难与内心矛盾。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">乐府旧题抒怀，写求仕之难与不甘沉沦的信念。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">从"停杯投箸""拔剑四顾"的苦闷茫然，经"冰塞川""雪满山"的阻滞，到吕尚、伊尹的希望，再到"多歧路"的彷徨，终以"长风破浪"的昂扬收束——大起大落，震撼人心。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">金樽玉盘的奢华与"不能食"的失落形成反差；冰塞川、雪满山象征前路艰难；沧海云帆境界壮阔。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">用典（吕尚垂钓碧溪、伊尹乘舟梦日、宗悫"乘长风破万里浪"）抒写希望；情感节奏抑扬跌宕，结构开合自如。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"长风破浪会有时，直挂云帆济沧海"——总有一天能乘长风破万里浪，高高挂起云帆横渡沧海。化用宗悫典故，表达终将实现理想的坚定信念。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">理想受挫而不失信念的千古名篇，是盛唐士人昂扬精神的集中写照，也是李白"悲而能壮"风格的典范。</span></div>
+  </div>
+
+  <div class="poem" id="p-jiangjinjiu">
+    <div class="ptitle">《将进酒》 <span class="tag tag-book">教材·高中必修</span></div>
+    <div class="pmeta">系年三说：734（管士光）/736（郁贤皓）/752（黄锡珪）· 地点：嵩山元丹丘颍阳山居或梁宋间 · <span class="tag tag-guan">学界观点：与岑勋、元丹丘相会时作</span></div>
+    <div class="verse">君不见黄河之水天上来，奔流到海不复回。<br>君不见高堂明镜悲白发，朝如青丝暮成雪。<br>人生得意须尽欢，莫使金樽空对月。<br>天生我材必有用，千金散尽还复来。<br>烹羊宰牛且为乐，会须一饮三百杯。<br>岑夫子，丹丘生，将进酒，杯莫停。<br>与君歌一曲，请君为我倾耳听。<br>钟鼓馔玉不足贵，但愿长醉不复醒。<br>古来圣贤皆寂寞，惟有饮者留其名。<br>陈王昔时宴平乐，斗酒十千恣欢谑。<br>主人何为言少钱，径须沽取对君酌。<br>五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白与友人岑勋（岑夫子）、元丹丘（丹丘生）登高饮宴、借酒放歌。诗借乐府旧题，抒发"抱用世之才而不遇合"的满腔不平。系年学界有三说，一般认为在赐金放还后漫游梁宋、与友人相会时所作。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">乐府饮酒放歌，表面纵酒行乐，实则抒写怀才不遇的愤懑与对自由人格的推崇。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">开篇"黄河天上来"的悲怆→"人生得意须尽欢"的欢畅→"天生我材"的狂放自信→"钟鼓馔玉不足贵"的愤激蔑世→"与尔同销万古愁"的沉郁收束，一波三折，气象万千。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">黄河、白发、金樽、明月、五花马、千金裘、万古愁；多用"三百杯""千金""万古"等巨大数词强化情绪，语言酣畅淋漓。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">极致的夸张（空间夸张"黄河天上来"对时间夸张"朝青丝暮成雪"）；"君不见"呼告开篇；句式以七言为主穿插三、五言，参差错落，如大江奔涌；用典（陈王曹植宴平乐）。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"天生我材必有用，千金散尽还复来"——上天赋予我的才能必定有用，千金散尽也还会再来：高度自信、视金钱如无物。"与尔同销万古愁"——与你们一同消解那深广久远的愁绪，"万古愁"将个人失意升华为人类共有的生命悲慨。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">盛唐浪漫主义饮酒诗的巅峰。敦煌写本此诗题作《惜罇空》，文本与通行本多有异文，为研究李白作品的民间流传提供了珍贵版本学线索。</span></div>
+  </div>
+
+  <div class="poem" id="p-mengyou">
+    <div class="ptitle">《梦游天姥吟留别》 <span class="tag tag-book">教材·高中必修</span></div>
+    <div class="pmeta">约745年（天宝四载）· 离东鲁南下前，留别东鲁诸公 · <span class="tag tag-shi">史实：留别对象与大致时间可考</span></div>
+    <div class="verse">海客谈瀛洲，烟涛微茫信难求；<br>越人语天姥，云霞明灭或可睹。<br>天姥连天向天横，势拔五岳掩赤城。<br>天台四万八千丈，对此欲倒东南倾。<br>我欲因之梦吴越，一夜飞度镜湖月。<br>湖月照我影，送我至剡溪。<br>谢公宿处今尚在，渌水荡漾清猿啼。<br>脚著谢公屐，身登青云梯。<br>半壁见海日，空中闻天鸡。<br>千岩万转路不定，迷花倚石忽已暝。<br>熊咆龙吟殷岩泉，栗深林兮惊层巅。<br>云青青兮欲雨，水澹澹兮生烟。<br>列缺霹雳，丘峦崩摧。<br>洞天石扉，訇然中开。<br>青冥浩荡不见底，日月照耀金银台。<br>霓为衣兮风为马，云之君兮纷纷而来下。<br>虎鼓瑟兮鸾回车，仙之人兮列如麻。<br>忽魂悸以魄动，恍惊起而长嗟。<br>惟觉时之枕席，失向来之烟霞。<br>世间行乐亦如此，古来万事东流水。<br>别君去兮何时还？且放白鹿青崖间，须行即骑访名山。<br>安能摧眉折腰事权贵，使我不得开心颜！</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白将离开东鲁、南下吴越，写下此诗留别友人。借"梦游天姥"的神游，寄托对自由理想人格的追求与对权贵的决绝。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">游仙诗与留别诗的结合，以梦幻山水写人格独立与精神自由。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">从对仙山的神往、梦境的奇伟瑰丽，到"魂悸魄动"的惊觉失落，最终迸出"安能摧眉折腰"的傲岸宣言——由幻境之盛反衬现实之浊。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">瀛洲、天姥、镜湖、剡溪、谢公屐、青云梯、海日、天鸡、熊咆龙吟、金银台、仙人、白鹿、青崖，意象瑰丽奇幻；句式参差，富楚辞骚体韵味。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以"梦"结构全篇、完成虚实转换，仙境极写美好，醒后"失向来之烟霞"形成巨大落差；"列缺霹雳，丘峦崩摧"以突兀句式写洞天开启的震撼；结尾点明主旨，卒章显志。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"安能摧眉折腰事权贵，使我不得开心颜"——怎能低头弯腰去侍奉权贵，使我不能舒展笑颜！这是李白人格的宣言，也是对长安供奉生涯的彻底告别。另"世间行乐亦如此，古来万事东流水"以流水喻万事虚幻，含人生感慨。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白浪漫主义与反抗精神结合的代表作，其"不事权贵"的姿态成为后世文人精神独立的重要象征，是高中阶段理解李白人格的核心文本。</span></div>
+  </div>
+
+  <div class="poem" id="p-wenchangling">
+    <div class="ptitle">《闻王昌龄左迁龙标遥有此寄》 <span class="tag tag-book">教材·初中七年级上</span></div>
+    <div class="pmeta">约748年 · 扬州/金陵一带 · <span class="tag tag-guan">学界观点：约天宝七载（748）前后</span></div>
+    <div class="verse">杨花落尽子规啼，闻道龙标过五溪。<br>我寄愁心与明月，随君直到夜郎西。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">友人王昌龄被贬为龙标（今湖南黔阳）尉，李白远在扬州、金陵一带闻讯，写此诗寄赠，表达牵挂与同情。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">寄友抒情，对友人遭贬的慰问与真挚友情。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">首句以"杨花落尽""子规啼"渲染飘零悲凉，次句写听闻贬所之远，后二句寄情明月——由景物的哀婉转向对友人的深情牵挂。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">杨花、子规（杜鹃）、明月、五溪、夜郎，意象含飘零、悲啼、偏远之意，与贬谪情境高度契合。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">寓情于景、拟人化寄情——把"愁心"托付明月，让明月伴随友人到夜郎以西，想象奇特而情意深长。（"随君"一作"随风"，两存之。）</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"我寄愁心与明月，随君直到夜郎西"——我把忧愁之心托付给明月，让它伴随你一直去到夜郎以西。将无形的牵挂具象化为明月相伴，是李白寄情诗的杰作。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">七绝寄友的名篇，"托月寄情"手法对后世影响深远；也是李白"月"意象从乡愁扩展到友情的重要例证。</span></div>
+  </div>
+
+  <div class="poem" id="p-zengwanglun">
+    <div class="ptitle">《赠汪伦》 <span class="tag tag-book">教材·小学二年级上</span></div>
+    <div class="pmeta">约752年 · 泾县桃花潭（今安徽泾县）· <span class="tag tag-guan">学界观点：约天宝十一载游泾县时作</span></div>
+    <div class="verse">李白乘舟将欲行，忽闻岸上踏歌声。<br>桃花潭水深千尺，不及汪伦送我情。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白游泾县桃花潭，当地友人汪伦以踏歌相送。李白感其深情，即兴写下此诗。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">送别诗，赞颂汪伦真挚深厚的友情。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由"将欲行"的寻常离别，到"忽闻踏歌声"的惊喜，再到以潭水比情的感叹——质朴自然，真挚动人。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">乘舟、踏歌、桃花潭水，意象明快；语言如口语，明白如话。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以水深喻情深（"深千尺"不及"送我情"），用夸张与对比把抽象友情具象化；"忽闻"二字写出意外之喜。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"桃花潭水深千尺，不及汪伦送我情"——桃花潭水纵有千尺之深，也比不上汪伦送别我的情谊。以具象的水深衬托抽象的情深，成为歌颂友谊的千古名句。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白送别诗中通俗晓畅的典范，是小学阶段理解其真挚情感与民歌风味的代表作；"踏歌"场景亦保存了唐代民间送别习俗的生动剪影。</span></div>
+  </div>
+
+  <div class="poem" id="p-songyouren">
+    <div class="ptitle">《送友人》 <span class="tag tag-book">教材·初中八年级下</span></div>
+    <div class="pmeta">约753年前后 · 宣城一带 · <span class="tag tag-guan">学界观点：系年与地点有多种说法</span></div>
+    <div class="verse">青山横北郭，白水绕东城。<br>此地一为别，孤蓬万里征。<br>浮云游子意，落日故人情。<br>挥手自兹去，萧萧班马鸣。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白在宣城一带送别友人，写此五律。系年与具体地点学界有多种推测。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">送别诗，写与友人分别时的依依惜别之情。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由首联的明丽背景，到"孤蓬万里"的漂泊之叹，再到"浮云""落日"的借景抒情，末以班马长鸣收束——婉转深沉，情韵悠长。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">青山、白水、孤蓬、浮云、落日、班马，色彩明丽而对仗工整；"横""绕"写地理，"孤""万里"写离情。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">比喻与情景交融——"浮云游子意，落日故人情"以自然景象喻游子与故人之情，对仗工稳而寓意深厚；"萧萧班马鸣"以马的不忍离别衬托人情。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"浮云游子意，落日故人情"——浮云飘忽如游子的心意，落日迟迟似故人的深情。以景喻情，成为送别名联。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白五律的代表作，情致婉转、对仗自然，展示其豪放之外的另一副笔墨；"浮云游子意"成为表达离别的经典意象。</span></div>
+  </div>
+
+  <div class="aside">关联延伸：《宣州谢朓楼饯别校书叔云》（约753）中"抽刀断水水更流，举杯消愁愁更愁""人生在世不称意，明朝散发弄扁舟"，以奇崛的想象写尽理想与现实的纠缠，同属这一时期"以豪放写沉郁"的杰作。这一阶段的送别诗（赠汪伦、送友人、闻王昌龄）也从不同侧面展现了李白重情的一面。</div>
+</section>
+
+<section class="stage" id="s5">
+  <span class="years">第五阶段 · 755—757</span>
+  <h2><span class="num">CHAPTER Ⅴ</span>战乱流离：忠愤、幻灭与政治蒙冤</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>755（天宝十四载）冬</b>：安史之乱爆发。李白时在梁园，携宗氏夫人仓皇逃难，经洛阳西上莲花山（华山），作《古风·其十九》。<span class="tag tag-shi">史实</span></li>
+    <li><b>756</b>：南下宣城、溧阳、杭州，后隐居庐山屏风叠。永王李璘（奉玄宗命为江陵大都督）水师东下至浔阳，三次征召李白。李白抱着平叛报国之志入幕，作《永王东巡歌》十一首，自比谢安。</li>
+    <li><b>757（至德二载）</b>：肃宗李亨已在灵武即位，命永王归蜀；永王不从，遭讨伐兵败被杀。李白系浔阳狱，赖御史中丞宋若思、崔涣营救出狱，入宋幕府并再度获荐，但未果，反而被判长流夜郎。</li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>安史之乱是盛唐由盛转衰的转折点。两京陷落、玄宗入蜀、肃宗灵武即位，皇权分裂。士人面临"忠逆"的艰难抉择。李白入永王幕本为报国，却卷入皇室内部斗争，从"报国"瞬间沦为"从逆"——这一巨大落差使其诗歌充满了忠愤与幻灭。此阶段无教材篇目，但《古风》其十九等作是理解其乱世情怀的关键。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>永王李璘</b>：招募李白入幕，直接导致其政治灾难；<b>宋若思、崔涣</b>：营救李白出狱的恩人；<b>宗氏夫人</b>：为其奔走啼泣求援；<b>韦良宰</b>（江夏太守）等友人也给予接济。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem">
+    <div class="ptitle">《古风·其十九》（西上莲花山）</div>
+    <div class="pmeta">约755—756年 · 华山（莲花山）· <span class="tag tag-guan">学界观点：系年在乱初</span></div>
+    <div class="verse">西上莲花山，迢迢见明星。<br>素手把芙蓉，虚步蹑太清。<br>霓裳曳广带，飘拂升天行。<br>邀我登云台，高揖卫叔卿。<br>恍恍与之去，驾鸿凌紫冥。<br>俯视洛阳川，茫茫走胡兵。<br>流血涂野草，豺狼尽冠缨。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">安史之乱初起，李白西上华山，一面幻想游仙避世，一面俯瞰到战乱中的洛阳，理想的仙界与惨烈的现实骤然相撞。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">古风体的游仙诗，注入强烈的现实忧患，是"游仙其表、忧乱其里"的杰作。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">前半缥缈高蹈（与仙女游于太清），后半陡转沉痛（俯视胡兵、流血野草），超世之想被乱世现实彻底击穿。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">明星、玉女、芙蓉、霓裳、太清、白鹿（驾鸿）、云台、卫叔卿等仙界意象，与"胡兵""流血""豺狼冠缨"的现实意象形成强烈反差。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">先扬后抑、以仙衬世的骤转结构；"俯视"二字实现从仙界到人间的视角跌落；结尾"流血涂野草，豺狼尽冠缨"以极简笔墨写尽战乱惨象与权奸得势的荒诞。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"俯视洛阳川，茫茫走胡兵。流血涂野草，豺狼尽冠缨"——从仙界俯视洛阳，只见叛军奔走、鲜血流染野草，而豺狼般的人却衣冠簪缨高居官位。悲愤与讽刺并存。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">把游仙传统与现实悲剧熔为一炉，显示李白诗风在乱世中的深化，也证明其并非只有"飘逸"一面。</span></div>
+  </div>
+
+  <div class="poem">
+    <div class="ptitle">《永王东巡歌·其十一》</div>
+    <div class="pmeta">757年正月 · 永王军中（浔阳一带）· <span class="tag tag-shi">史实：永王东巡与入幕</span></div>
+    <div class="verse">试借君王玉马鞭，指挥戎虏坐琼筵。<br>南风一扫胡尘静，西入长安到日边。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白入永王李璘幕府，幻想平叛立功、功成身退，写组诗十一首以抒报国情怀。永王败后，这组诗成为他"从逆"的罪证之一。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">组诗式的颂军报国之作，兼有自比谢安的功业想象。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">极度亢奋、踌躇满志——借取君王鞭、坐镇指挥、扫平胡尘、直入长安，理想主义达到顶点，却也埋下幻灭的伏笔。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">玉马鞭、琼筵、南风、胡尘、长安日边，意象华美昂扬；语气豪迈，自许极高。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以谢安自况（组诗他篇"但用东山谢安石，为君谈笑静胡沙"），用夸大而从容的笔调写平叛理想。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"南风一扫胡尘静，西入长安到日边"——王师如南风一扫便荡平叛军尘埃，随即西入长安、面见君王（"日边"喻朝廷）。写尽书生报国的天真豪情。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">集中体现李白"奋其智能、愿为辅弼"的功业理想，也暴露其政治判断的天真——理想主义与政治现实的巨大落差，正是这一阶段最深的悲剧性。</span></div>
+  </div>
+</section>
+
+<section class="stage" id="s6">
+  <span class="years">第六阶段 · 758—762</span>
+  <h2><span class="num">CHAPTER Ⅵ</span>晚年流放与终章：轻舟与绝唱</h2>
+
+  <h3>一、人生节点与时间线</h3>
+  <ul class="timeline">
+    <li><b>758（乾元元年）</b>：自浔阳出发，长流夜郎（今贵州桐梓）。途经西塞驿、江夏、江陵，冬入三峡，作《上三峡》。<span class="tag tag-shi">史实</span></li>
+    <li><b>759（乾元二年）春</b>：行至巫山、白帝城，朝廷因关中大旱发布大赦，"流以下完全赦免"，李白遇赦获释，顺江疾下，作《早发白帝城》。<span class="tag tag-shi">史实</span></li>
+    <li><b>759—761</b>：返江夏，与贾至泛舟洞庭；重游宣城、金陵，依人为生，作《独坐敬亭山》。上元二年（761），六十一岁闻李光弼出镇临淮，毅然前往请缨从军，因病半途折回。</li>
+    <li><b>762（宝应元年）</b>：病重，投奔当涂县令、族叔李阳冰，托付手稿，作《临路歌》（一作《临终歌》）后卒，享年六十二。<span class="tag tag-shi">史实：病逝当涂</span><span class="tag tag-chuan">传说：捉月溺死</span>死因另有"醉死"（《旧唐书》）、"水中捉月溺死"（民间传说）等说。</li>
+  </ul>
+
+  <div class="info-grid">
+    <div class="info-box"><h4>时代与社会环境</h4><p>安史之乱未平，国家仍在动荡。晚年李白漂泊依人、贫病交加，却始终未泯报国之念（六十一岁请缨从军即是明证）。流放与遇赦的巨大逆转，使其晚境诗呈现出"悲怆—狂喜—冲淡"的复杂色调。</p></div>
+    <div class="info-box"><h4>交游人物</h4><p><b>李阳冰</b>：当涂县令、族叔，李白临终托稿之人，撰《草堂集序》保存其文稿与身世史料；<b>贾至</b>：被贬的友人，与李白泛舟洞庭唱和；<b>韦良宰</b>：江夏太守，旧友。</p></div>
+  </div>
+
+  <h3>二、代表作细读</h3>
+
+  <div class="poem">
+    <div class="ptitle">《上三峡》</div>
+    <div class="pmeta">758年 · 长流夜郎途中、三峡（今重庆—湖北段）· <span class="tag tag-shi">史实：流放途经三峡</span></div>
+    <div class="verse">巫山夹青天，巴水流若兹。<br>巴水忽可尽，青天无到时。<br>三朝上黄牛，三暮行太迟。<br>三朝又三暮，不觉鬓成丝。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白逆长江而上、被押送流放夜郎，进入三峡。舟行迟缓，一如其命运阻滞。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水行旅与流放之悲，以三峡之险写人生之艰。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">沉郁、迟缓、悲戚——"不觉鬓成丝"写尽暮年流放的身心摧残。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">巫山、青天、巴水、黄牛（黄牛山），化用三峡民谣"朝发黄牛，暮宿黄牛，三朝三暮，黄牛如故"（《水经注》引）。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以舟行的"太迟"反衬心情的沉重；"青天无到时"暗喻前途渺茫、归期无望；民谣的化用使悲怆更具地域质感。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"三朝上黄牛，三暮行太迟。三朝又三暮，不觉鬓成丝"——上黄牛峡走了三天三夜仍如此迟缓，日复一日，不知不觉鬓发已白如丝。极写流放路途的漫长与煎熬。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">与《早发白帝城》构成一组"逆向对照"：去时阻滞沉重、归时轻疾欢快，堪称"境遇决定诗情"的绝佳例证。</span></div>
+  </div>
+
+  <div class="poem" id="p-zaofabaidi">
+    <div class="ptitle">《早发白帝城》 <span class="tag tag-book">教材·小学三年级下</span></div>
+    <div class="pmeta">759年（乾元二年）春 · 白帝城→江陵（长江三峡段）· <span class="tag tag-shi">史实：白帝城遇赦</span></div>
+    <div class="verse">朝辞白帝彩云间，千里江陵一日还。<br>两岸猿声啼不住，轻舟已过万重山。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白行至白帝城忽遇大赦，绝处逢生，立即顺江疾下江陵。全诗是在狂喜中写就的。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水行旅与遇赦之喜，把一个人生逆转的时刻化为千古名篇。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">轻快、畅达、狂喜——"彩云间"起笔明丽，"一日还"写归心似箭，"轻舟已过万重山"将压抑一扫而空。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">白帝城、彩云、江陵、猿声、轻舟、万重山；一个"轻"字既写船轻，更写心轻（赦免后的轻松）。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以舟行速度（千里一日）写心情之快；化用郦道元《水经注》三峡猿声"凄异"的典故而反其意——猿声不再悲，只作轻舟的伴奏。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"两岸猿声啼不住，轻舟已过万重山"——两岸猿猴啼声还在耳边不停，轻快的小船已驶过万重山峦。以动衬快，把遇赦后的畅快淋漓写得淋漓尽致。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">七绝压卷之作，将人生大起大落的狂喜升华为轻灵飞动的永恒意象，是中国古典诗歌中"以景写情"的巅峰，也是小学阶段感受李白旷达胸怀的代表作。</span></div>
+  </div>
+
+  <div class="poem" id="p-duzuojingshan">
+    <div class="ptitle">《独坐敬亭山》 <span class="tag tag-book">教材·小学四年级下</span></div>
+    <div class="pmeta">约760年代 · 宣城敬亭山（今安徽）· <span class="tag tag-guan">学界观点：系年在晚年漫游宣城期间</span></div>
+    <div class="verse">众鸟高飞尽，孤云独去闲。<br>相看两不厌，只有敬亭山。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">晚年往来宣城、金陵，依人为生，心境趋于孤寂。独坐敬亭山时，与山相对，物我两忘。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">山水与孤独，写人在尘世失落后的精神自守与自然慰藉。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">由"众鸟高飞""孤云独去"的空寂，到"相看两不厌"的慰藉——孤独却不绝望，宁静而自足。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">众鸟、孤云、敬亭山，意象极简；语言平淡冲和，与李白惯常的豪放迥异。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">以动衬静（鸟飞尽、云去闲）、拟人（山与"我"相看不厌）；把人的情感投射于山，达到物我合一。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"相看两不厌，只有敬亭山"——彼此对望都不厌倦的，只有我和敬亭山。在世人疏离之后，山成为唯一的精神知己。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">展现李白晚年诗风由豪放趋向冲淡的一面，孤独而与自然合一的境界，对后世文人影响深远。</span></div>
+  </div>
+
+  <div class="poem">
+    <div class="ptitle">《临路歌》（《临终歌》）</div>
+    <div class="pmeta">762年 · 当涂（今安徽）· 绝笔 · <span class="tag tag-shi">史实：临终托稿于李阳冰</span></div>
+    <div class="verse">大鹏飞兮振八裔，中天摧兮力不济。<br>馀风激兮万世，游扶桑兮挂石袂。<br>后人得之传此，仲尼亡兮谁为出涕。</div>
+    <div class="dim"><span class="k">创作背景</span><span class="v">李白病危当涂，托付手稿于族叔李阳冰，写下这首绝命之作，为自己一生作结。</span></div>
+    <div class="dim"><span class="k">题材主题</span><span class="v">绝命自况，以大鹏自比，抒写壮志未酬的沉痛与不甘。</span></div>
+    <div class="dim"><span class="k">情感脉络</span><span class="v">从"振八裔"的壮阔追忆，到"中天摧"的骤然折断，再到"万世"的余风自信与"谁为出涕"的孤独悲怆——激昂而沉痛。</span></div>
+    <div class="dim"><span class="k">意象与语言</span><span class="v">大鹏、八裔、中天、扶桑、石袂；结尾用孔子泣麟典故（仲尼亡兮谁为出涕），自伤生不逢时、无知音为之流泪。</span></div>
+    <div class="dim"><span class="k">艺术手法</span><span class="v">骚体句式，与早年《上李邕》的大鹏意象首尾呼应；以大鹏半途摧折象征理想未竟的一生。</span></div>
+    <div class="dim"><span class="k">名句释义</span><span class="v">"大鹏飞兮振八裔，中天摧兮力不济"——大鹏振翅高飞、声震四方，却在半空中摧折、力不能继。既是自况才华盖世，也是叹惋功业未成。</span></div>
+    <div class="dim"><span class="k">文学意义</span><span class="v">李白一生的最后宣言。从少年"大鹏一日同风起"到此"大鹏中天摧"，一个完整的理想主义生命弧线在此闭合，悲壮动人。</span></div>
+  </div>
+</section>
+
+<h2 id="conclusion"><span class="num">EPILOGUE</span>结语：创作与人生的深层关系</h2>
+<p>综观李白六阶段生平与创作，可归纳出三条清晰规律：</p>
+<p><b>其一，诗的境界与境遇呈反向的张力。</b>顺境（长安翰林）多产华美应制，气象富丽而主体性受限；逆境（赐金放还、流放夜郎）反而激发其最伟大的作品——《将进酒》《梦游天姥吟留别》《早发白帝城》皆诞生于精神剧烈震荡之际。人生的落差越大，诗的"飞升"越高。</p>
+<p><b>其二，核心意象贯穿一生并随命运变形。</b>"大鹏"始于少年《上李邕》的冲天自信，终于《临路歌》的中天摧折；"月"从《古朗月行》的童稚想象、《峨眉山月歌》的乡愁伴侣，到《月下独酌》的孤独知音、《闻王昌龄左迁龙标》的寄情使者、《静夜思》的故园之思；"舟"从"直挂云帆济沧海"的豪迈，到"轻舟已过万重山"的释放——意象的演变，就是生命的编年。</p>
+<p><b>其三，理想与现实的张力是其创作的永动机。</b>李白终身怀"辅弼天下"之志，却终生未得施展；正是这种"才高位卑、志大途穷"的结构性矛盾，催生了他诗中特有的昂扬与悲愤并存、浪漫与现实交织的独特风格。读懂这一点，就读懂了李白为什么能"悲而能壮、哀而不伤"，也就能理解他何以成为盛唐精神最完美的代言人。</p>
+
+<footer id="method">
+  <h3>参照文献与方法说明</h3>
+  <p>本文主要依据：李阳冰《草堂集序》（762）、范传正《唐左拾遗翰林学士李公新墓碑并序》（817）、魏颢《李翰林集序》，以及《旧唐书》《新唐书》李白本传；现代研究参考郁贤皓《李白集》《谪仙诗豪李白》、詹锳《李白诗文系年》、安旗《李白诗传》、裴斐《李白诗歌赏析集》等；出生地争议部分参考《中国社会科学报》2026年1月29日《碎叶，还是蜀中？——李白出生地的百年之争》对中国社科院、北师大、复旦大学、中国李白研究会诸家观点的综述。教材篇目依据统编版（部编版）小学语文、初中语文、高中语文教材常见目录核定，共19首（小学9、初中7、高中3）。</p>
+  <p>方法上：凡有唐代原始文献或可靠史料支撑者标"史实"；民间流传、缺乏可靠证据者标"传说"；系年、作意、出生地等存在分歧或为推论者，标"学界观点"并列出主要异说，不作武断定论。诗文原文以通行本为主（如《将进酒》有敦煌写本《惜罇空》等异文，正文从通行本），异文处酌情说明。地点按唐代地名标注，括注今地。</p>
+  <p class="note">本文为文学解析，诗作系年与史料解读存在学术分歧，标注旨在呈现主流观点与争议，供进一步研究参考。教材年级编排在不同印次间略有出入，索引表依常见目录标注。</p>
+</footer>
+
+</div>
+</body>
+</html>

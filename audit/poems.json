@@ -1,0 +1,1638 @@
+{
+ "home": [],
+ "xiaowen": [
+  [
+   "p-shouzhu",
+   "《守株待兔》 教材·三年级下"
+  ],
+  [
+   "p-jingwei",
+   "《精卫填海》 教材·四年级上"
+  ],
+  [
+   "p-wangrong",
+   "《王戎不取道旁李》 教材·四年级上"
+  ],
+  [
+   "p-nangying",
+   "《囊萤夜读》 教材·四年级下"
+  ],
+  [
+   "p-tiechu",
+   "《铁杵成针》 教材·四年级下"
+  ],
+  [
+   "p-guren",
+   "《古人谈读书》 教材·五年级上"
+  ],
+  [
+   "p-maodun",
+   "《自相矛盾》 教材·五年级下"
+  ],
+  [
+   "p-yangshi",
+   "《杨氏之子》 教材·五年级下"
+  ],
+  [
+   "p-daishong",
+   "《书戴嵩画牛》 教材·六年级上"
+  ],
+  [
+   "p-xueyi",
+   "《学弈》 教材·六年级下"
+  ],
+  [
+   "p-liangxiaoer",
+   "《两小儿辩日》 教材·六年级下"
+  ]
+ ],
+ "quyuan": [
+  [
+   "p-lisao-qu",
+   "《离骚》（节选） 教材·高中选择性必修下"
+  ],
+  [
+   "p-guoshang-qu",
+   "《国殇》 教材·高中古代诗歌欣赏／延伸"
+  ],
+  [
+   "p-xiangfuren-qu",
+   "《湘夫人》 教材·课外延伸"
+  ]
+ ],
+ "shijing": [
+  [
+   "p-guanju-sj",
+   "《关雎》 教材·初中八年级下"
+  ],
+  [
+   "p-jianjia-sj",
+   "《蒹葭》 教材·初中八年级下"
+  ],
+  [
+   "p-caiwei-sj",
+   "《采薇》（节选） 教材·小学六年级下"
+  ],
+  [
+   "p-shijing-shiwei",
+   "《式微》 教材·初中八年级下"
+  ],
+  [
+   "p-shijing-zijin",
+   "《子衿》 教材·初中八年级下"
+  ],
+  [
+   "p-shijing-jingnv",
+   "《静女》 教材·高中必修上册"
+  ],
+  [
+   "p-shijing-wuyi",
+   "《无衣》 教材·高中选择性必修上册"
+  ],
+  [
+   "p-shijing-meng",
+   "《氓》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-shijing-fuyi",
+   "《芣苢》 教材·高中必修上册"
+  ],
+  [
+   "p-yuefu-jiangnan",
+   "《江南》 教材·小学一年级上"
+  ],
+  [
+   "p-yuefu-changgexing",
+   "《长歌行》 教材·小学六年级下"
+  ],
+  [
+   "p-yuefu-shiwucongjun",
+   "《十五从军征》 教材·初中九年级下"
+  ],
+  [
+   "p-yuefu-kongque",
+   "《孔雀东南飞》（节选） 教材·高中选择性必修下册"
+  ],
+  [
+   "p-shejiang-caifurong",
+   "《涉江采芙蓉》 教材·高中必修上册（古诗词诵读）"
+  ],
+  [
+   "p-tingzhong-qishu",
+   "《庭中有奇树》 教材·初中八年级上"
+  ],
+  [
+   "p-gushi-tiaotiao",
+   "《迢迢牵牛星》 教材·小学六年级下"
+  ],
+  [
+   "p-beichao-chilege",
+   "《敕勒歌》 教材·小学二年级上"
+  ],
+  [
+   "p-beichao-mulanshi",
+   "《木兰诗》 教材·初中七年级下"
+  ]
+ ],
+ "zhuzi": [
+  [
+   "p-lunyu-xuan",
+   "《论语》十二章（选章） 教材·初中七上／高中选必上"
+  ],
+  [
+   "p-shizuo-lunyu",
+   "《子路、曾皙、冉有、公西华侍坐》 教材·高中必修下册"
+  ],
+  [
+   "p-mengzi-dedaoduozhu",
+   "《得道多助，失道寡助》 教材·初中八年级上"
+  ],
+  [
+   "p-mengzi-fuguibunengyin",
+   "《富贵不能淫》 教材·初中八年级上"
+  ],
+  [
+   "p-mengzi-shengyuyouhuan",
+   "《生于忧患，死于安乐》 教材·初中八年级上"
+  ],
+  [
+   "p-mengzi-yuwosuoyuoye",
+   "《鱼我所欲也》 教材·初中九年级下"
+  ],
+  [
+   "p-mengzi-qihuanjinwen",
+   "《齐桓晋文之事》 教材·高中必修下册"
+  ],
+  [
+   "p-mengzi-burenzhixin",
+   "《人皆有不忍人之心》 教材·高中选择性必修上册"
+  ],
+  [
+   "p-zhuangzi-beimingyouyu",
+   "《北冥有鱼》 教材·初中八年级下"
+  ],
+  [
+   "p-zhuangzi-paodingjieniu",
+   "《庖丁解牛》 教材·高中必修下册"
+  ],
+  [
+   "p-zhuangzi-wushizhihu",
+   "《五石之瓠》 教材·高中选择性必修上册"
+  ],
+  [
+   "p-haoliang-zhuangzi",
+   "《庄子与惠子游于濠梁之上》 教材·初中八年级下"
+  ],
+  [
+   "p-quanxue-xun",
+   "《劝学》（节选） 教材·高中必修上册"
+  ],
+  [
+   "p-laozi-sizhang",
+   "《老子》四章 教材·高中选择性必修上册"
+  ],
+  [
+   "p-mozi-jianai",
+   "《兼爱》（节选） 教材·高中选择性必修上册"
+  ],
+  [
+   "p-liezi-yugongyishan",
+   "《愚公移山》 教材·初中八年级上"
+  ],
+  [
+   "p-liezi-qirenyoutian",
+   "《杞人忧天》 教材·初中七年级上"
+  ],
+  [
+   "p-lvshi-chuanjingdeyiren",
+   "《穿井得一人》 教材·初中七年级上"
+  ],
+  [
+   "p-lvshi-boyaguqin",
+   "《伯牙鼓琴》 教材·小学六年级上"
+  ],
+  [
+   "p-dadao-liji",
+   "《大道之行也》 教材·初中八年级下"
+  ],
+  [
+   "p-suiyou-liji",
+   "《虽有嘉肴》 教材·初中八年级下"
+  ],
+  [
+   "p-liji-daxuezhidao",
+   "《大学之道》 教材·高中选择性必修上册"
+  ]
+ ],
+ "hanprose": [
+  [
+   "p-simaqian-chenshe",
+   "《陈涉世家》（节选） 教材·初中九年级下"
+  ],
+  [
+   "p-hongmenyan-sima",
+   "《鸿门宴》（节选） 教材·高中必修下册"
+  ],
+  [
+   "p-zhouyafu-shiji",
+   "《周亚夫军细柳》 教材·初中八年级上"
+  ],
+  [
+   "p-simaqian-qunyuanliezhuan",
+   "《屈原列传》（节选） 教材·高中选择性必修中册"
+  ],
+  [
+   "p-bangu-suwuzhuan",
+   "《苏武传》（节选） 教材·高中选择性必修中册"
+  ],
+  [
+   "p-jiayi-guoqinlun",
+   "《过秦论》（上篇） 教材·高中选择性必修中册"
+  ],
+  [
+   "p-jianzhuke-li",
+   "《谏逐客书》 教材·高中必修下册"
+  ],
+  [
+   "p-zhanguoce-tangju",
+   "《唐雎不辱使命》 教材·初中九年级下"
+  ],
+  [
+   "p-zhanguoce-zouji",
+   "《邹忌讽齐王纳谏》 教材·初中九年级下"
+  ],
+  [
+   "p-zuozhuan-caoguilunzhan",
+   "《曹刿论战》 教材·初中九年级下"
+  ],
+  [
+   "p-zhuzhiwu-zuozhuan",
+   "《烛之武退秦师》 教材·高中必修下册"
+  ],
+  [
+   "p-guitianfu-zhangheng",
+   "《归田赋》（全文） 教材·课外延伸"
+  ],
+  [
+   "p-jianzongshisi-wei",
+   "《谏太宗十思疏》（全文） 教材·高中必修下册"
+  ]
+ ],
+ "taoyuanming": [
+  [
+   "p-guiqulaixici-tym",
+   "《归去来兮辞并序》 教材·高中选择性必修下"
+  ],
+  [
+   "p-guiyuantianju-tym",
+   "《归园田居》其一 教材·高中必修上册"
+  ],
+  [
+   "p-yinjiu-tym",
+   "《饮酒》其五 教材·初中八年级上"
+  ],
+  [
+   "p-zashi-tym",
+   "《杂诗》其一 教材·课外延伸"
+  ],
+  [
+   "p-taohuayuanji-tym",
+   "《桃花源记》 教材·初中八年级下"
+  ]
+ ],
+ "caocao": [
+  [
+   "p-guancanghai-cc",
+   "《观沧海》 教材·初中七年级上"
+  ],
+  [
+   "p-duange-cc",
+   "《短歌行》 教材·高中必修上册"
+  ],
+  [
+   "p-caocao-guishuisui",
+   "《龟虽寿》 教材·初中八年级上"
+  ],
+  [
+   "p-caozhi-liangfuxing",
+   "《梁甫行》 教材·初中八年级上"
+  ],
+  [
+   "p-liuzhen-zengcongdier",
+   "《赠从弟》其二 教材·初中八年级上"
+  ],
+  [
+   "p-wangji-yewang",
+   "《野望》 教材·初中八年级上"
+  ]
+ ],
+ "weijinprose": [
+  [
+   "p-sanxia-ldy",
+   "《三峡》 教材·初中八年级上"
+  ],
+  [
+   "p-taohongjing-daxiezhongshushu",
+   "《答谢中书书》 教材·初中八年级上"
+  ],
+  [
+   "p-wujun-yuzhuoyuansishu",
+   "《与朱元思书》 教材·初中八年级上"
+  ],
+  [
+   "p-lanting-wxz",
+   "《兰亭集序》 教材·高中选择性必修下"
+  ],
+  [
+   "p-yongxue-shishuo",
+   "《咏雪》 教材·初中七年级上"
+  ],
+  [
+   "p-chenqiu-shishuo",
+   "《陈太丘与友期行》 教材·初中七年级上"
+  ],
+  [
+   "p-zhugeliang-jiezishu",
+   "《诫子书》 教材·初中七年级上"
+  ],
+  [
+   "p-zhugeliang-chushibiao",
+   "《出师表》 教材·初中九年级下"
+  ],
+  [
+   "p-limi-chenqingbiao",
+   "《陈情表》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-baozhao-nixinglunan",
+   "《拟行路难》其四 教材·高中选择性必修下册"
+  ]
+ ],
+ "libai": [
+  [
+   "p-guanglangyue",
+   "《古朗月行》（节选） 教材·小学一年级上"
+  ],
+  [
+   "p-emeishan",
+   "《峨眉山月歌》 教材·初中七年级上"
+  ],
+  [
+   "p-dujingmen",
+   "《渡荆门送别》 教材·初中八年级上"
+  ],
+  [
+   "p-wangtianmen",
+   "《望天门山》 教材·小学三年级上"
+  ],
+  [
+   "p-yeshan",
+   "《夜宿山寺》 教材·小学二年级上"
+  ],
+  [
+   "p-wanglushan",
+   "《望庐山瀑布》 教材·小学二年级上"
+  ],
+  [
+   "p-jingyesi",
+   "《静夜思》 教材·小学一年级下"
+  ],
+  [
+   "p-chunye",
+   "《春夜洛城闻笛》 教材·初中七年级下"
+  ],
+  [
+   "p-huanghelou",
+   "《黄鹤楼送孟浩然之广陵》 教材·小学四年级上"
+  ],
+  [
+   "p-shudaonan",
+   "《蜀道难》 教材·高中必修"
+  ],
+  [
+   "p-yuexia",
+   "《月下独酌》（其一） 教材·初中九年级下·课外古诗词诵读"
+  ],
+  [
+   "p-xinglunan",
+   "《行路难》（其一） 教材·初中九年级上"
+  ],
+  [
+   "p-jiangjinjiu",
+   "《将进酒》 教材·高中必修"
+  ],
+  [
+   "p-mengyou",
+   "《梦游天姥吟留别》 教材·高中必修"
+  ],
+  [
+   "p-wenchangling",
+   "《闻王昌龄左迁龙标遥有此寄》 教材·初中七年级上"
+  ],
+  [
+   "p-zengwanglun",
+   "《赠汪伦》 教材·小学二年级上"
+  ],
+  [
+   "p-songyouren",
+   "《送友人》 教材·初中八年级下"
+  ],
+  [
+   "p-zaofabaidi",
+   "《早发白帝城》 教材·小学三年级下"
+  ],
+  [
+   "p-duzuojingshan",
+   "《独坐敬亭山》 教材·小学四年级下"
+  ],
+  [
+   "p-xuanzhou-libai",
+   "《宣州谢朓楼饯别校书叔云》 教材·课外延伸"
+  ]
+ ],
+ "dufu": [
+  [
+   "p-wangyue-df",
+   "《望岳》 教材·初中七年级下"
+  ],
+  [
+   "p-chunwang-df",
+   "《春望》 教材·初中八年级上"
+  ],
+  [
+   "p-xinhunbie-df",
+   "《新婚别》 教材·课外延伸"
+  ],
+  [
+   "p-yueyeyisheid-df",
+   "《月夜忆舍弟》 教材·初中九年级上"
+  ],
+  [
+   "p-dufu-shihaoli",
+   "《石壕吏》 教材·初中八年级下"
+  ],
+  [
+   "p-dufu-shuxiang",
+   "《蜀相》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-dufu-kezhi",
+   "《客至》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-jiangpan-dufu",
+   "《江畔独步寻花》（其五） 教材·小学四年级下"
+  ],
+  [
+   "p-dufu-chunyexiyu",
+   "《春夜喜雨》 教材·小学六年级下"
+  ],
+  [
+   "p-dufu-jueju",
+   "《绝句》二首 教材·小学二年级下 / 三年级下"
+  ],
+  [
+   "p-dufu-maowu",
+   "《茅屋为秋风所破歌》 教材·初中八年级下"
+  ],
+  [
+   "p-dufu-wenguanjun",
+   "《闻官军收河南河北》 教材·小学六年级下"
+  ],
+  [
+   "p-denggao-df",
+   "《登高》 教材·高中必修上册"
+  ],
+  [
+   "p-dufu-dengyueyanglou",
+   "《登岳阳楼》 教材·高中必修下册"
+  ],
+  [
+   "p-jiangnanlijingnian-df",
+   "《江南逢李龟年》 教材·初中七年级上"
+  ]
+ ],
+ "wangwei": [
+  [
+   "p-wangwei-jiuyuejiuri",
+   "《九月九日忆山东兄弟》 教材·小学三年级下"
+  ],
+  [
+   "p-wangwei-niaomingjian",
+   "《鸟鸣涧》 教材·小学五年级下"
+  ],
+  [
+   "p-shizhi-ww",
+   "《使至塞上》 教材·初中八年级上"
+  ],
+  [
+   "p-wangwei-songyuaner",
+   "《送元二使安西》 教材·小学五年级下"
+  ],
+  [
+   "p-shanju-ww",
+   "《山居秋暝》 教材·小学五年级上 教材·高中"
+  ],
+  [
+   "p-wangwei-luzhai",
+   "《鹿柴》 教材·小学四年级上"
+  ],
+  [
+   "p-wangwei-zhuliguan",
+   "《竹里馆》 教材·初中七年级下"
+  ],
+  [
+   "p-wangwei-hua",
+   "《画》 教材·小学一年级上 学界观点：旧题王维作，归属存疑"
+  ]
+ ],
+ "baijuyi": [
+  [
+   "p-fude-bjy",
+   "《赋得古原草送别》 教材·小学二年级下"
+  ],
+  [
+   "p-baijuyi-maitanweng",
+   "《卖炭翁》 教材·初中八年级下"
+  ],
+  [
+   "p-pipa-bjy",
+   "《琵琶行并序》 教材·高中必修上册"
+  ],
+  [
+   "p-baijuyi-dalinsi",
+   "《大林寺桃花》 教材·小学三年级下"
+  ],
+  [
+   "p-baijuyi-mujiangyin",
+   "《暮江吟》 教材·小学四年级上"
+  ],
+  [
+   "p-baijuyi-qiantanghu",
+   "《钱塘湖春行》 教材·初中八年级上"
+  ],
+  [
+   "p-baijuyi-yijiangnan",
+   "《忆江南》（其一） 教材·小学三年级下"
+  ],
+  [
+   "p-baijuyi-chishang",
+   "《池上》 教材·小学一年级下"
+  ]
+ ],
+ "lihe": [
+  [
+   "p-yanmen-lihe",
+   "《雁门太守行》 教材·初中八年级上"
+  ],
+  [
+   "p-konghou-lihe",
+   "《李凭箜篌引》 教材·高中选择性必修中"
+  ],
+  [
+   "p-mashi-lihe",
+   "《马诗》 教材·小学六年级下"
+  ]
+ ],
+ "shangyin": [
+  [
+   "p-chang-e-shangyin",
+   "《嫦娥》 教材·小学四年级上"
+  ],
+  [
+   "p-wuti-shangyin",
+   "《无题·相见时难别亦难》 教材·初中九年级上"
+  ],
+  [
+   "p-jiasheng-shangyin",
+   "《贾生》 教材·初中七年级下课外"
+  ],
+  [
+   "p-yeyujibei-shangyin",
+   "《夜雨寄北》 教材·初中七年级上课外"
+  ],
+  [
+   "p-jinse-shangyin",
+   "《锦瑟》 教材·高中选择性必修中"
+  ]
+ ],
+ "dumu": [
+  [
+   "p-afanggongfu-dumu",
+   "《阿房宫赋》 教材·高中必修下册"
+  ],
+  [
+   "p-jiangnanchun-dumu",
+   "《江南春》 教材·小学六年级上"
+  ],
+  [
+   "p-chibi-dumu",
+   "《赤壁》 教材·初中八年级上"
+  ],
+  [
+   "p-poqinhuai-dumu",
+   "《泊秦淮》 教材·初中七年级下课外"
+  ],
+  [
+   "p-shanxing-dumu",
+   "《山行》 教材·小学三年级上"
+  ],
+  [
+   "p-qingming-dumu",
+   "《清明》 教材·小学三年级下"
+  ]
+ ],
+ "tangchu": [
+  [
+   "p-songdufu-wangbo",
+   "《送杜少府之任蜀州》 教材·初中八年级下"
+  ],
+  [
+   "p-tengwangge-wangbo",
+   "《滕王阁序》 教材·高中选修"
+  ],
+  [
+   "p-changanguyi-luzhaolin",
+   "《长安古意》（节选） 教材·课外延伸"
+  ],
+  [
+   "p-yonge-luobinwang",
+   "《咏鹅》 教材·小学一年级上"
+  ],
+  [
+   "p-zaivuchan-luobinwang",
+   "《在狱咏蝉》 教材·课外延伸"
+  ],
+  [
+   "p-dengyouzhou-chen",
+   "《登幽州台歌》 教材·初中七年级下"
+  ],
+  [
+   "p-yongliu-he",
+   "《咏柳》 教材·小学二年级下"
+  ],
+  [
+   "p-huixiangoushu-he",
+   "《回乡偶书》 教材·小学六年级上"
+  ],
+  [
+   "p-cibeigushan-wang",
+   "《次北固山下》 教材·初中七年级上"
+  ],
+  [
+   "p-feng-liqiao",
+   "《风》 教材·小学一年级上"
+  ]
+ ],
+ "tangsheng": [
+  [
+   "p-chunxiao-meng",
+   "《春晓》 教材·小学一年级下"
+  ],
+  [
+   "p-sujiandejiang-meng",
+   "《宿建德江》 教材·小学六年级上"
+  ],
+  [
+   "p-guogurenzhuang-meng",
+   "《过故人庄》 教材·小学六年级上"
+  ],
+  [
+   "p-wangdongting-meng",
+   "《望洞庭湖赠张丞相》 教材·课外延伸"
+  ],
+  [
+   "p-biedongda-gao",
+   "《别董大》 教材·小学四年级上"
+  ],
+  [
+   "p-yangexing-gao",
+   "《燕歌行并序》（节选） 教材·课外延伸"
+  ],
+  [
+   "p-fengrujingshi-cen",
+   "《逢入京使》 教材·初中七年级下"
+  ],
+  [
+   "p-baixuege-censhen",
+   "《白雪歌送武判官归京》 教材·初中九年级下"
+  ],
+  [
+   "p-xingjunjiuri-cen",
+   "《行军九日思长安故园》 教材·初中七年级上"
+  ],
+  [
+   "p-chusai-wangchangling",
+   "《出塞》 教材·小学四年级上"
+  ],
+  [
+   "p-furonglou-wangchangling",
+   "《芙蓉楼送辛渐》 教材·小学四年级下"
+  ],
+  [
+   "p-congjunxing-wangchangling",
+   "《从军行》（其四） 教材·小学五年级下"
+  ],
+  [
+   "p-cailianqu-wang",
+   "《采莲曲》 教材·课外延伸"
+  ],
+  [
+   "p-dengguanquelou-wangzhihuan",
+   "《登鹳雀楼》 教材·小学二年级上"
+  ],
+  [
+   "p-liangzhouci-wangzhihuan",
+   "《凉州词》 教材·课外延伸"
+  ],
+  [
+   "p-huanghelou-cuihao",
+   "《黄鹤楼》 教材·初中八年级上"
+  ],
+  [
+   "p-tiposhansi-changjian",
+   "《题破山寺后禅院》 教材·初中八年级下"
+  ],
+  [
+   "p-changshaguo-liuchangqing",
+   "《长沙过贾谊宅》 教材·初中九年级上"
+  ],
+  [
+   "p-chuzhouxijian-weiyingwu",
+   "《滁州西涧》 教材·小学三年级下"
+  ],
+  [
+   "p-yeshangshouxiangcheng-liyi",
+   "《夜上受降城闻笛》 教材·初中七年级上"
+  ]
+ ],
+ "tangwan": [
+  [
+   "p-wangdongting-liuyuxi",
+   "《望洞庭》 教材·小学三年级上"
+  ],
+  [
+   "p-langtaosha-liuyuxi",
+   "《浪淘沙》（其一） 教材·小学六年级上"
+  ],
+  [
+   "p-qiuci-liuyuxi",
+   "《秋词》（其一） 教材·初中七年级上"
+  ],
+  [
+   "p-loushiming-liuyuxi",
+   "《陋室铭》 教材·初中七年级下"
+  ],
+  [
+   "p-choule-tang-liuyuxi",
+   "《酬乐天扬州初逢席上见赠》 教材·初中九年级上"
+  ],
+  [
+   "p-youziyin-mengjiao",
+   "《游子吟》 教材·小学五年级下"
+  ],
+  [
+   "p-shangshanzaoxing-wen",
+   "《商山早行》 教材·初中九年级上"
+  ],
+  [
+   "p-posaman-wen",
+   "《菩萨蛮·小山重叠金明灭》 教材·课外延伸"
+  ],
+  [
+   "p-xianyang-xuhun",
+   "《咸阳城东楼》 教材·初中九年级上"
+  ],
+  [
+   "p-feng-luoyin",
+   "《蜂》 教材·四年级下"
+  ],
+  [
+   "p-xunyinzhe-jiadao",
+   "《寻隐者不遇》 教材·小学一年级下"
+  ],
+  [
+   "p-saixiaqu-lulun",
+   "《塞下曲》（其三） 教材·小学四年级下"
+  ],
+  [
+   "p-fengqiao-zhangji",
+   "《枫桥夜泊》 教材·小学高年级"
+  ],
+  [
+   "p-yugezi-zhangzhihe",
+   "《渔歌子》 教材·小学五年级上"
+  ],
+  [
+   "p-xiaoerchuidiao-hulingneng",
+   "《小儿垂钓》 教材·小学二年级上"
+  ],
+  [
+   "p-minnong-lishen",
+   "《悯农》（二首） 教材·小学一年级上、二年级下"
+  ],
+  [
+   "p-shiwuyewangyue-wangjian",
+   "《十五夜望月》 教材·小学六年级下"
+  ],
+  [
+   "p-hanshi-hanhong",
+   "《寒食》 教材·小学六年级下"
+  ],
+  [
+   "p-chan-yushinan",
+   "《蝉》 教材·小学五年级上"
+  ],
+  [
+   "p-qiqiao-linjie",
+   "《乞巧》 教材·小学五年级上"
+  ],
+  [
+   "p-suojian-yuanmei",
+   "《所见》（清代） 教材·小学三年级上"
+  ],
+  [
+   "p-cunju-gaoding",
+   "《村居》（清代） 教材·小学二年级下"
+  ],
+  [
+   "p-zhouyeshuo-zhashenxing",
+   "《舟夜书所见》（清代） 教材·小学二年级下"
+  ]
+ ],
+ "tangguwen": [
+  [
+   "p-zaochun-hanyu",
+   "《早春呈水部张十八员外》 教材·小学六年级下"
+  ],
+  [
+   "p-wanchun-hanyu",
+   "《晚春》 教材·初中七年级下（课外诵读）"
+  ],
+  [
+   "p-mashuo-hanyu",
+   "《马说》 教材·初中八年级下"
+  ],
+  [
+   "p-zuoqianlanguan-hanyu",
+   "《左迁至蓝关示侄孙湘》 教材·初中九年级上"
+  ],
+  [
+   "p-shishuo-hanyu",
+   "《师说》 教材·高中必修上册"
+  ],
+  [
+   "p-jishierlang-hanyu",
+   "《祭十二郎文》 教材·课外延伸"
+  ],
+  [
+   "p-jiangxue-liuzongyuan",
+   "《江雪》 教材·小学二年级上"
+  ],
+  [
+   "p-xiaoshitan-liuzongyuan",
+   "《小石潭记》 教材·初中八年级下"
+  ],
+  [
+   "p-zhongshu-guotuotuo-liuzongyuan",
+   "《种树郭橐驼传》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-dengliuzhou-liuzongyuan",
+   "《登柳州城楼寄漳汀封连四州》 教材·课外延伸"
+  ]
+ ],
+ "sushi": [
+  [
+   "p-sushi-liuyueershiri",
+   "《六月二十七日望湖楼醉书》 教材·小学六年级上"
+  ],
+  [
+   "p-sushi-yinhu",
+   "《饮湖上初晴后雨》 教材·小学三年级上"
+  ],
+  [
+   "p-sushi-jiangchengzi-yimao",
+   "《江城子·乙卯正月二十日夜记梦》 教材·高中选择性必修上册"
+  ],
+  [
+   "p-sushi-jiangchengzi-mizhou",
+   "《江城子·密州出猎》 教材·初中九年级下"
+  ],
+  [
+   "p-sushi-shuidiaogetou",
+   "《水调歌头·明月几时有》 教材·初中九年级上"
+  ],
+  [
+   "p-busuanzi-sushi",
+   "《卜算子·黄州定慧院寓居作》 教材·初中八年级下"
+  ],
+  [
+   "p-dingfengbo-sushi",
+   "《定风波·莫听穿林打叶声》 教材·初中九年级下课外"
+  ],
+  [
+   "p-sushi-huanxisha",
+   "《浣溪沙·游蕲水清泉寺》 教材·小学六年级下"
+  ],
+  [
+   "p-niannujiao-sushi",
+   "《念奴娇·赤壁怀古》 教材·高中必修上册"
+  ],
+  [
+   "p-sushi-chibifu",
+   "《赤壁赋》 教材·高中必修上册"
+  ],
+  [
+   "p-sushi-jichengtiansi",
+   "《记承天寺夜游》 教材·初中八年级上"
+  ],
+  [
+   "p-sushi-tixilinbi",
+   "《题西林壁》 教材·小学四年级上"
+  ],
+  [
+   "p-sushi-huichong",
+   "《惠崇春江晚景》 教材·小学三年级下"
+  ],
+  [
+   "p-sushi-zengliujingwen",
+   "《赠刘景文》 教材·小学三年级上"
+  ]
+ ],
+ "liqingzhao": [
+  [
+   "p-ruimengling-liqingzhao",
+   "《如梦令·常记溪亭日暮》 教材·初中八年级上"
+  ],
+  [
+   "p-yijianmei-liqingzhao",
+   "《一剪梅·红藕香残玉簟秋》 教材·课外延伸"
+  ],
+  [
+   "p-xiarijueju-liqingzhao",
+   "《夏日绝句》 教材·小学四年级上"
+  ],
+  [
+   "p-shengshengman-liqingzhao",
+   "《声声慢·寻寻觅觅》 教材·高中必修上册"
+  ],
+  [
+   "p-yujiaao-liqingzhao",
+   "《渔家傲·天接云涛连晓雾》 教材·初中八年级上"
+  ],
+  [
+   "p-wulingchun-liqingzhao",
+   "《武陵春·风住尘香花已尽》 教材·课外延伸"
+  ]
+ ],
+ "luyou": [
+  [
+   "p-youshanxicun-luyou",
+   "《游山西村》 教材·初中七年级下"
+  ],
+  [
+   "p-busuanzi-luyou",
+   "《卜算子·咏梅》 教材·初中八年级下课外"
+  ],
+  [
+   "p-shufen-luyou",
+   "《书愤》 教材·高中选择性必修中册"
+  ],
+  [
+   "p-linanyuchun-luyou",
+   "《临安春雨初霁》 教材·高中选择性必修下册"
+  ],
+  [
+   "p-qiuyejiangxiao-luyou",
+   "《秋夜将晓出篱门迎凉有感》 教材·小学五年级下"
+  ],
+  [
+   "p-shiyueyue-luyou",
+   "《十一月四日风雨大作》其二 教材·初中七年级上"
+  ],
+  [
+   "p-shier-luyou",
+   "《示儿》 教材·小学五年级上"
+  ]
+ ],
+ "xinqiji": [
+  [
+   "p-qingyuan-xinqiji",
+   "《青玉案·元夕》 教材·课外延伸"
+  ],
+  [
+   "p-taichangyin-xinqiji",
+   "《太常引·建康中秋夜为吕叔潜赋》 教材·初中九年级下课外"
+  ],
+  [
+   "p-pusaman-xinqiji",
+   "《菩萨蛮·书江西造口壁》 教材·课外延伸"
+  ],
+  [
+   "p-qingpingyue-xinqiji",
+   "《清平乐·村居》 教材·小学四年级下"
+  ],
+  [
+   "p-xijiangyue-xinqiji",
+   "《西江月·夜行黄沙道中》 教材·小学六年级上"
+  ],
+  [
+   "p-chounuer-xinqiji",
+   "《丑奴儿·书博山道中壁》 教材·初中九年级上"
+  ],
+  [
+   "p-pozhenzi-xinqiji",
+   "《破阵子·为陈同甫赋壮词以寄之》 教材·初中九年级下"
+  ],
+  [
+   "p-nanxiangzi-xinqiji",
+   "《南乡子·登京口北固亭有怀》 教材·初中九年级下"
+  ],
+  [
+   "p-yongyule-xinqiji",
+   "《永遇乐·京口北固亭怀古》 教材·高中必修上册"
+  ]
+ ],
+ "wanganshi": [
+  [
+   "p-denglaifeng-wanganshi",
+   "《登飞来峰》 教材·初中七年级下"
+  ],
+  [
+   "p-yuanri-wanganshi",
+   "《元日》 教材·小学三年级下"
+  ],
+  [
+   "p-dasimaliyishu-wanganshi",
+   "《答司马谏议书》 教材·高中必修下册"
+  ],
+  [
+   "p-bochuanguazhou-wanganshi",
+   "《泊船瓜洲》 教材·小学六年级下"
+  ],
+  [
+   "p-guizhixiang-wanganshi",
+   "《桂枝香·金陵怀古》 教材·高中必修下册"
+  ],
+  [
+   "p-shuhuyinxianshengbi-wanganshi",
+   "《书湖阴先生壁》 教材·小学六年级上"
+  ],
+  [
+   "p-meihua-wanganshi",
+   "《梅花》 教材·小学二年级上"
+  ]
+ ],
+ "fanzhongyan": [
+  [
+   "p-jiangshangyuzhe-fanzhongyan",
+   "《江上渔者》 教材·小学六年级下"
+  ],
+  [
+   "p-yujiaao-fanzhongyan",
+   "《渔家傲·秋思》 教材·初中九年级下"
+  ],
+  [
+   "p-yueyanglouji-fanzhongyan",
+   "《岳阳楼记》 教材·初中九年级上"
+  ]
+ ],
+ "ouyangxiu": [
+  [
+   "p-tashaxing-ouyangxiu",
+   "《踏莎行·候馆梅残》"
+  ],
+  [
+   "p-zuiwengtingji-ouyangxiu",
+   "《醉翁亭记》 教材·初中九年级上"
+  ],
+  [
+   "p-wudaishilingguanchuanxu-ouyangxiu",
+   "《五代史伶官传序》 教材·高中选择性必修中册"
+  ],
+  [
+   "p-maiyouweng-ouyangxiu",
+   "《卖油翁》 教材·初中七年级下"
+  ],
+  [
+   "p-caisangzi-ouyangxiu",
+   "《采桑子·轻舟短棹西湖好》 教材·初中八年级上课外"
+  ]
+ ],
+ "songci": [
+  [
+   "p-wanghaichao-liuyong",
+   "《望海潮·东南形胜》 教材·高中选必下"
+  ],
+  [
+   "p-yanshu-huanxisha",
+   "《浣溪沙·一曲新词酒一杯》 教材·初中八年级上（课外诵读）"
+  ],
+  [
+   "p-qinguan-queqiaoxian",
+   "《鹊桥仙·纤云弄巧》 教材·高中必修上"
+  ],
+  [
+   "p-qinguan-xingxiangzi",
+   "《行香子·树绕村庄》 教材·初中九年级上"
+  ],
+  [
+   "p-busuanzi-wang",
+   "《卜算子·送鲍浩然之浙东》 教材·小学六年级下"
+  ],
+  [
+   "p-zhoubangyan-sumuzhe",
+   "《苏幕遮·燎沉香》 教材·高中背诵篇目"
+  ],
+  [
+   "p-jiangkui-yangzhouman",
+   "《扬州慢·淮左名都》 教材·高中选必下"
+  ],
+  [
+   "p-zhangxiaoxiang-niannujiao",
+   "《念奴娇·过洞庭》 教材·高中必修下"
+  ],
+  [
+   "p-liukezhuang-hexinlang",
+   "《贺新郎·国脉微如缕》 教材·高中背诵篇目"
+  ],
+  [
+   "p-zhudunru-xiangjianhuan",
+   "《相见欢·金陵城上西楼》 教材·初中八年级上（课外诵读）"
+  ],
+  [
+   "p-chenyiyi-linjiangxian",
+   "《临江仙·夜登小阁忆洛中旧游》 教材·初中九年级下（课外诵读）"
+  ],
+  [
+   "p-yumeiren-liyu",
+   "《虞美人·春花秋月何时了》 教材·高中必修上"
+  ],
+  [
+   "p-chunjianghuayeyue-zhang",
+   "《春江花月夜》（全文） 教材·高中选择性必修上册（古诗词诵读）"
+  ]
+ ],
+ "songshi": [
+  [
+   "p-yangwanli-xiaochi",
+   "《小池》 教材·小学一年级下"
+  ],
+  [
+   "p-yangwanli-xiaochu",
+   "《晓出净慈寺送林子方》 教材·小学二年级下"
+  ],
+  [
+   "p-yangwanli-suxinshi",
+   "《宿新市徐公店》 教材·小学四年级下"
+  ],
+  [
+   "p-yangwanli-zhizinongbing",
+   "《稚子弄冰》 教材·小学五年级下"
+  ],
+  [
+   "p-yangwanli-guosongyuan",
+   "《过松源晨炊漆公店》（其五） 教材·初中七年级下（课外诵读）"
+  ],
+  [
+   "p-chayangge-yang",
+   "《插秧歌》 教材·高中必修上册"
+  ],
+  [
+   "p-sishitianyuan-fanchengda",
+   "《四时田园杂兴》（其二十五） 教材·小学四年级下"
+  ],
+  [
+   "p-yeshaoweng-yeshusuojian",
+   "《夜书所见》 教材·小学三年级上"
+  ],
+  [
+   "p-youyuanbuzhi-yeshaoweng",
+   "《游园不值》 教材·小学六年级下"
+  ],
+  [
+   "p-zengji-sanqudaozhong",
+   "《三衢道中》 教材·小学三年级下"
+  ],
+  [
+   "p-wengjuan-xiangcusiyue",
+   "《乡村四月》 教材·小学五年级下"
+  ],
+  [
+   "p-leizhen-cunwan",
+   "《村晚》 教材·小学五年级下"
+  ],
+  [
+   "p-luyue-xuemei",
+   "《雪梅》 教材·小学四年级上"
+  ],
+  [
+   "p-linsheng-tilinandi",
+   "《题临安邸》 教材·小学五年级上"
+  ],
+  [
+   "p-zhuxi-guanshuyougan",
+   "《观书有感》（其一） 教材·小学五年级上"
+  ],
+  [
+   "p-zhuxi-chunri",
+   "《春日》 教材·小学六年级上"
+  ],
+  [
+   "p-zhaoshixiu-yueke",
+   "《约客》 教材·初中七年级下（课外诵读）"
+  ],
+  [
+   "p-dengkuaige-huang",
+   "《登快阁》 教材·高中选择性必修下册（古诗词诵读）"
+  ],
+  [
+   "p-huangtingjian-qingpingyue",
+   "《清平乐·春归何处》 教材·小学六年级下"
+  ]
+ ],
+ "songwen": [
+  [
+   "p-liuguolun-suxun",
+   "《六国论》 教材·高中必修下"
+  ],
+  [
+   "p-simaguang-simaguang",
+   "《司马光》 教材·小学三年级上"
+  ],
+  [
+   "p-simaguang-sunquanquanxue",
+   "《孙权劝学》 教材·初中七年级下"
+  ],
+  [
+   "p-shenkuo-huoban",
+   "《活板》 教材·初中七年级下"
+  ],
+  [
+   "p-ailianshuo-zhoudunyi",
+   "《爱莲说》 教材·初中七年级下"
+  ],
+  [
+   "p-songlian-songdongyang",
+   "《送东阳马生序》 教材·初中九年级下"
+  ],
+  [
+   "p-mochiji-zenggong",
+   "《墨池记》 教材·课外延伸"
+  ],
+  [
+   "p-shizhongshan-sushi",
+   "《石钟山记》 教材·高中选择性必修下册"
+  ]
+ ],
+ "yuanqu": [
+  [
+   "p-tianjingsha-qiusi",
+   "《天净沙·秋思》 教材·初中七年级上"
+  ],
+  [
+   "p-shanpoyang-tongguan",
+   "《山坡羊·潼关怀古》 教材·初中九年级下"
+  ],
+  [
+   "p-shanpoyang-lishan",
+   "《山坡羊·骊山怀古》 教材·初中九年级下（课外诵读）"
+  ],
+  [
+   "p-wangpan-chaotianzi",
+   "《朝天子·咏喇叭》 教材·初中九年级下（课外诵读）"
+  ],
+  [
+   "p-guanhanqing-doueyuan",
+   "《窦娥冤》（第三折·节选） 教材·高中必修下"
+  ],
+  [
+   "p-wangshifu-changting",
+   "《长亭送别》 教材·高中（戏剧单元）"
+  ],
+  [
+   "p-youyuan-tang",
+   "《游园【皂罗袍】》 教材·高中必修下册（古诗词诵读）"
+  ]
+ ],
+ "mingqingwen": [
+  [
+   "p-xiangjixuanzhi",
+   "《项脊轩志》 教材·高中选择性必修下"
+  ],
+  [
+   "p-huxinting-kanxue",
+   "《湖心亭看雪》 教材·初中九年级上"
+  ],
+  [
+   "p-pusongling-lang",
+   "《狼》 教材·初中七年级上"
+  ],
+  [
+   "p-pusongling-cuzhi",
+   "《促织》（节选） 教材·高中必修下"
+  ],
+  [
+   "p-yaonai-dengtaishanji",
+   "《登泰山记》 教材·高中必修上"
+  ],
+  [
+   "p-jiyun-hezhongshishou",
+   "《河中石兽》 教材·初中七年级下"
+  ],
+  [
+   "p-weixueyi-hezhouji",
+   "《核舟记》 教材·初中八年级下"
+  ],
+  [
+   "p-linjuemin-yuqishu",
+   "《与妻书》 教材·高中必修下"
+  ],
+  [
+   "p-yuzhongzaji-fangbao",
+   "《狱中杂记》 教材·课外延伸"
+  ]
+ ],
+ "mingqingshi": [
+  [
+   "p-shihuiyin",
+   "《石灰吟》 教材·小学六年级下"
+  ],
+  [
+   "p-zhengxie-zhushi",
+   "《竹石》 教材·小学六年级下"
+  ],
+  [
+   "p-jihaizashi-jiuzhou",
+   "《己亥杂诗》（九州生气恃风雷） 教材·小学五上／初中七下"
+  ],
+  [
+   "p-nalanxingde-changxiangsi",
+   "《长相思·山一程》 教材·小学五年级上"
+  ],
+  [
+   "p-nalanxingde-huanxisha",
+   "《浣溪沙·身向云山那畔行》 教材·初中九年级下"
+  ],
+  [
+   "p-tangyin-huaji",
+   "《画鸡》 教材·小学一年级下"
+  ],
+  [
+   "p-wangmian-momei",
+   "《墨梅》 教材·小学四年级下"
+  ],
+  [
+   "p-xiawanchun-bieyunjian",
+   "《别云间》 教材·初中九年级下（课外）"
+  ],
+  [
+   "p-qiujin-manjianghong",
+   "《满江红·小住京华》 教材·初中九年级下"
+  ],
+  [
+   "p-tansitong-tongguan",
+   "《潼关》 教材·初中七年级上"
+  ],
+  [
+   "p-guolingdingyang",
+   "《过零丁洋》 教材·初中九年级下"
+  ],
+  [
+   "p-nananjun",
+   "《南安军》 教材·初中九年级下"
+  ]
+ ],
+ "novel": [
+  [
+   "p-shuihu-jingyang",
+   "《景阳冈》 教材·小学五年级下"
+  ],
+  [
+   "p-shuihu-shengchengang",
+   "《智取生辰纲》 教材·初中"
+  ],
+  [
+   "p-sanguo-caochuan",
+   "《草船借箭》 教材·小学五年级下"
+  ],
+  [
+   "p-sanguo-sangumaolu",
+   "《三顾茅庐》 教材·初中"
+  ],
+  [
+   "p-xiyou-houwang",
+   "《猴王出世》 教材·小学五年级下"
+  ],
+  [
+   "p-xiyou-xiaosheng",
+   "《小圣施威降大圣》 教材·初中七年级上"
+  ],
+  [
+   "p-rulin-fanjin",
+   "《范进中举》 教材·初中"
+  ],
+  [
+   "p-honglou-chunqu",
+   "《红楼春趣》 教材·小学五年级下"
+  ],
+  [
+   "p-honglou-liulaolao",
+   "《刘姥姥进大观园》 教材·初中"
+  ]
+ ],
+ "mao": [
+  [
+   "p-qinyuanchun-changsha",
+   "《沁园春·长沙》 教材·高中必修上册"
+  ],
+  [
+   "p-mao-jinggangshan",
+   "《西江月·井冈山》 教材·高中选修"
+  ],
+  [
+   "p-mao-jiangguizhanzheng",
+   "《清平乐·蒋桂战争》 教材·高中选修"
+  ],
+  [
+   "p-yiqine-loushanguan",
+   "《忆秦娥·娄山关》 教材·课外延伸"
+  ],
+  [
+   "p-mao-liupanshan",
+   "《清平乐·六盘山》 教材·高中选修"
+  ],
+  [
+   "p-qilv-changzheng",
+   "《七律·长征》 教材·小学六年级上"
+  ],
+  [
+   "p-qinyuanchun-xue",
+   "《沁园春·雪》 教材·课外延伸"
+  ],
+  [
+   "p-qilv-nanjing",
+   "《七律·人民解放军占领南京》 教材·课外延伸"
+  ],
+  [
+   "p-mao-youshui",
+   "《水调歌头·游泳》 教材·高中选修"
+  ],
+  [
+   "p-mao-busuanzi-mei",
+   "《卜算子·咏梅》 教材·小学四年级下"
+  ],
+  [
+   "p-mao-chongshangjinggangshan",
+   "《水调歌头·重上井冈山》 教材·高中选修"
+  ]
+ ],
+ "xiandai": [
+  [
+   "p-shaonian-zhongguo",
+   "《少年中国说》（节选） 教材·五年级上"
+  ],
+  [
+   "p-pusaman-dabaidi",
+   "《菩萨蛮·大柏地》 教材·六年级上"
+  ],
+  [
+   "p-woai-zhetudi",
+   "《我爱这土地》 教材·九年级上"
+  ],
+  [
+   "p-siyuetian",
+   "《你是人间的四月天》 教材·九年级上"
+  ],
+  [
+   "p-wokan",
+   "《我看》 教材·九年级上"
+  ],
+  [
+   "p-duanzhang",
+   "《断章》 教材·九年级下"
+  ],
+  [
+   "p-meiling-sanzhang",
+   "《梅岭三章》 教材·九年级下"
+  ],
+  [
+   "p-xiaohong-mupan",
+   "《萧红墓畔口占》 教材·九年级下"
+  ],
+  [
+   "p-tongyi",
+   "《统一》 教材·九年级下"
+  ],
+  [
+   "p-haiyan",
+   "《海燕》（节选） 教材·九年级下"
+  ],
+  [
+   "p-lizai-diqiu",
+   "《立在地球边上放号》 教材·必修上册"
+  ],
+  [
+   "p-hongzhu",
+   "《红烛》 教材·必修上册"
+  ],
+  [
+   "p-eriduoxuefeng",
+   "《峨日朵雪峰之侧》 教材·必修上册"
+  ],
+  [
+   "p-zhiyunque",
+   "《致云雀》（节选） 教材·必修上册"
+  ],
+  [
+   "p-yuguangzhong-xiangchou",
+   "《乡愁》 教材·九年级上"
+  ],
+  [
+   "p-ludi-fengyuyin",
+   "《风雨吟》 教材·九年级下"
+  ],
+  [
+   "p-shenyimo-yueye",
+   "《月夜》 教材·九年级下"
+  ]
+ ],
+ "xuanxiu": [
+  [
+   "p-xu-laozi",
+   "《老子》十章 教材·高中选修"
+  ],
+  [
+   "p-xu-huainanzi",
+   "《淮南子》二则 教材·高中选修"
+  ],
+  [
+   "p-xu-juejiaoshu",
+   "《与山巨源绝交书》 教材·高中选修"
+  ],
+  [
+   "p-xu-maoshixu",
+   "《毛诗序》 教材·高中选修"
+  ],
+  [
+   "p-xu-yuyuanjiushu",
+   "《与元九书》（节选） 教材·高中选修"
+  ],
+  [
+   "p-xu-renjiancihua",
+   "《人间词话》十则 教材·高中选修"
+  ],
+  [
+   "p-xu-lianpo",
+   "《廉颇蔺相如列传》（节选） 教材·高中选修"
+  ],
+  [
+   "p-xu-liuyi",
+   "《柳毅传》 教材·高中选修"
+  ],
+  [
+   "p-xu-shezhan",
+   "《诸葛亮舌战群儒》 教材·高中选修"
+  ],
+  [
+   "p-xu-kuangchaoren",
+   "《匡超人》 教材·高中选修"
+  ],
+  [
+   "p-xu-tengwang",
+   "《滕王阁序》 教材·高中选修"
+  ],
+  [
+   "p-xu-zhulou",
+   "《黄冈竹楼记》 教材·高中选修"
+  ],
+  [
+   "p-xu-shanshuixun",
+   "《山水训》五则 教材·高中选修"
+  ],
+  [
+   "p-xu-mayee",
+   "《麻叶洞天》 教材·高中选修"
+  ],
+  [
+   "p-xu-gaozu",
+   "〔般涉调·哨遍〕《高祖还乡》 教材·高中选修"
+  ],
+  [
+   "p-xu-shirunze",
+   "《施润泽滩阙遇友》 教材·高中选修"
+  ],
+  [
+   "p-xu-liujingting",
+   "《柳敬亭传》 教材·高中选修"
+  ],
+  [
+   "p-xu-maling",
+   "《马伶传》 教材·高中选修"
+  ]
+ ],
+ "indexall": [],
+ "jiaocai": [],
+ "method": []
+}

@@ -1,0 +1,15 @@
+# —— 构建产物（成品在 docs/index.html）——
+/统编教材古代作家文学集成.html
+# 早期单页草稿，已被集成版取代
+/index.html
+
+# —— 校验过程的截图与备份，不进仓库 ——
+audit/*.png
+audit/*.bak*
+audit/bak*/
+repos.json
+
+# —— 抓取中间文件 ——
+*/tmp/
+__pycache__/
+*.pyc

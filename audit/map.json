@@ -1,0 +1,1302 @@
+{
+"咏鹅": [
+"tangchu",
+"p-yonge-luobinwang"
+],
+"江南": [
+"shijing",
+"p-yuefu-jiangnan"
+],
+"画": [
+"wangwei",
+"p-wangwei-hua"
+],
+"悯农": [
+"tangwan",
+"p-minnong-lishen"
+],
+"古朗月行": [
+"libai",
+"p-guanglangyue"
+],
+"风": [
+"tangchu",
+"p-feng-liqiao"
+],
+"春晓": [
+"tangsheng",
+"p-chunxiao-meng"
+],
+"赠汪伦": [
+"libai",
+"p-zengwanglun"
+],
+"静夜思": [
+"libai",
+"p-jingyesi"
+],
+"寻隐者不遇": [
+"tangwan",
+"p-xunyinzhe-jiadao"
+],
+"池上": [
+"baijuyi",
+"p-baijuyi-chishang"
+],
+"小池": [
+"songshi",
+"p-yangwanli-xiaochi"
+],
+"画鸡": [
+"mingqingshi",
+"p-tangyin-huaji"
+],
+"梅花": [
+"wanganshi",
+"p-meihua-wanganshi"
+],
+"小儿垂钓": [
+"tangwan",
+"p-xiaoerchuidiao-hulingneng"
+],
+"登鹳雀楼": [
+"tangsheng",
+"p-dengguanquelou-wangzhihuan"
+],
+"望庐山瀑布": [
+"libai",
+"p-wanglushan"
+],
+"江雪": [
+"tangguwen",
+"p-jiangxue-liuzongyuan"
+],
+"夜宿山寺": [
+"libai",
+"p-yeshan"
+],
+"敕勒歌": [
+"shijing",
+"p-beichao-chilege"
+],
+"村居": [
+"tangwan",
+"p-cunju-gaoding"
+],
+"咏柳": [
+"tangchu",
+"p-yongliu-he"
+],
+"赋得古原草送别": [
+"baijuyi",
+"p-fude-bjy"
+],
+"晓出净慈寺送林子方": [
+"songshi",
+"p-yangwanli-xiaochu"
+],
+"舟夜书所见": [
+"tangwan",
+"p-zhouyeshuo-zhashenxing"
+],
+"所见": [
+"tangwan",
+"p-suojian-yuanmei"
+],
+"山行": [
+"dumu",
+"p-shanxing-dumu"
+],
+"赠刘景文": [
+"sushi",
+"p-sushi-zengliujingwen"
+],
+"夜书所见": [
+"songshi",
+"p-yeshaoweng-yeshusuojian"
+],
+"望天门山": [
+"libai",
+"p-wangtianmen"
+],
+"饮湖上初晴后雨": [
+"sushi",
+"p-sushi-yinhu"
+],
+"望洞庭": [
+"tangwan",
+"p-wangdongting-liuyuxi"
+],
+"早发白帝城": [
+"libai",
+"p-zaofabaidi"
+],
+"采莲曲": [
+"tangsheng",
+"p-cailianqu-wang"
+],
+"司马光": [
+"songwen",
+"p-simaguang-simaguang"
+],
+"惠崇春江晚景": [
+"sushi",
+"p-sushi-huichong"
+],
+"三衢道中": [
+"songshi",
+"p-zengji-sanqudaozhong"
+],
+"忆江南": [
+"baijuyi",
+"p-baijuyi-yijiangnan"
+],
+"守株待兔": [
+"xiaowen",
+"p-shouzhu"
+],
+"元日": [
+"wanganshi",
+"p-yuanri-wanganshi"
+],
+"清明": [
+"dumu",
+"p-qingming-dumu"
+],
+"九月九日忆山东兄弟": [
+"wangwei",
+"p-wangwei-jiuyuejiuri"
+],
+"滁州西涧": [
+"tangsheng",
+"p-chuzhouxijian-weiyingwu"
+],
+"大林寺桃花": [
+"baijuyi",
+"p-baijuyi-dalinsi"
+],
+"鹿柴": [
+"wangwei",
+"p-wangwei-luzhai"
+],
+"暮江吟": [
+"baijuyi",
+"p-baijuyi-mujiangyin"
+],
+"题西林壁": [
+"sushi",
+"p-sushi-tixilinbi"
+],
+"雪梅": [
+"songshi",
+"p-luyue-xuemei"
+],
+"精卫填海": [
+"xiaowen",
+"p-jingwei"
+],
+"嫦娥": [
+"shangyin",
+"p-chang-e-shangyin"
+],
+"出塞": [
+"tangsheng",
+"p-chusai-wangchangling"
+],
+"凉州词": [
+"tangsheng",
+"p-liangzhouci-wangzhihuan"
+],
+"夏日绝句": [
+"liqingzhao",
+"p-xiarijueju-liqingzhao"
+],
+"别董大": [
+"tangsheng",
+"p-biedongda-gao"
+],
+"王戎不取道旁李": [
+"xiaowen",
+"p-wangrong"
+],
+"宿新市徐公店": [
+"songshi",
+"p-yangwanli-suxinshi"
+],
+"四时田园杂兴": [
+"songshi",
+"p-sishitianyuan-fanchengda"
+],
+"清平乐·村居": [
+"xinqiji",
+"p-qingpingyue-xinqiji"
+],
+"卜算子·咏梅": [
+"luyou",
+"p-busuanzi-luyou"
+],
+"蜂": [
+"tangwan",
+"p-feng-luoyin"
+],
+"独坐敬亭山": [
+"libai",
+"p-duzuojingshan"
+],
+"芙蓉楼送辛渐": [
+"tangsheng",
+"p-furonglou-wangchangling"
+],
+"塞下曲": [
+"tangwan",
+"p-saixiaqu-lulun"
+],
+"墨梅": [
+"mingqingshi",
+"p-wangmian-momei"
+],
+"囊萤夜读": [
+"xiaowen",
+"p-nangying"
+],
+"铁杵成针": [
+"xiaowen",
+"p-tiechu"
+],
+"江畔独步寻花": [
+"dufu",
+"p-jiangpan-dufu"
+],
+"蝉": [
+"tangwan",
+"p-chan-yushinan"
+],
+"乞巧": [
+"tangwan",
+"p-qiqiao-linjie"
+],
+"示儿": [
+"luyou",
+"p-shier-luyou"
+],
+"题临安邸": [
+"songshi",
+"p-linsheng-tilinandi"
+],
+"己亥杂诗": [
+"mingqingshi",
+"p-jihaizashi-jiuzhou"
+],
+"少年中国说": [
+"xiandai",
+"p-shaonian-zhongguo"
+],
+"山居秋暝": [
+"wangwei",
+"p-shanju-ww"
+],
+"枫桥夜泊": [
+"tangwan",
+"p-fengqiao-zhangji"
+],
+"长相思": [
+"mingqingshi",
+"p-nalanxingde-changxiangsi"
+],
+"渔歌子": [
+"tangwan",
+"p-yugezi-zhangzhihe"
+],
+"古人谈读书": [
+"xiaowen",
+"p-guren"
+],
+"观书有感": [
+"songshi",
+"p-zhuxi-guanshuyougan"
+],
+"稚子弄冰": [
+"songshi",
+"p-yangwanli-zhizinongbing"
+],
+"村晚": [
+"songshi",
+"p-leizhen-cunwan"
+],
+"游子吟": [
+"tangwan",
+"p-youziyin-mengjiao"
+],
+"鸟鸣涧": [
+"wangwei",
+"p-wangwei-niaomingjian"
+],
+"从军行": [
+"tangsheng",
+"p-congjunxing-wangchangling"
+],
+"送元二使安西": [
+"wangwei",
+"p-wangwei-songyuaner"
+],
+"秋夜将晓出篱门迎凉有感": [
+"luyou",
+"p-qiuyejiangxiao-luyou"
+],
+"黄鹤楼送孟浩然之广陵": [
+"libai",
+"p-huanghelou"
+],
+"自相矛盾": [
+"xiaowen",
+"p-maodun"
+],
+"乡村四月": [
+"songshi",
+"p-wengjuan-xiangcusiyue"
+],
+"杨氏之子": [
+"xiaowen",
+"p-yangshi"
+],
+"宿建德江": [
+"tangsheng",
+"p-sujiandejiang-meng"
+],
+"六月二十七日望湖楼醉书": [
+"sushi",
+"p-sushi-liuyueershiri"
+],
+"西江月·夜行黄沙道中": [
+"xinqiji",
+"p-xijiangyue-xinqiji"
+],
+"过故人庄": [
+"tangsheng",
+"p-guogurenzhuang-meng"
+],
+"七律·长征": [
+"mao",
+"p-qilv-changzheng"
+],
+"菩萨蛮·大柏地": [
+"xiandai",
+"p-pusaman-dabaidi"
+],
+"春日": [
+"songshi",
+"p-zhuxi-chunri"
+],
+"回乡偶书": [
+"tangchu",
+"p-huixiangoushu-he"
+],
+"浪淘沙": [
+"tangwan",
+"p-langtaosha-liuyuxi"
+],
+"江南春": [
+"dumu",
+"p-jiangnanchun-dumu"
+],
+"书湖阴先生壁": [
+"wanganshi",
+"p-shuhuyinxianshengbi-wanganshi"
+],
+"伯牙鼓琴": [
+"zhuzi",
+"p-lvshi-boyaguqin"
+],
+"书戴嵩画牛": [
+"xiaowen",
+"p-daishong"
+],
+"寒食": [
+"tangwan",
+"p-hanshi-hanhong"
+],
+"迢迢牵牛星": [
+"shijing",
+"p-gushi-tiaotiao"
+],
+"十五夜望月": [
+"tangwan",
+"p-shiwuyewangyue-wangjian"
+],
+"长歌行": [
+"shijing",
+"p-yuefu-changgexing"
+],
+"马诗": [
+"lihe",
+"p-mashi-lihe"
+],
+"石灰吟": [
+"mingqingshi",
+"p-shihuiyin"
+],
+"竹石": [
+"mingqingshi",
+"p-zhengxie-zhushi"
+],
+"学弈": [
+"xiaowen",
+"p-xueyi"
+],
+"两小儿辩日": [
+"xiaowen",
+"p-liangxiaoer"
+],
+"采薇": [
+"shijing",
+"p-caiwei-sj"
+],
+"春夜喜雨": [
+"dufu",
+"p-dufu-chunyexiyu"
+],
+"闻官军收河南河北": [
+"dufu",
+"p-dufu-wenguanjun"
+],
+"早春呈水部张十八员外": [
+"tangguwen",
+"p-zaochun-hanyu"
+],
+"江上渔者": [
+"fanzhongyan",
+"p-jiangshangyuzhe-fanzhongyan"
+],
+"泊船瓜洲": [
+"wanganshi",
+"p-bochuanguazhou-wanganshi"
+],
+"游园不值": [
+"songshi",
+"p-youyuanbuzhi-yeshaoweng"
+],
+"卜算子·送鲍浩然之浙东": [
+"songci",
+"p-busuanzi-wang"
+],
+"浣溪沙": [
+"sushi",
+"p-sushi-huanxisha"
+],
+"清平乐": [
+"xinqiji",
+"p-qingpingyue-xinqiji"
+],
+"观沧海": [
+"caocao",
+"p-guancanghai-cc"
+],
+"闻王昌龄左迁龙标遥有此寄": [
+"libai",
+"p-wenchangling"
+],
+"次北固山下": [
+"tangchu",
+"p-cibeigushan-wang"
+],
+"天净沙·秋思": [
+"yuanqu",
+"p-tianjingsha-qiusi"
+],
+"咏雪": [
+"weijinprose",
+"p-yongxue-shishuo"
+],
+"陈太丘与友期行": [
+"weijinprose",
+"p-chenqiu-shishuo"
+],
+"论语十二章": [
+"zhuzi",
+"p-lunyu-xuan"
+],
+"峨眉山月歌": [
+"libai",
+"p-emeishan"
+],
+"江南逢李龟年": [
+"dufu",
+"p-jiangnanlijingnian-df"
+],
+"行军九日思长安故园": [
+"tangsheng",
+"p-xingjunjiuri-cen"
+],
+"夜上受降城闻笛": [
+"tangsheng",
+"p-yeshangshouxiangcheng-liyi"
+],
+"诫子书": [
+"weijinprose",
+"p-zhugeliang-jiezishu"
+],
+"狼": [
+"mingqingwen",
+"p-pusongling-lang"
+],
+"穿井得一人": [
+"zhuzi",
+"p-lvshi-chuanjingdeyiren"
+],
+"杞人忧天": [
+"zhuzi",
+"p-liezi-qirenyoutian"
+],
+"秋词": [
+"tangwan",
+"p-qiuci-liuyuxi"
+],
+"夜雨寄北": [
+"shangyin",
+"p-yeyujibei-shangyin"
+],
+"十一月四日风雨大作": [
+"luyou",
+"p-shiyueyue-luyou"
+],
+"潼关": [
+"mingqingshi",
+"p-tansitong-tongguan"
+],
+"孙权劝学": [
+"songwen",
+"p-simaguang-sunquanquanxue"
+],
+"木兰诗": [
+"shijing",
+"p-beichao-mulanshi"
+],
+"卖油翁": [
+"ouyangxiu",
+"p-maiyouweng-ouyangxiu"
+],
+"竹里馆": [
+"wangwei",
+"p-wangwei-zhuliguan"
+],
+"春夜洛城闻笛": [
+"libai",
+"p-chunye"
+],
+"逢入京使": [
+"tangsheng",
+"p-fengrujingshi-cen"
+],
+"晚春": [
+"tangguwen",
+"p-wanchun-hanyu"
+],
+"陋室铭": [
+"tangwan",
+"p-loushiming-liuyuxi"
+],
+"爱莲说": [
+"songwen",
+"p-ailianshuo-zhoudunyi"
+],
+"登幽州台歌": [
+"tangchu",
+"p-dengyouzhou-chen"
+],
+"望岳": [
+"dufu",
+"p-wangyue-df"
+],
+"登飞来峰": [
+"wanganshi",
+"p-denglaifeng-wanganshi"
+],
+"游山西村": [
+"luyou",
+"p-youshanxicun-luyou"
+],
+"河中石兽": [
+"mingqingwen",
+"p-jiyun-hezhongshishou"
+],
+"泊秦淮": [
+"dumu",
+"p-poqinhuai-dumu"
+],
+"贾生": [
+"shangyin",
+"p-jiasheng-shangyin"
+],
+"过松源晨炊漆公店": [
+"songshi",
+"p-yangwanli-guosongyuan"
+],
+"约客": [
+"songshi",
+"p-zhaoshixiu-yueke"
+],
+"三峡": [
+"weijinprose",
+"p-sanxia-ldy"
+],
+"答谢中书书": [
+"weijinprose",
+"p-taohongjing-daxiezhongshushu"
+],
+"记承天寺夜游": [
+"sushi",
+"p-sushi-jichengtiansi"
+],
+"与朱元思书": [
+"weijinprose",
+"p-wujun-yuzhuoyuansishu"
+],
+"野望": [
+"caocao",
+"p-wangji-yewang"
+],
+"黄鹤楼": [
+"tangsheng",
+"p-huanghelou-cuihao"
+],
+"使至塞上": [
+"wangwei",
+"p-shizhi-ww"
+],
+"渡荆门送别": [
+"libai",
+"p-dujingmen"
+],
+"钱塘湖春行": [
+"baijuyi",
+"p-baijuyi-qiantanghu"
+],
+"庭中有奇树": [
+"shijing",
+"p-tingzhong-qishu"
+],
+"龟虽寿": [
+"caocao",
+"p-caocao-guishuisui"
+],
+"赠从弟": [
+"caocao",
+"p-liuzhen-zengcongdier"
+],
+"梁甫行": [
+"caocao",
+"p-caozhi-liangfuxing"
+],
+"富贵不能淫": [
+"zhuzi",
+"p-mengzi-fuguibunengyin"
+],
+"生于忧患死于安乐": [
+"zhuzi",
+"p-mengzi-shengyuyouhuan"
+],
+"愚公移山": [
+"zhuzi",
+"p-liezi-yugongyishan"
+],
+"周亚夫军细柳": [
+"hanprose",
+"p-zhouyafu-shiji"
+],
+"饮酒": [
+"taoyuanming",
+"p-yinjiu-tym"
+],
+"春望": [
+"dufu",
+"p-chunwang-df"
+],
+"雁门太守行": [
+"lihe",
+"p-yanmen-lihe"
+],
+"赤壁": [
+"dumu",
+"p-chibi-dumu"
+],
+"渔家傲": [
+"fanzhongyan",
+"p-yujiaao-fanzhongyan"
+],
+"采桑子": [
+"ouyangxiu",
+"p-caisangzi-ouyangxiu"
+],
+"相见欢": [
+"songci",
+"p-zhudunru-xiangjianhuan"
+],
+"如梦令": [
+"liqingzhao",
+"p-ruimengling-liqingzhao"
+],
+"桃花源记": [
+"taoyuanming",
+"p-taohuayuanji-tym"
+],
+"小石潭记": [
+"tangguwen",
+"p-xiaoshitan-liuzongyuan"
+],
+"核舟记": [
+"mingqingwen",
+"p-weixueyi-hezhouji"
+],
+"关雎": [
+"shijing",
+"p-guanju-sj"
+],
+"蒹葭": [
+"shijing",
+"p-jianjia-sj"
+],
+"式微": [
+"shijing",
+"p-shijing-shiwei"
+],
+"子衿": [
+"shijing",
+"p-shijing-zijin"
+],
+"送杜少府之任蜀州": [
+"tangchu",
+"p-songdufu-wangbo"
+],
+"望洞庭湖赠张丞相": [
+"tangsheng",
+"p-wangdongting-meng"
+],
+"北冥有鱼": [
+"zhuzi",
+"p-zhuangzi-beimingyouyu"
+],
+"庄子与惠子游于濠梁之上": [
+"zhuzi",
+"p-haoliang-zhuangzi"
+],
+"虽有嘉肴": [
+"zhuzi",
+"p-suiyou-liji"
+],
+"大道之行也": [
+"zhuzi",
+"p-dadao-liji"
+],
+"马说": [
+"tangguwen",
+"p-mashuo-hanyu"
+],
+"茅屋为秋风所破歌": [
+"dufu",
+"p-dufu-maowu"
+],
+"卖炭翁": [
+"baijuyi",
+"p-baijuyi-maitanweng"
+],
+"题破山寺后禅院": [
+"tangsheng",
+"p-tiposhansi-changjian"
+],
+"送友人": [
+"libai",
+"p-songyouren"
+],
+"卜算子·黄州定慧院寓居作": [
+"sushi",
+"p-busuanzi-sushi"
+],
+"沁园春·雪": [
+"mao",
+"p-qinyuanchun-xue"
+],
+"岳阳楼记": [
+"fanzhongyan",
+"p-yueyanglouji-fanzhongyan"
+],
+"醉翁亭记": [
+"ouyangxiu",
+"p-zuiwengtingji-ouyangxiu"
+],
+"湖心亭看雪": [
+"mingqingwen",
+"p-huxinting-kanxue"
+],
+"行路难": [
+"libai",
+"p-xinglunan"
+],
+"酬乐天扬州初逢席上见赠": [
+"tangwan",
+"p-choule-tang-liuyuxi"
+],
+"水调歌头": [
+"sushi",
+"p-sushi-shuidiaogetou"
+],
+"月夜忆舍弟": [
+"dufu",
+"p-yueyeyisheid-df"
+],
+"长沙过贾谊宅": [
+"tangsheng",
+"p-changshaguo-liuchangqing"
+],
+"左迁至蓝关示侄孙湘": [
+"tangguwen",
+"p-zuoqianlanguan-hanyu"
+],
+"商山早行": [
+"tangwan",
+"p-shangshanzaoxing-wen"
+],
+"咸阳城东楼": [
+"tangwan",
+"p-xianyang-xuhun"
+],
+"无题": [
+"shangyin",
+"p-wuti-shangyin"
+],
+"行香子": [
+"songci",
+"p-qinguan-xingxiangzi"
+],
+"丑奴儿·书博山道中壁": [
+"xinqiji",
+"p-chounuer-xinqiji"
+],
+"鱼我所欲也": [
+"zhuzi",
+"p-mengzi-yuwosuoyuoye"
+],
+"唐雎不辱使命": [
+"hanprose",
+"p-zhanguoce-tangju"
+],
+"送东阳马生序": [
+"songwen",
+"p-songlian-songdongyang"
+],
+"渔家傲·秋思": [
+"fanzhongyan",
+"p-yujiaao-fanzhongyan"
+],
+"江城子·密州出猎": [
+"sushi",
+"p-sushi-jiangchengzi-mizhou"
+],
+"破阵子": [
+"xinqiji",
+"p-pozhenzi-xinqiji"
+],
+"满江红": [
+"mingqingshi",
+"p-qiujin-manjianghong"
+],
+"定风波": [
+"sushi",
+"p-dingfengbo-sushi"
+],
+"临江仙·夜登小阁": [
+"songci",
+"p-chenyiyi-linjiangxian"
+],
+"太常引": [
+"xinqiji",
+"p-taichangyin-xinqiji"
+],
+"曹刿论战": [
+"hanprose",
+"p-zuozhuan-caoguilunzhan"
+],
+"邹忌讽齐王纳谏": [
+"hanprose",
+"p-zhanguoce-zouji"
+],
+"出师表": [
+"weijinprose",
+"p-zhugeliang-chushibiao"
+],
+"十五从军征": [
+"shijing",
+"p-yuefu-shiwucongjun"
+],
+"白雪歌送武判官归京": [
+"tangsheng",
+"p-baixuege-censhen"
+],
+"南乡子·登京口北固亭有怀": [
+"xinqiji",
+"p-nanxiangzi-xinqiji"
+],
+"过零丁洋": [
+"mingqingshi",
+"p-guolingdingyang"
+],
+"山坡羊·潼关怀古": [
+"yuanqu",
+"p-shanpoyang-tongguan"
+],
+"南安军": [
+"mingqingshi",
+"p-nananjun"
+],
+"别云间": [
+"mingqingshi",
+"p-xiawanchun-bieyunjian"
+],
+"山坡羊·骊山怀古": [
+"yuanqu",
+"p-shanpoyang-lishan"
+],
+"朝天子·咏喇叭": [
+"yuanqu",
+"p-wangpan-chaotianzi"
+],
+"沁园春·长沙": [
+"mao",
+"p-qinyuanchun-changsha"
+],
+"芣苢": [
+"shijing",
+"p-shijing-fuyi"
+],
+"插秧歌": [
+"songshi",
+"p-chayangge-yang"
+],
+"短歌行": [
+"caocao",
+"p-duange-cc"
+],
+"归园田居": [
+"taoyuanming",
+"p-guiyuantianju-tym"
+],
+"梦游天姥吟留别": [
+"libai",
+"p-mengyou"
+],
+"登高": [
+"dufu",
+"p-denggao-df"
+],
+"琵琶行并序": [
+"baijuyi",
+"p-pipa-bjy"
+],
+"念奴娇·赤壁怀古": [
+"sushi",
+"p-niannujiao-sushi"
+],
+"永遇乐·京口北固亭怀古": [
+"xinqiji",
+"p-yongyule-xinqiji"
+],
+"声声慢": [
+"liqingzhao",
+"p-shengshengman-liqingzhao"
+],
+"劝学": [
+"zhuzi",
+"p-quanxue-xun"
+],
+"师说": [
+"tangguwen",
+"p-shishuo-hanyu"
+],
+"赤壁赋": [
+"sushi",
+"p-sushi-chibifu"
+],
+"登泰山记": [
+"mingqingwen",
+"p-yaonai-dengtaishanji"
+],
+"静女": [
+"shijing",
+"p-shijing-jingnv"
+],
+"涉江采芙蓉": [
+"shijing",
+"p-shejiang-caifurong"
+],
+"虞美人": [
+"songci",
+"p-yumeiren-liyu"
+],
+"鹊桥仙": [
+"songci",
+"p-qinguan-queqiaoxian"
+],
+"子路曾皙冉有公西华侍坐": [
+"zhuzi",
+"p-shizuo-lunyu"
+],
+"齐桓晋文之事": [
+"zhuzi",
+"p-mengzi-qihuanjinwen"
+],
+"庖丁解牛": [
+"zhuzi",
+"p-zhuangzi-paodingjieniu"
+],
+"烛之武退秦师": [
+"hanprose",
+"p-zhuzhiwu-zuozhuan"
+],
+"鸿门宴": [
+"hanprose",
+"p-hongmenyan-sima"
+],
+"窦娥冤": [
+"yuanqu",
+"p-guanhanqing-doueyuan"
+],
+"谏逐客书": [
+"hanprose",
+"p-jianzhuke-li"
+],
+"与妻书": [
+"mingqingwen",
+"p-linjuemin-yuqishu"
+],
+"促织": [
+"mingqingwen",
+"p-pusongling-cuzhi"
+],
+"谏太宗十思疏": [
+"hanprose",
+"p-jianzongshisi-wei"
+],
+"答司马谏议书": [
+"wanganshi",
+"p-dasimaliyishu-wanganshi"
+],
+"阿房宫赋": [
+"dumu",
+"p-afanggongfu-dumu"
+],
+"六国论": [
+"songwen",
+"p-liuguolun-suxun"
+],
+"登岳阳楼": [
+"dufu",
+"p-dufu-dengyueyanglou"
+],
+"桂枝香·金陵怀古": [
+"wanganshi",
+"p-guizhixiang-wanganshi"
+],
+"念奴娇·过洞庭": [
+"songci",
+"p-zhangxiaoxiang-niannujiao"
+],
+"游园": [
+"songshi",
+"p-youyuanbuzhi-yeshaoweng"
+],
+"大学之道": [
+"zhuzi",
+"p-liji-daxuezhidao"
+],
+"人皆有不忍人之心": [
+"zhuzi",
+"p-mengzi-burenzhixin"
+],
+"老子四章": [
+"zhuzi",
+"p-laozi-sizhang"
+],
+"五石之瓠": [
+"zhuzi",
+"p-zhuangzi-wushizhihu"
+],
+"兼爱": [
+"zhuzi",
+"p-mozi-jianai"
+],
+"无衣": [
+"shijing",
+"p-shijing-wuyi"
+],
+"春江花月夜": [
+"songci",
+"p-chunjianghuayeyue-zhang"
+],
+"将进酒": [
+"libai",
+"p-jiangjinjiu"
+],
+"江城子·乙卯正月二十日夜记梦": [
+"sushi",
+"p-sushi-jiangchengzi-yimao"
+],
+"屈原列传": [
+"hanprose",
+"p-simaqian-qunyuanliezhuan"
+],
+"苏武传": [
+"hanprose",
+"p-bangu-suwuzhuan"
+],
+"过秦论": [
+"hanprose",
+"p-jiayi-guoqinlun"
+],
+"五代史伶官传序": [
+"ouyangxiu",
+"p-wudaishilingguanchuanxu-ouyangxiu"
+],
+"燕歌行并序": [
+"tangsheng",
+"p-yangexing-gao"
+],
+"李凭箜篌引": [
+"lihe",
+"p-konghou-lihe"
+],
+"锦瑟": [
+"shangyin",
+"p-jinse-shangyin"
+],
+"书愤": [
+"luyou",
+"p-shufen-luyou"
+],
+"氓": [
+"shijing",
+"p-shijing-meng"
+],
+"离骚": [
+"quyuan",
+"p-lisao-qu"
+],
+"孔雀东南飞": [
+"shijing",
+"p-yuefu-kongque"
+],
+"蜀道难": [
+"libai",
+"p-shudaonan"
+],
+"蜀相": [
+"dufu",
+"p-dufu-shuxiang"
+],
+"望海潮": [
+"songci",
+"p-wanghaichao-liuyong"
+],
+"扬州慢": [
+"songci",
+"p-jiangkui-yangzhouman"
+],
+"陈情表": [
+"weijinprose",
+"p-limi-chenqingbiao"
+],
+"项脊轩志": [
+"mingqingwen",
+"p-xiangjixuanzhi"
+],
+"兰亭集序": [
+"weijinprose",
+"p-lanting-wxz"
+],
+"归去来兮辞": [
+"taoyuanming",
+"p-guiqulaixici-tym"
+],
+"种树郭橐驼传": [
+"tangguwen",
+"p-zhongshu-guotuotuo-liuzongyuan"
+],
+"石钟山记": [
+"songwen",
+"p-shizhongshan-sushi"
+],
+"拟行路难": [
+"weijinprose",
+"p-baozhao-nixinglunan"
+],
+"客至": [
+"dufu",
+"p-dufu-kezhi"
+],
+"登快阁": [
+"songshi",
+"p-dengkuaige-huang"
+],
+"临安春雨初霁": [
+"luyou",
+"p-linanyuchun-luyou"
+],
+"我爱这土地": [
+"xiandai",
+"p-woai-zhetudi"
+],
+"乡愁": [
+"xiandai",
+"p-yuguangzhong-xiangchou"
+],
+"你是人间的四月天": [
+"xiandai",
+"p-siyuetian"
+],
+"我看": [
+"xiandai",
+"p-wokan"
+],
+"梅岭三章": [
+"xiandai",
+"p-meiling-sanzhang"
+],
+"海燕": [
+"xiandai",
+"p-haiyan"
+],
+"月夜": [
+"dufu",
+"p-yueyeyisheid-df"
+],
+"萧红墓畔口占": [
+"xiandai",
+"p-xiaohong-mupan"
+],
+"断章": [
+"xiandai",
+"p-duanzhang"
+],
+"风雨": [
+"xiandai",
+"p-ludi-fengyuyin"
+],
+"统一": [
+"xiandai",
+"p-tongyi"
+],
+"立在地球边上放号": [
+"xiandai",
+"p-lizai-diqiu"
+],
+"红烛": [
+"xiandai",
+"p-hongzhu"
+],
+"峨日朵雪峰之侧": [
+"xiandai",
+"p-eriduoxuefeng"
+],
+"致云雀": [
+"xiandai",
+"p-zhiyunque"
+]
+}
