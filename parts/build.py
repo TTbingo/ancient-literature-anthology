@@ -141,6 +141,47 @@ EXTRA_CSS = r"""
   .jc-table td:first-child{white-space:nowrap;color:#8a8378;font-size:12.5px;}
   .jc-table a{cursor:pointer;color:var(--accent2);border-bottom:1px dotted #c9c0ad;}
   .jc-table a:hover{color:var(--accent);text-decoration:none;}
+  /* ===== 题材分类索引（第三篇）：速览表 + 分类卡片 ===== */
+  /* 速览表：1|2 一组、3|4 一组，两组间加竖线分隔；类别居中、释义左对齐 */
+  #ticai table.ov{table-layout:fixed;font-size:13.5px;}
+  #ticai table.ov th,#ticai table.ov td{padding:9px 12px;line-height:1.7;}
+  #ticai table.ov th{text-align:center;white-space:nowrap;background:#f6f1e6;color:var(--accent);}
+  #ticai table.ov td:nth-child(2){border-right:1px solid var(--line);}
+  #ticai table.ov td:nth-child(odd){white-space:nowrap;text-align:center;width:14%;}
+  #ticai table.ov td:nth-child(even){text-align:left;color:var(--ink-soft);}
+  #ticai table.ov a.tlink{font-weight:bold;}
+  /* 分类卡片 */
+  #ticai .cat{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;
+    background:#fffefb;margin:20px 0;padding:14px 22px 18px;box-shadow:var(--shadow);scroll-margin-top:66px;}
+  #ticai .cat h3.jc-grade{font-size:19px;color:var(--accent2);margin:2px 0 6px;padding-bottom:9px;
+    border-bottom:1px solid var(--line);letter-spacing:.03em;}
+  #ticai .cat h3.jc-grade .num{color:#fff;background:var(--accent);font-family:Georgia,serif;font-size:13px;
+    padding:3px 8px;border-radius:5px;margin-right:11px;vertical-align:2px;}
+  #ticai .cat table{border:none;margin:0;font-size:14px;}
+  #ticai .cat table tr{border-bottom:1px dotted var(--line);}
+  #ticai .cat table tr:last-child{border-bottom:none;}
+  #ticai .cat th,#ticai .cat td{border:none;padding:10px 2px;vertical-align:top;line-height:1.85;}
+  /* 字段名做成左对齐的浅色标签块，长短各异但边界齐整 */
+  #ticai .cat th{width:132px;white-space:nowrap;text-align:left;padding-right:16px;}
+  #ticai .cat th span{display:inline-block;background:#f6f1e6;color:var(--accent);font-size:12.5px;
+    font-weight:bold;padding:2px 10px;border-radius:12px;letter-spacing:.02em;}
+  #ticai .cat td{text-align:left;}
+  /* 代表作品改为独立标签（chip）：自动换行、间距均匀，不再连成一堵字墙 */
+  #ticai .cat td.works{line-height:1.9;}
+  #ticai .cat .wc{display:inline-block;margin:0 8px 6px 0;}
+  #ticai .cat .wc a.tlink{display:inline-block;background:#f6f1e6;border:1px solid #e7ddc7;
+    border-radius:14px;padding:2px 11px;font-size:13px;color:var(--accent2);text-decoration:none;
+    border-bottom:1px solid #e7ddc7;line-height:1.7;transition:background .15s,color .15s;}
+  #ticai .cat .wc a.tlink:hover{background:var(--accent);border-color:var(--accent);color:#fff;text-decoration:none;}
+  @media(max-width:820px){
+    #ticai .cat{padding:12px 14px 16px;}
+    #ticai .cat table,#ticai .cat tbody,#ticai .cat tr,#ticai .cat th,#ticai .cat td{display:block;width:auto;}
+    #ticai .cat th{text-align:left;width:auto;padding:9px 0 0;border-bottom:none;}
+    #ticai .cat td{padding:3px 0 9px;}
+    #ticai .cat .wc{margin:0 6px 6px 0;}
+    #ticai table.ov td:nth-child(2){border-right:none;}
+    #ticai table.ov td:nth-child(odd){white-space:normal;text-align:center;width:auto;padding-right:8px;}
+  }
   /* ===== 附录速查表：列宽按内容分配，单元格居中 ===== */
   #indexall table{table-layout:fixed;font-size:13.5px;}
   #indexall th,#indexall td{text-align:center;vertical-align:middle;padding:9px 12px;line-height:1.72;}
@@ -350,6 +391,7 @@ JS = r"""
   var ALIAS={
     '篇目总索引':'教材篇目总索引 总索引 篇目索引 作者索引 速查 篇目速查',
     '全篇顺序索引':'教材全篇顺序索引 教材顺序索引 册次索引 课本顺序 教材顺序 顺序索引',
+    '题材分类索引':'题材分类索引 题材索引 分类索引 按题材 主题分类 送别 边塞 思乡 怀古 咏物 田园 闺情 忧国 言志 说理 叙事 节令',
     '编例与说明':'编例 体例 说明 凡例',
     '李白':'李太白 太白 青莲居士 诗仙 谪仙人 李十二 醉仙',
     '杜甫':'杜子美 子美 少陵野老 诗圣 杜工部 老杜 少陵',
@@ -757,6 +799,7 @@ PAGES = [
  ("home","导览","首页 · 全书总览"),
  ("indexall","索引 · 教材篇目","篇目总索引（按作者）"),
  ("jiaocai","索引 · 教材篇目","全篇顺序索引（按册次）"),
+ ("ticai","索引 · 教材篇目","题材分类索引（按内容题材）"),
  ("xiaowen","小学 · 文言启蒙","小学文言启蒙（11篇）"),
  ("quyuan","先秦两汉","屈原与《楚辞》"),
  ("shijing","先秦两汉","《诗经》与民间歌谣"),
