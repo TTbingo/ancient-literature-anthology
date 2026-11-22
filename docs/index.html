@@ -12277,6 +12277,14 @@
   function parseGo(v){var p=String(v||'').split('::');return [p[0],p[1]||''];}
   function show(id,push,anchor){
     if(ids.indexOf(id)<0) return false;
+    /* 离开当前页前，把该页滚动位置存进 history.state，供浏览器返回时精确复原 */
+    if(push!==false){
+      var curPage=currentId(), st=history.state||{};
+      var scrollMap={};
+      if(st.scroll) for(var k in st.scroll) scrollMap[k]=st.scroll[k];
+      scrollMap[curPage]=window.scrollY;
+      history.replaceState({scroll:scrollMap},'');
+    }
     pages.forEach(function(p){p.classList.toggle('active',p.id===id);});
     links.forEach(function(a){a.classList.toggle('active',a.getAttribute('data-target')===id);});
     var i=ids.indexOf(id);
@@ -12284,8 +12292,14 @@
     var a=links.filter(function(x){return x.getAttribute('data-target')===id;})[0];
     crumb.textContent='当前：'+(a?a.textContent.trim():'总览');
     var want='#'+id+(anchor?'::'+anchor:'');
-    if(push!==false && location.hash!==want) history.pushState(null,'',want);
-    if(anchor){setTimeout(function(){jump(anchor);},60); setTimeout(function(){jump(anchor);},400);} else {window.scrollTo(0,0);}
+    if(push!==false && location.hash!==want) history.pushState(history.state||{},'',want);
+    if(anchor){setTimeout(function(){jump(anchor);},60); setTimeout(function(){jump(anchor);},400);}
+    else {
+      /* 返回到无锚点的页：恢复离开时记录的滚动位置，否则回页首 */
+      var st=history.state||{}, saved=st.scroll?st.scroll[id]:null;
+      if(push===false && typeof saved==='number') setTimeout(function(){window.scrollTo(0,saved);},50);
+      else window.scrollTo(0,0);
+    }
     sidebar.classList.remove('open');
     [].slice.call(document.querySelectorAll('.prail.open')).forEach(closePrail);
     var act=links.filter(function(x){return x.classList.contains('active');})[0];
