@@ -1,0 +1,149 @@
+(function(){
+  // 12 题材来自第三篇索引；一题材一传统色（取 dir-2 原色谱，无重复）
+  var topics=[
+    ['送别赠友','月白','#D7E8EC','#1C1B18'],
+    ['边塞征战','绛',  '#9B2F2F','#F4F1E6'],
+    ['羁旅思乡','鸦青','#424B4E','#F4F1E6'],
+    ['山水田园','缥碧','#8FBFA8','#1C1B18'],
+    ['咏史怀古','檀色','#A9614A','#F4F1E6'],
+    ['咏物寄意','缃叶','#D9C97C','#1C1B18'],
+    ['爱情闺情','桃夭','#E8A7A0','#1C1B18'],
+    ['忧国伤时','墨',  '#1E2326','#F4F1E6'],
+    ['抒怀言志','朱',  '#C8382A','#F4F1E6'],
+    ['说理劝学','竹青','#7FA88C','#1C1B18'],
+    ['叙事写人','秋香','#B9A44C','#1C1B18'],
+    ['节令童趣','藤黄','#E3B23C','#1C1B18']
+  ];
+  function bandHTML(mode){
+    var bars=topics.map(function(t,i){
+      return '<button class="d2-bar'+(i===0?' on':'')+'" data-i="'+i+'" data-color="'+t[1]+'" style="--c:'+t[2]+';--t:'+t[3]+'" title="'+t[0]+' · '+t[1]+'">'+
+             '<span class="vname">'+t[0]+'</span></button>';
+    }).join('');
+    var ruler=topics.map(function(t){return '<span>'+t[1]+'</span>';}).join('');
+    // 坐标说明只在首页出现（首页就地切换解读）；正文页点色块直达题材页，不需要也不该显示
+    var coord=(mode==='home')?'<div class="d2-coord">当前坐标 · <b>'+topics[0][0]+' / '+topics[0][1]+'</b></div>':'';
+    return '<div class="d2-band-shell"><div class="d2-band-scroll"><nav class="d2-band">'+bars+'</nav></div>'+
+      '<div class="d2-band-meta"><div class="d2-ruler">'+ruler+'</div>'+coord+'</div></div>';
+  }
+  function detailHTML(){
+    return '<div class="d2-topic-detail"><div class="d2-swatch" style="--c:'+topics[0][2]+'"></div>'+
+      '<div class="d2-td-body"><div class="d2-td-name"></div><div class="d2-td-line"></div></div>'+
+      '<div class="d2-td-work"><div class="wk">代表篇目</div><div class="wks"></div></div></div>';
+  }
+  // 解读文字直接取题材分类索引原文，不新造说明
+  var cats=[].slice.call(document.querySelectorAll('#ticai .cat'));
+  function detailData(i){
+    var t=topics[i], cat=cats[i], desc='', works=[];
+    if(cat){
+      var main=cat.querySelector('tr td');
+      if(main) desc=(main.textContent||'').replace(/\s+/g,'').slice(0,58)+'…';
+      works=[].slice.call(cat.querySelectorAll('.works a.tlink')).slice(0,3).map(function(a){
+        return {text:a.textContent.trim(),goto:a.getAttribute('data-goto')};
+      });
+    }
+    return {t:t,desc:desc,works:works};
+  }
+  function fillDetail(box,i){
+    var d=detailData(i);
+    box.querySelector('.d2-swatch').style.setProperty('--c',d.t[2]);
+    box.querySelector('.d2-td-name').textContent=d.t[0];
+    box.querySelector('.d2-td-line').innerHTML='题材色：<b>'+d.t[1]+'</b> · '+d.desc;
+    var ws=box.querySelector('.wks');
+    ws.innerHTML=d.works.map(function(w){
+      return '<a href="#" data-goto="'+w.goto+'">《'+w.text+'》</a> ';
+    }).join('')+'<a href="#" data-goto="ticai::tc-'+String(i+1).padStart(2,'0')+'">查看全部 →</a>';
+  }
+  function addBand(host,afterSel,mode){
+    if(!host||host.querySelector('.d2-band-shell')) return;
+    var wrap=document.createElement('div'); wrap.innerHTML=bandHTML(mode);
+    var node=wrap.firstChild;
+    var ref=host.querySelector(afterSel);
+    if(ref) ref.insertAdjacentElement('afterend',node); else host.appendChild(node);
+    var detail=null;
+    if(mode==='home'){
+      var dw=document.createElement('div'); dw.innerHTML=detailHTML(); detail=dw.firstChild;
+      node.insertAdjacentElement('afterend',detail);
+      fillDetail(detail,0);
+      detail.addEventListener('click',function(e){
+        var a=e.target.closest('a[data-goto]'); if(!a) return;
+        e.preventDefault();
+        var key=a.getAttribute('data-goto');
+        var exist=[].slice.call(document.querySelectorAll('[data-goto]')).filter(function(x){
+          return x!==a && !x.closest('.d2-topic-detail') && x.getAttribute('data-goto')===key;
+        })[0];
+        if(exist) exist.click();
+      });
+    }
+    node.addEventListener('click',function(e){
+      var b=e.target.closest('.d2-bar'); if(!b) return;
+      var i=+b.dataset.i, t=topics[i];
+      node.querySelectorAll('.d2-bar').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var coordB=node.querySelector('.d2-coord b');
+      if(coordB) coordB.textContent=t[0]+' / '+t[1];
+      if(detail){ fillDetail(detail,i); return; }  // 首页：就地解读，不跳走
+      var link=[].slice.call(document.querySelectorAll('[data-goto]')).filter(function(x){
+        return x.getAttribute('data-goto')==='ticai::tc-'+String(i+1).padStart(2,'0');
+      })[0];
+      if(link) link.click();                       // 正文页：保持简洁，点色块直达题材页
+    });
+  }
+  var home=document.getElementById('home');
+  if(home) addBand(home,'.home-hero','home');
+  var qy=document.getElementById('quyuan');
+  if(qy) addBand(qy,'.author-cover','page');
+
+  // 屈原三篇：题材色标 + 竖色 chip；解析 dim 保持原版 DOM 与紧凑样式，不摘出重排
+  var mark={
+    'p-lisao-qu':     ['#1E2326','#F4F1E6','墨','忧国伤时','rgba(30,35,38,.06)'],
+    'p-guoshang-qu':  ['#9B2F2F','#F4F1E6','绛','边塞征战','rgba(155,47,47,.06)'],
+    'p-xiangfuren-qu':['#E8A7A0','#1C1B18','桃夭','爱情闺情','rgba(232,167,160,.14)']
+  };
+  Object.keys(mark).forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    var m=mark[id], title=el.querySelector('.ptitle');
+    if(title && !el.querySelector('.idmark')){
+      var d=document.createElement('div'); d.className='idmark';
+      d.innerHTML='<i style="background:'+m[0]+'"></i><b>'+m[2]+'</b>｜'+m[3];
+      title.insertAdjacentElement('beforebegin',d);
+    }
+    el.setAttribute('data-chip',m[2]);
+    el.style.setProperty('--chip-c',m[0]);
+    el.style.setProperty('--chip-t',m[1]);
+    el.style.setProperty('--tint',m[4]);
+  });
+
+  // 名句类解读：先登记「名句释义」中的名句，再只加粗这些名句在全书各处的复现
+  // 只包 <b>，文字一字不动；术语解释（如「其词鄙陋」）不会被误加粗
+  function norm(t){return (t||'').replace(/\s+/g,'');}
+  var quoteSet={};
+  [].slice.call(document.querySelectorAll('.dim')).forEach(function(dim){
+    var k=dim.querySelector('.k'), v=dim.querySelector('.v');
+    if(!k||!v||k.textContent.trim()!=='名句释义') return;
+    var txt=v.textContent||'', re=/[\u201c"]([^\u201d"]{4,120})[\u201d"]/g, m;
+    while((m=re.exec(txt))) quoteSet[norm(m[1])]=1;
+  });
+  var quoted=0;
+  [].slice.call(document.querySelectorAll('.dim')).forEach(function(dim){
+    var k=dim.querySelector('.k'), v=dim.querySelector('.v');
+    if(!k||!v) return;
+    var isMingju=(k.textContent.trim()==='名句释义');
+    var walker=document.createTreeWalker(v,NodeFilter.SHOW_TEXT,null,false), nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(n){
+      var txt=n.nodeValue||'', re=/[\u201c"]([^\u201d"]{2,120})[\u201d"]/g, m, last=0, frag=null;
+      while((m=re.exec(txt))){
+        if(!isMingju && !quoteSet[norm(m[1])]) continue;
+        if(!frag) frag=document.createDocumentFragment();
+        if(m.index>last) frag.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var b=document.createElement('b'); b.className='d2-quote'; b.textContent=m[0];
+        frag.appendChild(b); last=m.index+m[0].length; quoted++;
+      }
+      if(frag){
+        if(last<txt.length) frag.appendChild(document.createTextNode(txt.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    });
+  });
+  window.__d2Quotes=quoted;
+})();

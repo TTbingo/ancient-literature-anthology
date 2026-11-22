@@ -8,6 +8,21 @@ PARTS = os.path.join(BASE, "parts")
 
 s = io.open(SRC, encoding="utf-8").read()
 lines = s.splitlines(True)
+
+# ---- dir2-light 设计皮肤（从 design-demos 预览固化，落地到正式成品）----
+# skin.css：12题材色带/色卡解读/主文新样式/名句加粗；只作用于 #home 与 #quyuan
+# skin.js ：色带交互/题材色标/名句加粗（独立 IIFE，不改任何原文文字）
+SKIN_CSS = io.open(os.path.join(PARTS, "skin.css"), encoding="utf-8").read()
+SKIN_JS  = io.open(os.path.join(PARTS, "skin.js"),  encoding="utf-8").read()
+
+# verse 正文里的 <br><br> 是"行间空一行"，统一压成单行距 <br>（全文 801 处）
+# 只处理 verse 块内部，避免误伤其它结构中的换行
+BR_RE = re.compile(r'(<br>)(?:\s*<br>)+')
+def squeeze_verse_br(html):
+    def sub_verse(m):
+        return m.group(1) + BR_RE.sub(r'\1', m.group(2)) + m.group(3)
+    return re.sub(r'(<div class="verse">)(.*?)(</div>)', sub_verse, html, flags=re.S)
+
 css = re.search(r"<style>(.*?)</style>", s, re.S).group(1)
 # 原文件第83行(<div class="wrap">)至第635行(</div>)，即 82:635
 libai_inner = "".join(lines[82:635])
@@ -895,6 +910,12 @@ doc = """<!DOCTYPE html>
 </body>
 </html>
 """%(css,EXTRA_CSS,toc,bodies,JS)
+
+# verse 正文连续 <br><br> 压成单行距（全文 801 处，含《子路、曾皙、冉有、公西华侍坐》）
+doc = squeeze_verse_br(doc)
+# 固化设计皮肤：CSS 进 style 块尾（后于 EXTRA_CSS，覆盖生效），JS 作为独立 script 注入 body 尾
+doc = doc.replace("</style>", "\n" + SKIN_CSS + "\n</style>", 1)
+doc = doc.replace("</body>", "<script>\n" + SKIN_JS + "\n</script>\n</body>", 1)
 
 io.open(OUT,"w",encoding="utf-8").write(doc)
 print("生成:",OUT)

@@ -1,0 +1,26 @@
+const {chromium}=require('playwright');
+const fs=require('fs');
+const file='file:///D:/workbuddy的工作空间/2026-11-20-18-22-04/李白诗词解析/统编教材古代作家文学集成.html';
+const dir='D:/workbuddy的工作空间/2026-11-20-18-22-04/李白诗词解析/design-demos/final-shots/';
+if(!fs.existsSync(dir))fs.mkdirSync(dir,{recursive:true});
+(async()=>{
+ const b=await chromium.launch();
+ const p=await b.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+ await p.goto(file); await p.waitForTimeout(700);
+ await p.screenshot({path:dir+'成品-首页.png'});
+ await p.evaluate(()=>{var b=document.querySelector('#home .d2-band-shell');if(b)b.scrollIntoView({block:'center'});});
+ await p.waitForTimeout(300); await p.screenshot({path:dir+'成品-首页色带.png'});
+ await p.evaluate(()=>{var l=document.querySelector('[data-goto="quyuan"]');if(l)l.click();});
+ await p.waitForTimeout(500); await p.screenshot({path:dir+'成品-屈原页.png'});
+ await p.evaluate(()=>{var e=document.getElementById('p-lisao-qu');if(e)e.scrollIntoView({block:'start'});});
+ await p.waitForTimeout(350); await p.screenshot({path:dir+'成品-离骚解析.png'});
+ await p.evaluate(()=>{var l=[].slice.call(document.querySelectorAll('[data-goto]')).find(x=>x.getAttribute('data-goto')==='zhuzi::p-shizuo-lunyu');if(l)l.click();});
+ await p.waitForTimeout(600);
+ await p.evaluate(()=>{var e=document.getElementById('p-shizuo-lunyu');if(e)e.scrollIntoView({block:'start'});});
+ await p.waitForTimeout(350); await p.screenshot({path:dir+'成品-侍坐紧凑.png'});
+ const m=await b.newPage({viewport:{width:390,height:844}});
+ await m.goto(file); await m.waitForTimeout(600);
+ await m.screenshot({path:dir+'成品-手机首页.png'});
+ console.log('截图完成');
+ await b.close();
+})();
