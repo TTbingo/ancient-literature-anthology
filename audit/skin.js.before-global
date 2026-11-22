@@ -16,14 +16,14 @@
   ];
   function bandHTML(mode){
     var bars=topics.map(function(t,i){
-      return '<button class="d2-bar'+(i===0?' on':'')+'" data-i="'+i+'" data-color="'+t[1]+'" style="--c:'+t[2]+';--t:'+t[3]+'" title="'+t[0]+' · '+t[1]+'">'+
+      return '<button class="d2-bar'+(i===0?' on':'')+'" data-i="'+i+'" style="--c:'+t[2]+';--t:'+t[3]+'" title="'+t[0]+'">'+
              '<span class="vname">'+t[0]+'</span></button>';
     }).join('');
-    var ruler=topics.map(function(t){return '<span>'+t[1]+'</span>';}).join('');
+    // 色名第二系统已砍：只保留题材名，坐标只显示题材名
     // 坐标说明只在首页出现（首页就地切换解读）；正文页点色块直达题材页，不需要也不该显示
-    var coord=(mode==='home')?'<div class="d2-coord">当前坐标 · <b>'+topics[0][0]+' / '+topics[0][1]+'</b></div>':'';
+    var coord=(mode==='home')?'<div class="d2-coord">当前坐标 · <b>'+topics[0][0]+'</b></div>':'';
     return '<div class="d2-band-shell"><div class="d2-band-scroll"><nav class="d2-band">'+bars+'</nav></div>'+
-      '<div class="d2-band-meta"><div class="d2-ruler">'+ruler+'</div>'+coord+'</div></div>';
+      '<div class="d2-band-meta">'+coord+'</div></div>';
   }
   function detailHTML(){
     return '<div class="d2-topic-detail"><div class="d2-swatch" style="--c:'+topics[0][2]+'"></div>'+
@@ -47,7 +47,7 @@
     var d=detailData(i);
     box.querySelector('.d2-swatch').style.setProperty('--c',d.t[2]);
     box.querySelector('.d2-td-name').textContent=d.t[0];
-    box.querySelector('.d2-td-line').innerHTML='题材色：<b>'+d.t[1]+'</b> · '+d.desc;
+    box.querySelector('.d2-td-line').textContent=d.desc;
     var ws=box.querySelector('.wks');
     ws.innerHTML=d.works.map(function(w){
       return '<a href="#" data-goto="'+w.goto+'">《'+w.text+'》</a> ';
@@ -80,7 +80,7 @@
       node.querySelectorAll('.d2-bar').forEach(function(x){x.classList.remove('on');});
       b.classList.add('on');
       var coordB=node.querySelector('.d2-coord b');
-      if(coordB) coordB.textContent=t[0]+' / '+t[1];
+      if(coordB) coordB.textContent=t[0];
       if(detail){ fillDetail(detail,i); return; }  // 首页：就地解读，不跳走
       var link=[].slice.call(document.querySelectorAll('[data-goto]')).filter(function(x){
         return x.getAttribute('data-goto')==='ticai::tc-'+String(i+1).padStart(2,'0');
@@ -146,4 +146,52 @@
     });
   });
   window.__d2Quotes=quoted;
+
+  // ---- 七维解析分组：语境 / 细读 / 回响（只包结构，一字不改） ----
+  // 三组是阅读动作的顺序，不是题材分类；组内 dim 保持原版紧凑横排
+  var GROUPS=[
+    {name:'语境', keys:['创作背景','题材主题','出处与背景']},
+    {name:'细读', keys:['情感脉络','意象与语言','艺术手法','原文疏解','寓意与人物',
+                        '说理与人物','内容与结构','说明顺序','论证层次']},
+    {name:'回响', keys:['名句释义','文学意义','学习要点','名句与学习要点']}
+  ];
+  function groupIdx(k){
+    for(var i=0;i<GROUPS.length;i++) if(GROUPS[i].keys.indexOf(k)>=0) return i;
+    return 1;  // 非标准维度兜底归细读，保证一篇不丢
+  }
+  var grpTotal=0, grpPoems=0, grpFallback=0;
+  [].slice.call(document.querySelectorAll('.poem')).forEach(function(poem){
+    if(poem.querySelector('.dgroup')) return;
+    var verse=poem.querySelector('.verse');
+    if(!verse) return;
+    var dims=[].slice.call(poem.querySelectorAll(':scope > .dim'));
+    if(!dims.length) return;
+    var buckets={0:[],1:[],2:[]};
+    dims.forEach(function(d){
+      var k=d.querySelector('.k');
+      if(!k){ buckets[1].push(d); return; }
+      var t=k.textContent.trim(), i=groupIdx(t);
+      var known=GROUPS[0].keys.indexOf(t)>=0||GROUPS[1].keys.indexOf(t)>=0||GROUPS[2].keys.indexOf(t)>=0;
+      if(!known) grpFallback++;
+      buckets[i].push(d);
+    });
+    var boxes=[];
+    GROUPS.forEach(function(g,i){
+      if(!buckets[i].length) return;
+      var box=document.createElement('div'); box.className='dgroup';
+      var hd=document.createElement('div'); hd.className='dgroup-hd'; hd.textContent=g.name;
+      box.appendChild(hd);
+      buckets[i].forEach(function(d){
+        if(i===2 && d.querySelector('.k') && d.querySelector('.k').textContent.trim()==='名句释义')
+          d.classList.add('dgroup-mingju');
+        box.appendChild(d);  // appendChild 已从原位置移走，不要再 removeChild
+      });
+      boxes.push(box); grpTotal++;
+    });
+    if(!boxes.length) return;
+    var ref=verse;
+    boxes.forEach(function(bx){ ref.insertAdjacentElement('afterend',bx); ref=bx; });
+    grpPoems++;
+  });
+  window.__d2Groups={poems:grpPoems,groups:grpTotal,fallback:grpFallback};
 })();

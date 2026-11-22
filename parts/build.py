@@ -339,6 +339,26 @@ JS = r"""
     });
     return c.textContent.replace(/\s+/g,' ').trim();
   }
+  /* 页内目录浮层：统一关闭（复位按钮文字 + 撤销正文占位补偿） */
+  function closePrail(rail){
+    if(!rail || !rail.classList.contains('open')) return;
+    rail.classList.remove('open');
+    var tg=rail.querySelector('.prail-tg'); if(tg) tg.textContent='展开';
+    var wrap=rail.parentNode; if(wrap) wrap.classList.remove('toc-pad');
+  }
+  /* 顶栏实际占位底边：取所有可见 sticky 顶栏 bottom 的最大值。
+     首屏时 topbar 在 mobile-bar 之下（占 54–162），滚动后两栏贴顶（占 0–108），
+     用 bottom 可同时适配两种状态，浮层始终停在顶栏下方不遮挡搜索框 */
+  function stickyBarHeight(){
+    var bottom=0;
+    ['.mobile-bar','.topbar'].forEach(function(s){
+      var el=document.querySelector(s); if(!el) return;
+      var cs=getComputedStyle(el);
+      if(cs.display!=='none' && cs.position==='sticky')
+        bottom=Math.max(bottom,el.getBoundingClientRect().bottom);
+    });
+    return bottom;
+  }
   function buildRail(page){
     var wrap=document.createElement('div'); wrap.className='pwrap';
     var body=document.createElement('div'); body.className='pbody';
@@ -391,12 +411,46 @@ JS = r"""
     rail.appendChild(hd); rail.appendChild(list);
     wrap.appendChild(body); wrap.appendChild(rail);
     page.appendChild(wrap);
-    hd.addEventListener('click',function(){
-      rail.classList.toggle('open');
-      tg.textContent=rail.classList.contains('open')?'收起':'展开';
+    hd.addEventListener('click',function(e){
+      e.stopPropagation();               // 阻止冒泡到 document 的外部关闭监听
+      if(rail.classList.contains('open')){ closePrail(rail); return; }
+      // 打开前：记录原内联高度补偿正文，测量顶栏高度作为浮层停靠点
+      wrap.style.setProperty('--toc-slot',rail.offsetHeight+'px');
+      wrap.style.setProperty('--toc-top',stickyBarHeight()+'px');
+      wrap.classList.add('toc-pad');
+      rail.classList.add('open');
+      tg.textContent='收起';
+      var list=rail.querySelector('.prail-list'); if(list) list.scrollTop=0;
     });
+    rail._close=function(){closePrail(rail);};
   }
   pages.forEach(buildRail);
+  /* 点击目录外部：自动收起所有展开的页内目录 */
+  document.addEventListener('click',function(e){
+    var opened=document.querySelectorAll('.prail.open');
+    if(!opened.length) return;
+    var inRail=false;
+    for(var i=0;i<opened.length;i++) if(opened[i].contains(e.target)){inRail=true;break;}
+    if(!inRail) [].slice.call(opened).forEach(closePrail);
+  });
+  /* 同步浮层停靠点：窗口缩放、滚动时顶栏底边会变（首屏 162 → 贴顶 108），
+     用 rAF 节流，仅当有展开目录时计算，浮层始终紧贴顶栏 */
+  var tocSyncQueued=false;
+  function syncTocTop(){
+    if(tocSyncQueued) return; tocSyncQueued=true;
+    requestAnimationFrame(function(){
+      tocSyncQueued=false;
+      var opened=document.querySelectorAll('.prail.open');
+      if(!opened.length) return;
+      var v=stickyBarHeight()+'px';
+      [].slice.call(opened).forEach(function(rail){
+        var wrap=rail.parentNode;
+        if(wrap) wrap.style.setProperty('--toc-top',v);
+      });
+    });
+  }
+  window.addEventListener('resize',syncTocTop);
+  window.addEventListener('scroll',syncTocTop,{passive:true});
 
   /* ---- 全局检索索引（复用每篇目录栏的锚点） ---- */
   function snorm(t){
@@ -763,6 +817,7 @@ JS = r"""
     if(push!==false && location.hash!==want) history.pushState(null,'',want);
     if(anchor){setTimeout(function(){jump(anchor);},60); setTimeout(function(){jump(anchor);},400);} else {window.scrollTo(0,0);}
     sidebar.classList.remove('open');
+    [].slice.call(document.querySelectorAll('.prail.open')).forEach(closePrail);
     var act=links.filter(function(x){return x.classList.contains('active');})[0];
     if(act&&act.scrollIntoView) act.scrollIntoView({block:'nearest'});
     var pr=document.getElementById(id);
@@ -780,18 +835,22 @@ JS = r"""
       e.preventDefault();
       var t=el.getAttribute('data-jump')||(el.getAttribute('href')||'').replace(/^#/,'');
       var rl=el.closest('.prail');
-      if(rl&&rl.classList.contains('open')){
-        rl.classList.remove('open');
-        var tg=rl.querySelector('.prail-tg'); if(tg) tg.textContent='展开';
-      }
+      if(rl) closePrail(rl);
       if(t) jump(t);
     });
   });
   prev.addEventListener('click',function(){var i=ids.indexOf(currentId());if(i>0)show(ids[i-1]);});
   next.addEventListener('click',function(){var i=ids.indexOf(currentId());if(i<ids.length-1)show(ids[i+1]);});
   document.getElementById('topBtn').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  document.getElementById('menuBtn').addEventListener('click',function(){sidebar.classList.toggle('open');});
+  var menuBtn=document.getElementById('menuBtn');
+  menuBtn.addEventListener('click',function(){sidebar.classList.toggle('open');});
   sidebar.addEventListener('click',function(e){if(e.target===sidebar)sidebar.classList.remove('open');});
+  /* 整体目录：点击目录与按钮之外的地方自动收起 */
+  document.addEventListener('click',function(e){
+    if(!sidebar.classList.contains('open')) return;
+    if(sidebar.contains(e.target)||menuBtn.contains(e.target)) return;
+    sidebar.classList.remove('open');
+  });
   window.addEventListener('popstate',function(){var g=parseGo(location.hash.slice(1));show(g[0],false,g[1]);});
   window.addEventListener('hashchange',function(){
     var g=parseGo(location.hash.slice(1));

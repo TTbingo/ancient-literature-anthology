@@ -112,10 +112,10 @@ GLOBAL = r'''
     var title=el.querySelector('.ptitle');
     if(title && !el.querySelector('.idmark')){
       var d=document.createElement('div'); d.className='idmark';
-      d.innerHTML='<i style="background:'+t[2]+'"></i><b>'+t[1]+'</b>｜'+t[0];
+      d.innerHTML='<i style="background:'+t[2]+'"></i>'+t[0];
       title.insertAdjacentElement('beforebegin',d);
     }
-    el.setAttribute('data-chip',t[1]);
+    el.setAttribute('data-chip',t[0]);
     el.style.setProperty('--chip-c',t[2]);
     el.style.setProperty('--chip-t',t[3]);
     el.style.setProperty('--tint',t[2]+'0d');  // hex8 低透明度底纹，色相同题材
